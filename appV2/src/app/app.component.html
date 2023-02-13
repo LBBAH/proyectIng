@@ -1,0 +1,31 @@
+<div class="" style="background-color: #ffffff;">
+  <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a [routerLink]="['/home']" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <img src="../assets/img/logotipo2.png" width="140">
+      
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a routerLink="" class="nav-link px-2 text-secondary">Inicio</a></li>
+    
+      <li><a [routerLink]="['/quienesSomos']" class="nav-link px-2 text-secondary">¿Quienes somos?</a></li>
+      <li><a [routerLink]="['/contactUs']" class="nav-link px-2 text-secondary">Contacto</a></li>
+      <li><a [routerLink]="['/chat']" class="nav-link px-2 text-secondary">chat</a></li>
+      <li><a [routerLink]="['/donacion']" class="nav-link px-2 text-secondary">Donaciones</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end" *ngIf="RegisterLogin">
+      <!--<a mat-raised-button color="primary" [routerLink]="['/login']" style="margin-right: 6px;">Name:{{user.name}}</a>-->
+      <a mat-raised-button color="primary" [routerLink]="['/login']" style="margin-right: 6px;">Login</a>
+      <a mat-stroked-button color="primary" [routerLink]="['/singIn']" >Sing in</a>      
+    </div>
+    <div class="col-md-3 text-end" *ngIf="dataUser">
+      <a mat-raised-button color="primary" [routerLink]="['/login']" style="margin-right: 6px;">{{user.nameUser}}</a>
+      <a mat-stroked-button color="primary" (click)="logout()" >LogOut</a>      
+    </div>
+  </header>
+</div>
+<main>
+  <router-outlet></router-outlet>
+</main>
+

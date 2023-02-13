@@ -1,0 +1,81 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { IddServicesService } from './service/idd-services.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+
+  private isLoggedIn = new BehaviorSubject<boolean>(false);
+    
+  constructor (private http:HttpClient, private serviceAuth:IddServicesService, private router:Router){}
+
+  user:any;
+  dataUser:Boolean=false;
+  RegisterLogin:Boolean=true;
+  logOutUser:Boolean=true;
+
+
+  toggleLoginIn(state:boolean):void{
+    this.isLoggedIn.next(state);
+  };
+
+  status(){
+    const localData :any = localStorage.getItem('user');
+    if(!localData){
+      this.isLoggedIn.next(false);
+      console.log('User not logged in !!')
+    }else{
+      const userObj = JSON.parse(localData);
+      const token_expires_at = new Date(userObj.token_expies_at);
+      const current_date = new Date();
+      if(token_expires_at > current_date){
+        this.isLoggedIn.next(true)
+      }else{
+        this.isLoggedIn.next(false);
+        console.log('token expires !!')
+      }
+    }
+  }
+  
+
+  ngOnInit(): void {
+    this.status();
+    if(localStorage.getItem('user')!=null){
+      const user:any = localStorage.getItem('user');
+      const userObj = JSON.parse(user);      
+
+      const token = userObj.token;
+
+      var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
+      
+      this.http.get('http://127.0.0.1:8000/api/user',{headers:tokenHeader}).subscribe((res)=>{        
+        this.user=res;
+        console.log(this.user);
+        this.dataUser= true;
+        this.RegisterLogin= false;
+      },(err) =>{
+        console.log(err)
+      });
+
+    }
+
+    this.dataUser= false;
+    this.RegisterLogin= true;
+  }
+
+  logout(){
+    this.serviceAuth.logout(true).subscribe((res)=>{
+      console.log(res);
+      localStorage.removeItem('user');
+      this.router.navigate(['home'])
+    })
+  }
+
+  title = 'appV2';
+}

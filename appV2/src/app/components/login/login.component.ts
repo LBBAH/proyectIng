@@ -12,6 +12,7 @@ import { IddServicesService } from 'src/app/service/idd-services.service';
 export class LoginComponent implements OnInit {
 
   user: any;
+  
 
   formlogin: FormGroup;
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;  
@@ -43,7 +44,9 @@ export class LoginComponent implements OnInit {
     if(this.formlogin.valid){
       this.dataService.login(this.formlogin.value).subscribe((res:any) => {
         localStorage.setItem('user',JSON.stringify(res))
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home']).then(()=>{
+          window.location.reload();
+        });
         /*this.user = Object.entries(res)
         console.log(this.user[0][1])
 

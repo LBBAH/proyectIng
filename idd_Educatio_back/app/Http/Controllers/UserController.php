@@ -28,7 +28,7 @@ class UserController extends Controller
 
         $repetido = User::select('email')->where('email', $request->email)->get();
         $repetido2 = User::select('nameUser')->where('nameUser', $request->nameUser)->get();
-        $repetido3 = User::select('phone')->where('phone', $request->phone)->get();
+        $repetido3 = User::select('phone')->where('phone', $request->name)->get();
 
         if(count($repetido) != 1){
             if(count($repetido2) != 1){
@@ -46,15 +46,15 @@ class UserController extends Controller
             
                     $user -> save();
             
-                    return response()->json(['message' => 'Registrado con exito ya puede iniciar sesion'], 200);                
+                    return response()->json(['success' => 'Registrado con exito ya puede iniciar sesion'], 200);                
                 }else{
-                    return response()->json(['message' => 'Telefono ya registrado'], 200);
+                    return response()->json(['error' => 'Telefono ya registrado'], 200);
                 }
             }else{
-                return response()->json(['message' => 'Nombre de usuario ya esta en uso'], 200);
+                return response()->json(['error' => 'Nombre de usuario ya esta en uso'], 200);
             }
         }else{
-            return response()->json(['message' => 'Correo electronico ya registrado'], 200);
+            return response()->json(['error' => 'Correo electronico ya registrado'], 200);
         }
 
         

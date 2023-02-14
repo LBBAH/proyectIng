@@ -10,16 +10,14 @@ import { IddServicesService } from './service/idd-services.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
-  private isLoggedIn = new BehaviorSubject<boolean>(false);
-    
-  constructor (private http:HttpClient, private serviceAuth:IddServicesService, private router:Router){}
-
   user:any;
   dataUser:Boolean=false;
   RegisterLogin:Boolean=true;
   logOutUser:Boolean=true;
 
+  private isLoggedIn = new BehaviorSubject<boolean>(false);
+    
+  constructor (private http:HttpClient, private serviceAuth:IddServicesService, private router:Router){}
 
   toggleLoginIn(state:boolean):void{
     this.isLoggedIn.next(state);
@@ -49,9 +47,7 @@ export class AppComponent implements OnInit {
     if(localStorage.getItem('user')!=null){
       const user:any = localStorage.getItem('user');
       const userObj = JSON.parse(user);      
-
       const token = userObj.token;
-
       var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
       
       this.http.get('http://127.0.0.1:8000/api/user',{headers:tokenHeader}).subscribe((res)=>{        
@@ -59,22 +55,30 @@ export class AppComponent implements OnInit {
         console.log(this.user);
         this.dataUser= true;
         this.RegisterLogin= false;
+        console.log(this.dataUser,this.RegisterLogin);
       },(err) =>{
         console.log(err)
       });
 
+    }else{
+
+      this.dataUser= false;
+      this.RegisterLogin= true;
+      console.log(this.dataUser,this.RegisterLogin);
+
     }
-
-    this.dataUser= false;
-    this.RegisterLogin= true;
+  
   }
+    
 
-  logout(){
-    this.serviceAuth.logout(true).subscribe((res)=>{
-      console.log(res);
-      localStorage.removeItem('user');
-      this.router.navigate(['home'])
-    })
+  logout(){    
+      this.serviceAuth.logout(true).subscribe((res)=>{
+        console.log(res);
+        localStorage.removeItem('user');
+        this.router.navigate(['home']).then(()=>{
+          window.location.reload();
+        })
+      })          
   }
 
   title = 'appV2';

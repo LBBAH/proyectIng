@@ -75,8 +75,15 @@ export class RegistroComponent implements OnInit {
 
       this.dataService.adduser(this.formUser.value).subscribe(res => {
         let arr = Object.entries(res);
-        alert(arr[0][1])
-        this.formUser.reset()
+        if(arr[0][0] == "error"){
+          alert(arr[0][1])
+        }
+
+        if(arr[0][0] == "success"){
+          alert(arr[0][1])
+          this.formUser.reset()
+        }
+      
       })
     }
     if(!this.formUser.valid){

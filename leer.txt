@@ -1,0 +1,30 @@
+Descargar y configuraciones
+
+
+instalar:
+- Node 18.12.0 LTS https://nodejs.org/es/
+- xampp version 8.1.10
+- Composer: https://www.youtube.com/watch?v=yyJjHsnWow8&t=100s
+- Angular(En terminal): npm install -g @angular/cli
+- git
+
+Para configurar git usar estos comandos en terminal:
+
+git init
+git config --global user.name suNombreDeUsuarioDeGitHub
+git config --global user.email correoQueUsanEnGitHub
+si les pide la contraseña no pongan la de su cuenta vean como generar un token: https://www.youtube.com/watch?v=VdGzPZ31ts8 -> despues de la hora con 3 minutos, no todo el video
+
+
+Para abrir proyecto en angular entrar en idd_Educatio_front y ejecutar en terminal:
+npm install -> solo la primera vez despues solo ejecutar la linea de abajo
+ng serve --open
+
+Para abrir proyecto en laravel entrar en idd_Educatio_back y ejecutar en terminal:
+php artisan serve
+
+de laravel aun no modifico mucho solo abran lo de angular para lo de la interfaz
+
+Hací hagan los cambios
+
+Ejemplo de como actualizar hola

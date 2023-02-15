@@ -28,3 +28,5 @@ de laravel aun no modifico mucho solo abran lo de angular para lo de la interfaz
 Hací hagan los cambios
 
 Ejemplo de como actualizar hola
+
+cambios

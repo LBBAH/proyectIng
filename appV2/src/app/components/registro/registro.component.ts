@@ -15,7 +15,7 @@ export class RegistroComponent implements OnInit {
 
   constructor( public formulario:FormBuilder, private dataService:IddServicesService ) { 
     this.formUser=this.formulario.group({
-      _name:['', [Validators.required]],
+      name:['', [Validators.required]],
       nameUser:['', [Validators.required]],
       phone:['', [Validators.required]],
       email:['' , [Validators.required, Validators.pattern(this.emailPattern)]],
@@ -91,7 +91,7 @@ export class RegistroComponent implements OnInit {
     }
   }
 
-  get _name(){ return this.formUser.get('_name');}
+  get _name(){ return this.formUser.get('name');}
   get nameUser(){ return this.formUser.get('nameUser');}
   get phone(){ return this.formUser.get('phone');}
   get email(){ return this.formUser.get('email');}

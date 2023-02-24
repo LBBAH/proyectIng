@@ -11,10 +11,18 @@ import { popper } from '@popperjs/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
+import { UsersComponent } from './components/users/users.component';
+import { UserComponent } from './components/user/user.component';
+import { RolesComponent } from './components/roles/roles.component';
+import { PrivilegiosComponent } from './components/privilegios/privilegios.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
-  {path:'home', component:HomeComponent },  
+  {path:'home', component:HomeComponent }, 
+  {path:'users', component:UsersComponent },
+  {path:'user/:id/details', component:UserComponent },
+  {path:'roles', component:RolesComponent},
+  {path:'privilegios', component:PrivilegiosComponent},
 ];
 
 
@@ -22,7 +30,9 @@ const routes: Routes =[
   declarations: [
     AppComponent,
     HomeComponent,
-    
+    UsersComponent,
+    UserComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +41,7 @@ const routes: Routes =[
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule,
-    
+    CommonModule,    
     RouterModule.forRoot(
       routes
     )

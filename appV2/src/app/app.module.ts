@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
 import { RecursosComponent } from './components/recursos/recursos.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { RecursoComponent } from './components/recurso/recurso.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -35,6 +36,7 @@ const routes: Routes =[
   {path:'quienesSomos', component:QuienesSomosComponent },
   {path:'recursos', component:RecursosComponent },
   {path:'singIn', component:RegistroComponent },
+  { path:'recurso/:id',component:RecursoComponent },
 ];
 
 @NgModule({
@@ -49,7 +51,9 @@ const routes: Routes =[
     DonacionComponent,
     RegistroComponent,
     AvisoPrivacidadComponent,
-    LoginComponent
+    LoginComponent,
+    RecursosComponent,
+    RecursoComponent
   ],
   imports: [
     BrowserModule,

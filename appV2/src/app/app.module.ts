@@ -23,6 +23,9 @@ import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.
 import { RecursosComponent } from './components/recursos/recursos.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { RecursoComponent } from './components/recurso/recurso.component';
+import { PreguntasFComponent } from './components/preguntas-f/preguntas-f.component';
+
+
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -37,6 +40,7 @@ const routes: Routes =[
   {path:'recursos', component:RecursosComponent },
   {path:'singIn', component:RegistroComponent },
   { path:'recurso/:id',component:RecursoComponent },
+  {path: 'preguntasf', component:PreguntasFComponent},
 ];
 
 @NgModule({
@@ -53,7 +57,8 @@ const routes: Routes =[
     AvisoPrivacidadComponent,
     LoginComponent,
     RecursosComponent,
-    RecursoComponent
+    RecursoComponent,
+    PreguntasFComponent,
   ],
   imports: [
     BrowserModule,

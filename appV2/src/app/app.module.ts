@@ -24,6 +24,7 @@ import { RecursosComponent } from './components/recursos/recursos.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { RecursoComponent } from './components/recurso/recurso.component';
 import { PreguntasFComponent } from './components/preguntas-f/preguntas-f.component';
+import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 
 
 
@@ -59,6 +60,7 @@ const routes: Routes =[
     RecursosComponent,
     RecursoComponent,
     PreguntasFComponent,
+    ScrollToTopComponent
   ],
   imports: [
     BrowserModule,

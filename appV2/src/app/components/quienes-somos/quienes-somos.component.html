@@ -15,8 +15,8 @@
   </header>
 
 
-  <div data-aos="flip-down">
-  <h1 class="text-center text-primary p-4 md-3">¿Qué es IDD EDUCATION?</h1>
+  <div data-aos="flip-down" (dblclick)="eventoDoble()">
+  <h1 class="text-center text-primary p-4 md-3" >¿Qué es IDD EDUCATION?</h1>
   <p class="fs-5 col-md-12 p-4 md-3">IDD EDUCATION es un software que ofrece informacion general acerca de la discapacidad intelectual con el fin de apoyar a los maestros,padres de familia u/o personas 
       interesadas en el tema con el fin de apoyar a niños y jovenes en el desarrollo de su enseñanza con materiales didacticos 
       (videos educaticos,videos con historias o experiencias de padres de familia ,videos didacticos , plataformas educativas,software educativo).</p><br>
@@ -26,7 +26,7 @@
   <hr class="col-3 col-md-2 mb-5">
 
   <div class="row g-5 p-4 md-3" data-aos="flip-up">
-      <div class="col-md-6">
+      <div class="col-md-6" (mousemove)="eventoMousemove()">
           <h2 class="text-center text-primary">Misión</h2>
           <p>Mejorar la calidad de vida de las personas con discapacidad intelectual Aplicando programas psicopedagógicos con enfoque metodológico, de forma individual y por grupo a los alumnos.
               Contribuir por medio de actividades lúdicas, cotidianas, cognitivas y de recreación en el desarrollo de capacidades y habilidades de los alumnos.
@@ -36,7 +36,7 @@
               <img class="rounded mx-auto d-block" src="../assets/img/mision.jpg" width="300" height="180">
       </div>
 
-      <div class="col-md-6">
+      <div class="col-md-6" (contextmenu)="eventoContextMenu()">
           <h2 class="text-center text-primary">Visión</h2>
           <p>Promover la profesionalización docente a través de la reflexión y el análisis de diversas situaciones educativas con los estudiantes con una discapacidad intelectual y ser una organización reconocida a nivel estatal.<br></p>
               <ul>

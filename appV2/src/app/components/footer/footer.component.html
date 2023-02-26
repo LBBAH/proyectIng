@@ -16,11 +16,12 @@
         <div class="col-6 col-lg-2 offset-lg-1 mb-3">
           <h5>IDD-EDUCATION</h5>
           <ul class="list-unstyled">
-            <li class="mb-2 "><a routerLink="/home">Inicio</a></li>
-            <li class="mb-2"><a routerLink="edit-user">Recursos</a></li>
-            <li class="mb-2"><a routerLink="contac-us">Contacto</a></li>
-            <li class="mb-2"><a routerLink="quienes-somos">¿Quienes somos?</a></li>
-            <li class="mb-2"><a routerLink="login">Inicia Sesion</a></li>
+            <li class="mb-2 "><a [routerLink]="['/home']">Inicio</a></li>
+            <li class="mb-2"><a [routerLink]="['edit-user']">Recursos</a></li>
+            <li class="mb-2"><a [routerLink]="['contac-us']">Contacto</a></li>
+            <li class="mb-2"><a [routerLink]="['quienes-somos']">¿Quienes somos?</a></li>
+            <li class="mb-2"><a [routerLink]="['login']">Inicia Sesion</a></li>
+            <li class="mb-2"><a [routerLink]="['/preguntasf']">Preguntas frecuentes</a></li>
   
             <li class="mb-2"><a routerLink="/avisoPrivacidad">Aviso de privasidad</a></li>
           </ul>

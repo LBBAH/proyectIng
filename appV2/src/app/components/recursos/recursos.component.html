@@ -27,7 +27,7 @@
                         <div class="bbb_deals_content">                            
                             <div class="available">
                                 <div class="available_line d-flex flex-row justify-content-start">
-                                  <a name="" id="" class="btn btn-primary" href="recurso/{{item.id}}" role="button">{{item.name}}</a>
+                                  <button class="btn btn-primary" (click)="verCursos(item.id)" role="button">{{item.name}}</button>
                                 </div>
                                 <div class="available_bar"><span style="width:17%">
                                   <p class="p-4 mb-3 bg-light">{{item.description}}</p></span></div>

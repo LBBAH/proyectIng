@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IddServicesService } from 'src/app/service/idd-services.service';
 import * as AOS from 'aos'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recursos',
@@ -11,7 +12,8 @@ export class RecursosComponent implements OnInit{
   typeRecurs:any;
 
   constructor(
-    private datatypeR:IddServicesService
+    private datatypeR:IddServicesService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -24,5 +26,8 @@ export class RecursosComponent implements OnInit{
       console.log(reply)
       this.typeRecurs=reply;
     })
+  }
+  verCursos(id:any){
+    this.router.navigate(['recurso/', id]);    
   }
 }

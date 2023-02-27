@@ -38,14 +38,6 @@ class AuthenticationController extends Controller
             'token_expies_at'=>$token->token->expires_at,
         ],200);
 
-
-        /*$repetido = User::select('password')->where('email', $request->email)->get();
-        
-        if(count($repetido) === 1){
-            return response()->json( $repetido, 200);
-        }else{
-            return response()->json(['message' => 'La cuenta no existe o mal ingresada'], 200);
-        }*/
     }
 
     public function logout(Request $request){

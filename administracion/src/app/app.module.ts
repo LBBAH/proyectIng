@@ -15,6 +15,7 @@ import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { RolesComponent } from './components/roles/roles.component';
 import { PrivilegiosComponent } from './components/privilegios/privilegios.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -32,7 +33,8 @@ const routes: Routes =[
     HomeComponent,
     UsersComponent,
     UserComponent,
-    RolesComponent
+    RolesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

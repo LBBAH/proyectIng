@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Api\Auth\AuthenticationController;
 use App\Http\Controllers\Tiporecursocontroller;
 use App\Http\Controllers\Recursocontroller;
+use App\Http\Controllers\RolController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -51,3 +52,5 @@ Route::get('getTypeRecurs', [Tiporecursocontroller::class, 'getTypeRecurs']);
 Route::get('getrecurosId/{id}', [Recursocontroller::class, 'getrecurosId']);
 
 Route::get('search', [Tiporecursocontroller::class, 'search']);
+
+Route::get('rols', [RolController::class, 'index']);

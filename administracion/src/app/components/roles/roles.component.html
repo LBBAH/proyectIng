@@ -1,7 +1,54 @@
 <div style="margin: 5px; padding:5px">
     <h1>Gestion de Roles</h1>
 </div>
-<div style="margin: 5+10px; padding:5px">  
-    <button class="btn btn-primary" (click)="privilegios()">Gestionar Privilegios</button>
-</div>
   
+<div class="container">
+  <div class="row">
+    <div class="col-sm">      
+      <button mat-raised-button color="primary">Gestionar Privilegios</button>
+    </div>
+    <div class="col-sm" style="text-align : end">
+      <button mat-raised-button color="basic">Agregar Rol</button>
+    </div>    
+  </div>
+</div>
+
+<div class="mat-elevation-z8 m-2">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="rol">
+        <th mat-header-cell *matHeaderCellDef> Rol </th>
+        <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="option">
+        <th mat-header-cell *matHeaderCellDef> opciones </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button class="btn btn-primary" (click)="navigateIdUser(element.id)"><i class="bi bi-eye-fill"></i></button>
+          <a name="" id="{{element.id}} " class="btn btn-warning" href="#" role="button"><i class="bi bi-pencil-square"></i></a>
+          <a name="" id="{{element.id}} " class="btn btn-danger" href="#" role="button"><i class="bi bi-person-fill-slash"></i></a>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   showFirstLastButtons
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>

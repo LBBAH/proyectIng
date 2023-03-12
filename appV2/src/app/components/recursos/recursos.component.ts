@@ -31,7 +31,4 @@ export class RecursosComponent implements OnInit{
     this.router.navigate(['recurso/', id]);    
   }
 
-  eventoMouseOut(){
-    document.getElementById("descripcionCursos").style.display = 'none';
-  }
 }

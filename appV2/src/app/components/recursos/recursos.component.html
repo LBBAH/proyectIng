@@ -12,30 +12,24 @@
     </div>
 </header>
 
-
-<div class="container mydiv">
-  <h1 class="text-center">Recursos</h1><br>  
-    <div class="row" style="display:inline-flex">
-        <div class="col-md-4 pb-6"  *ngFor="let item of typeRecurs" data-aos="zoom-out-up">
-            <!-- bbb_deals -->
-            <div class="bbb_deals">
-                <div class="ribbon ribbon-top-right"><span><small class="cross">x </small>4</span></div>
-                <div class="bbb_deals_title">{{item.name}}</div>
-                <div class="bbb_deals_slider_container">
-                    <div class=" bbb_deals_item">
-                        <div class="bbb_deals_image"><img src="../assets/img/{{item.img}}" alt=""></div>
-                        <div class="bbb_deals_content">                            
-                            <div class="available">
-                                <div class="available_line d-flex flex-row justify-content-start">
-                                  <button class="btn btn-primary" (click)="verCursos(item.id)" role="button">{{item.name}}</button>
-                                </div>
-                                <div class="available_bar"><span style="width:17%">
-                                  <p class="p-4 mb-3 bg-light">{{item.description}}</p></span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<section>
+  <div class="container py-5">
+    <h1 class="text-center">Recursos</h1><br>  
+    <div class="row d-flex">
+      <div class="col-md-12 col-lg-3 mb-4 mb-lg-0" *ngFor="let item of typeRecurs" style="padding-bottom: 10px;" data-aos="zoom-out-up" (mouseout)="eventoMouseOut()">
+        <div class="card">
+          <div class="d-flex justify-content-between p-3" style="padding-bottom: 5px;">
+            <h6>{{item.name}}</h6>            
+          </div>          
+            <img src="../assets/img/{{item.img}}" style="width: 100%; height:250px" />
+          <div class="card-body">          
+            <p id="descripcionCursos" style="display: none;">{{item.description}}</p>
+            <div class="d-flex justify-content-between mb-3">
+              <button mat-button color="primary" (click)="verCursos(item.id)" role="button">{{item.name}}</button>              
             </div>
-        </div>   
+          </div>
+        </div>
+      </div>     
     </div>
-</div>
+  </div>
+</section>

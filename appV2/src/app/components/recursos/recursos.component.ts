@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { IddServicesService } from 'src/app/service/idd-services.service';
 import * as AOS from 'aos'
 import { Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./recursos.component.css']
 })
 export class RecursosComponent implements OnInit{
-  typeRecurs:any;
+  typeRecurs:any;  
 
   constructor(
     private datatypeR:IddServicesService,
@@ -29,5 +29,9 @@ export class RecursosComponent implements OnInit{
   }
   verCursos(id:any){
     this.router.navigate(['recurso/', id]);    
+  }
+
+  eventoMouseOut(){
+    document.getElementById("descripcionCursos").style.display = 'none';
   }
 }

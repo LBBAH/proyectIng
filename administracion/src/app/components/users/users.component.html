@@ -1,11 +1,17 @@
 <div style="margin: 5px; padding:5px">
   <h1>Gestion de usuarios</h1>
 </div>
-<div style="margin: 5+10px; padding:5px">  
-  <button class="btn btn-primary" (click)="roles()">Gestionar Roles</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">      
+      <button mat-raised-button color="primary" (click)="roles()">Gestionar Roles</button>
+    </div>
+    <div class="col-sm" style="text-align : end">
+      <button mat-raised-button color="basic">Agregar Rol</button>
+    </div>    
+  </div>
 </div>
-
-
 
 <div class="mat-elevation-z8 m-2">
   <table mat-table [dataSource]="dataSource">

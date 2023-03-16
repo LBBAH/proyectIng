@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { Rols } from 'src/app/services/rols';
 import { UsersService } from 'src/app/services/users.service';
 import {MatButtonModule} from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+
 
 
 @Component({
@@ -17,7 +20,9 @@ export class RolesComponent {
   dataSource: any;
   
 
-  constructor(private dataService:UsersService, private router: Router ) {     
+  constructor(private dataService:UsersService, 
+    private router: Router,
+    private matDialog: MatDialog ) {     
   }
   
   user: any;
@@ -42,5 +47,14 @@ export class RolesComponent {
 
   roles(){
     this.router.navigate(['roles']);    
+  }
+
+  agregarRol(){
+    this.matDialog.open(DialogComponent,
+      {
+        width:"500px",
+        height: "500px"
+
+      });
   }
 }

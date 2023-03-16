@@ -6,6 +6,8 @@ import { Rols } from 'src/app/services/rols';
 import { UsersService } from 'src/app/services/users.service';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+
+//importar el DialogComponent del componente dialog
 import { DialogComponent } from '../dialog/dialog.component';
 
 
@@ -49,6 +51,7 @@ export class RolesComponent {
     this.router.navigate(['roles']);    
   }
 
+  //abrir fomulario de matdialog
   agregarRol(){
     this.matDialog.open(DialogComponent,
       {

@@ -17,5 +17,11 @@ export class UsersService {
     return this.httpClient.get('http://127.0.0.1:8000/api/rols');
   }
 
-  
+  getPrivilegios(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/privilegios');
+  }
+
+  addPrivilegio(description:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/addPrivilegio', description);
+  }
 }

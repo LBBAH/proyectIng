@@ -7,7 +7,9 @@ use App\Http\Controllers\Api\Auth\AuthenticationController;
 use App\Http\Controllers\Tiporecursocontroller;
 use App\Http\Controllers\Recursocontroller;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\PrivilegioController;
 use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +56,7 @@ Route::get('getrecurosId/{id}', [Recursocontroller::class, 'getrecurosId']);
 Route::get('search', [Tiporecursocontroller::class, 'search']);
 
 Route::get('rols', [RolController::class, 'index']);
+
+Route::get('privilegios', [PrivilegioController::class, 'getPrivilegios']);
+
+Route::post('addPrivilegio', [PrivilegioController::class, 'addPrivilegio']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePrivilegioRequest;
 use App\Http\Requests\UpdatePrivilegioRequest;
 use App\Models\Privilegio;
+use Illuminate\Http\Request;
 
 class PrivilegioController extends Controller
 {
@@ -83,4 +84,27 @@ class PrivilegioController extends Controller
     {
         //
     }
+
+    public function getPrivilegios(){
+        return response()->json(Privilegio::all(), 200);
+    }
+
+    public function addPrivilegio(Request $request){        
+        $privilegio = new Privilegio;    
+
+        $repetido = Privilegio::select('description')->where('description', $request->description)->get();        
+
+        if(count($repetido) != 1){            
+            $privilegio -> description = $request->description;           
+            
+            $privilegio -> save();
+            
+            return response()->json(['success' => 'Permiso registrado'], 200);                
+               
+        }else{
+            return response()->json(['error' => 'Permiso ya existe'], 200);
+        }
+        
+    }
+
 }

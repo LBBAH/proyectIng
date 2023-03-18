@@ -1,0 +1,8 @@
+<form class="p-3" [formGroup]="formPriv" (ngSubmit)="RegistrarPriv()" >
+    <label class="w-100">Nuevo permiso</label>
+    <input class="w-100" formControlName="description">
+    <div>
+      <button (click)="closeDialog()">Cerrar</button>
+      <button (click)="registraRol()">Registrar</button>
+    </div>
+</form>

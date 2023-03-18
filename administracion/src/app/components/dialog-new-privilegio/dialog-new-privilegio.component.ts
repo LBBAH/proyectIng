@@ -32,6 +32,7 @@ export class DialogNewPrivilegioComponent {
   closeDialog(){
     this.matDialogRef.close()
   }
+  
   RegistrarPriv(){
     
   }

@@ -107,4 +107,38 @@ class PrivilegioController extends Controller
         
     }
 
+    public function deletePrivilegio($id){
+        $privilegio = Privilegio::find($id);
+
+        $res = Privilegio::select('privilegios.id')
+        ->whereIn('privilegios.id', function($query){
+            $query->select('id_privilegio')->from('rol__privilegios');
+        })->where('id', $id)->get()
+        ;
+
+        if(count($res)){
+            return response()->json(['error'=>'No se puede eliminar ya que afecta a otros registros'], 200);
+        }else{
+            $privilegio->delete();
+            return response()->json(['success'=>'eliminado con exito'], 200);
+        }
+    }
+
+
+    public function pruebas(){
+        $res = Privilegio::select('privilegios.id')
+        ->whereIn('privilegios.id', function($query){
+            $query->select('id_privilegio')->from('rol__privilegios');
+        })->where('id','=',1)->get()
+        ;
+
+        if(count($res)){
+            return response()->json(['error'=>'No se puede eliminar ya que afecta a otros registros'], 202);
+        }else{
+            return response()->json(['success'=>'eliminado con exito'], 202);
+        }
+    
+    }
+
+
 }

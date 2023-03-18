@@ -60,4 +60,9 @@ export class RolesComponent {
 
       });
   }
+
+  eliminarRol(){
+
+  }
+  
 }

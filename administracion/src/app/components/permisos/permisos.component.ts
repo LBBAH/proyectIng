@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { Privilegios } from 'src/app/services/privilegios';
 import { DialogNewPrivilegioComponent } from '../dialog-new-privilegio/dialog-new-privilegio.component';
+import { DialogComfirmComponent } from '../dialog-comfirm/dialog-comfirm.component';
 
 @Component({
   selector: 'app-permisos',
@@ -20,7 +21,8 @@ export class PermisosComponent {
 
   constructor(private dataService:UsersService, 
     private router: Router,
-    private matDialog: MatDialog ) {     
+    private matDialog: MatDialog,
+    ) {     
   }
   
   permiso: any;
@@ -52,11 +54,27 @@ export class PermisosComponent {
     this.matDialog.open(DialogNewPrivilegioComponent,
       {
         width:"500px",
-        height: "500px"
+        height: "500px",
+        disableClose: false
 
       });
   }
+
   refrescar(){
     this.getUsersData()
+  }
+
+  deleteRol(idRol:any){
+    this.matDialog.open(DialogComfirmComponent,
+      {
+        data:{
+          id: idRol,
+          message: "¿ Desea Eliminar Rol?",
+          processDelete: 1
+        },
+      width:"500px",
+      height: "500px",
+      disableClose: false
+    })
   }
 }

@@ -24,4 +24,9 @@ export class UsersService {
   addPrivilegio(description:any){
     return this.httpClient.post('http://127.0.0.1:8000/api/addPrivilegio', description);
   }
+
+  deletePrivilegio(id:any){
+    return this.httpClient.delete('http://127.0.0.1:8000/api/deletePrivilegio/'+id);
+  }
+
 }

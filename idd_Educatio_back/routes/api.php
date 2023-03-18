@@ -60,3 +60,5 @@ Route::get('rols', [RolController::class, 'index']);
 Route::get('privilegios', [PrivilegioController::class, 'getPrivilegios']);
 
 Route::post('addPrivilegio', [PrivilegioController::class, 'addPrivilegio']);
+
+Route::delete('deletePrivilegio/{id}', [PrivilegioController::class, 'deletePrivilegio']);

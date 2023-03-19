@@ -18,6 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { PermisosComponent } from './components/permisos/permisos.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { DialogNewPrivilegioComponent } from './components/dialog-new-privilegio/dialog-new-privilegio.component';
+import { DialogNewUserComponent } from './components/dialog-new-user/dialog-new-user.component';
+import { DialogEditUserComponent } from './components/dialog-edit-user/dialog-edit-user.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -39,7 +41,9 @@ const routes: Routes =[
     PermisosComponent,
     FooterComponent,
     DialogComponent,  
-    DialogNewPrivilegioComponent
+    DialogNewPrivilegioComponent,
+    DialogNewUserComponent,
+    DialogEditUserComponent
   ],
   imports: [
     BrowserModule,

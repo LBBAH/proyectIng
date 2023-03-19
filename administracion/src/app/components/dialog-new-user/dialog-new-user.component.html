@@ -1,21 +1,23 @@
-<form class="p-3" [formGroup]="formEditUser" >
+<form class="p-3" [formGroup]="formUsers" (ngSubmit)="RegistrarUser()" >
     <label class="w-100">Nombre</label>
-    <input class="w-100" formControlName="name" >
+    <input class="w-100" formControlName="name">
     <label class="w-100">Nombre usuario</label>
     <input class="w-100" formControlName="nameUser">
     <label class="w-100">Telefono</label>
     <input class="w-100" formControlName="phone">
     <label class="w-100">Email</label>
     <input class="w-100" formControlName="email">
+    <label class="w-100">Password</label>
+    <input class="w-100" formControlName="password">
     
+
     <label class="w-100">Tipo de usuario:</label>
     <select  formControlName="typeUser"  class="w-100">        
-      <option value="volvo">sleccionar tipo de usuario</option>
+      <option>sleccionar tipo de usuario</option>
       <option *ngFor="let item of typeRols" value="{{item.id}}">{{item.rol}}</option>
     </select>
-    
     <div>
       <button (click)="closeDialog()">Cerrar</button>
-      <button (click)="UpdateUserz()" >Actualizar</button>
+      <button>Registrar</button>
     </div>   
 </form>

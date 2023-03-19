@@ -21,7 +21,7 @@ export class DialogComponent {
   ){
     this.formRol=this.formulario.group({
       rol:['', [Validators.required]],
-      descripcion:['', [Validators.required]]
+      Description:['', [Validators.required]]
     })
   }
 
@@ -30,6 +30,15 @@ export class DialogComponent {
     this.matDialogRef.close()
   }
   RegistrarRol(){
+    this.dataService.addRol(this.formRol.value).subscribe(res=>{
+      let arr = Object.entries(res);
+      if(arr[0][0] == "error"){
+          alert(arr[0][1])
+        }
 
+        if(arr[0][0] == "success"){
+          alert(arr[0][1])          
+        }
+    })
   }
 }

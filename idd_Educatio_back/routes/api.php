@@ -22,41 +22,49 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+//--------------------- only users ---------------------//
 Route::get('/user', function (Request $request) {
     return Auth::user();    
 })->middleware('auth:api');
 
-//get all users
 Route::get('Usuarios', [UserController::class, 'getUsers']);
 
-//get specic  users
-Route::get('Usuarios/{id}', [UserController::class, 'getUserId']);
+Route::get('getUser/{id}', [UserController::class, 'getUserId']);
 
-//add new user
 Route::post('addUser', [UserController::class, 'addUser']);
 
-
-//login user
 Route::group(['namespace'=>'App\Http\Controllers\Api\Auth'],function(){    
     Route::post('/login', 'AuthenticationController@login');
     Route::post('/logout', 'AuthenticationController@logout')->middleware('auth:api');
 });
 
+Route::post('updateUser/{id}', [UserController::class, 'updateUser']);
 
-//update user
-Route::put('updateUser/{id}', [UserController::class, 'updateUser']);
+Route::post('updateTypeUser', [UserController::class, 'updateTypeUser']);
 
-//delete user
 Route::get('deleteUser/{id}', [UserController::class, 'deleteUser']);
 
+
+//--------------------- para los recursos ---------------------//
 Route::get('getTypeRecurs', [Tiporecursocontroller::class, 'getTypeRecurs']);
 
 Route::get('getrecurosId/{id}', [Recursocontroller::class, 'getrecurosId']);
 
 Route::get('search', [Tiporecursocontroller::class, 'search']);
 
+
+//--------------------- roles ---------------------//
 Route::get('rols', [RolController::class, 'index']);
 
+Route::post('addRol', [RolController::class, 'addRol']);
+
+Route::delete('deleteRol/{id}', [RolController::class, 'deleteRol']);
+
+Route::post('actualizarRol/{id}', [RolController::class, 'actualizarRol']);
+
+
+
+//--------------------- privilegios o permisos ---------------------//
 Route::get('privilegios', [PrivilegioController::class, 'getPrivilegios']);
 
 Route::post('addPrivilegio', [PrivilegioController::class, 'addPrivilegio']);

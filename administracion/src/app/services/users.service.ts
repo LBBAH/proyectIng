@@ -17,6 +17,10 @@ export class UsersService {
     return this.httpClient.get('http://127.0.0.1:8000/api/rols');
   }
 
+  getUser(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getUser/'+id);
+  }
+
   getPrivilegios(){
     return this.httpClient.get('http://127.0.0.1:8000/api/privilegios');
   }
@@ -28,5 +32,31 @@ export class UsersService {
   deletePrivilegio(id:any){
     return this.httpClient.delete('http://127.0.0.1:8000/api/deletePrivilegio/'+id);
   }
+
+  addRol(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/addRol', data);
+  }
+
+  deleteRol(id:any){
+    return this.httpClient.delete('http://127.0.0.1:8000/api/deleteRol/'+id);
+  }
+  
+  adduser(datosUsuario:any) {
+    return this.httpClient.post('http://127.0.0.1:8000/api/addUser', datosUsuario);
+  }
+  
+  updateTypeU(id:any) {
+    return this.httpClient.post('http://127.0.0.1:8000/api/updateTypeUser', id);
+  }
+
+  UpdateUserz(id:any, datosUsuario:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/updateUser/'+id, datosUsuario);
+  }
+
+  UpdateRol(id:any, datosRol:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/actualizarRol/'+id, datosRol);
+  }
+
+  
 
 }

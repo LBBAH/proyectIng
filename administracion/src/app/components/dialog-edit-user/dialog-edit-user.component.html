@@ -1,0 +1,10 @@
+<form class="p-3" [formGroup]="formEditRol" >
+    <label class="w-100">Nombre</label>
+    <input class="w-100" formControlName="rol" >
+    <label class="w-100">Nombre usuario</label>
+    <input class="w-100" formControlName="Description">        
+    <div>
+      <button (click)="closeDialog()">Cerrar</button>
+      <button (click)="UpdateRol()" >Actualizar</button>
+    </div>   
+</form>

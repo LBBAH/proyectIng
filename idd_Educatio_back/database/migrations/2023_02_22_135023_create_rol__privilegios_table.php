@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_rol')->nullable();
             $table->unsignedBigInteger('id_privilegio')->nullable();
 
-            $table->foreign('id_rol')->references('id')->on('rols');
+            $table->foreign('id_rol')->references('id')->on('rols')->constrained()->onDelete('cascade');
             $table->foreign('id_privilegio')->references('id')->on('privilegios');
             $table->timestamps();
         });

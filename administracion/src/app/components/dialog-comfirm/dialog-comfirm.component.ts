@@ -39,5 +39,32 @@ export class DialogComfirmComponent {
         }
       })
     }
+
+    if(proces == 2){
+      this.userData.deleteRol(id).subscribe(res=>{
+        let arr = Object.entries(res);
+        if(arr[0][0] == "error"){
+          alert(arr[0][1])
+        }
+
+        if(arr[0][0] == "success"){
+          alert(arr[0][1])          
+        }
+      })
+    }
+
+    if(proces == 3){
+      this.userData.updateTypeU( {id:id} ).subscribe(res=>{
+        let arr = Object.entries(res);
+        if(arr[0][0] == "error"){
+          alert(arr[0][1])
+        }
+
+        if(arr[0][0] == "success"){
+          alert(arr[0][1])          
+        }
+      })
+    }
+    
   }
 }

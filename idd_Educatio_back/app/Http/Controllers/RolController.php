@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreRolRequest;
 use App\Http\Requests\UpdateRolRequest;
 use App\Models\Rol;
+use Illuminate\Http\Request;
 
 class RolController extends Controller
 {
@@ -61,17 +62,7 @@ class RolController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateRolRequest  $request
-     * @param  \App\Models\Rol  $rol
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateRolRequest $request, Rol $rol)
-    {
-        //
-    }
+  
 
     /**
      * Remove the specified resource from storage.
@@ -81,6 +72,55 @@ class RolController extends Controller
      */
     public function destroy(Rol $rol)
     {
-        //
+        
+    }
+
+    public function addRol(Request $request){        
+        $privilegio = new Rol;    
+
+        $repetido = Rol::select('rol')->where('rol', $request->rol)->get();        
+
+        if(count($repetido) != 1){            
+            $privilegio -> rol = $request->rol;           
+            $privilegio -> Description = $request->Description;           
+            
+            $privilegio -> save();
+            
+            return response()->json(['success' => 'Rol añadido'], 200);                
+               
+        }else{
+            return response()->json(['error' => 'Rol ya existe'], 200);
+        }
+        
+    }
+
+    public function deleteRol($id){
+        $privilegio = Rol::find($id);
+
+        $res = Rol::select('rols.id')
+        ->whereIn('rols.id', function($query){
+            $query->select('typeUser')->from('users');
+        })->where('id', $id)->get()
+        ;
+
+        if(count($res)){
+            return response()->json(['error'=>'No se puede eliminar ya que afecta a otros registros'], 200);
+        }else{
+            $privilegio->delete();
+            return response()->json(['success'=>'eliminado con exito'], 200);
+        }
+    }
+
+     
+    public function actualizarRol(Request $request, $id)
+    {
+        $rol = Rol::findOrFail($id);
+
+        if(is_null($rol)){
+            return response(['error'=>'Error al actualizar'],200);
+        }
+        
+        $rol->update(request()->all());
+        return response(['success'=>'Actualizado'],200);
     }
 }

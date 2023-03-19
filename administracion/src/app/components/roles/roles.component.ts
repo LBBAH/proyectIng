@@ -9,6 +9,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 //importar el DialogComponent del componente dialog
 import { DialogComponent } from '../dialog/dialog.component';
+import { DialogComfirmComponent } from '../dialog-comfirm/dialog-comfirm.component';
+import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
 
 
 
@@ -61,7 +63,43 @@ export class RolesComponent {
       });
   }
 
-  eliminarRol(){
+  permisos(){
+    this.router.navigate(['privilegios']);  
+  }
+  
+  refrescar(){
+    this.getUsersData();
+  }
+  
+  deleteRol(idRol:any){
+    this.matDialog.open(DialogComfirmComponent,
+      {
+        data:{
+          id: idRol,
+          message: "¿ Desea Eliminar Rol?",
+          processDelete: 2
+        },
+      width:"500px",
+      height: "500px",
+      disableClose: false
+    })
+  }
+
+  updateRol(idRol:any, rolE:any, des:any){
+    this.matDialog.open(DialogEditUserComponent,
+      {
+        data:{
+          id: idRol,
+          rol:rolE,
+          Description:des,
+          message: "Editar Rol",          
+        },
+      width:"500px",
+      height: "500px",
+      disableClose: false
+    })
+  }
+  asigPriuv(idRol:any){
 
   }
   

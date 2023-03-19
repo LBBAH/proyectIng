@@ -60,17 +60,27 @@ class UserController extends Controller
         
     }
 
-    public function updateUser(Request $request, $id){
-        $user = User::findOrFail($request->$id);
-        $user -> _name = $request->_name;
-        $user -> nameUser = $request->nameUser;
-        $user -> email = $request->email;
-        $user -> phone = $request->phone;
-        $user -> password = $request->password;
-        $user -> typeUser = 1;
+    public function updateTypeUser(Request $request){
+        $user = User::findOrFail($request->id);
 
-        $user -> save();
-        return response($user,200);
+        if(is_null($user)){
+            return response(['error'=>'Error al actualizar'],200);
+        }
+
+        $user -> typeUser = 2;
+        $user -> save();        
+        return response(['success'=>'Actualizado'],200);
+    }
+
+    public function updateUser(Request $request, $id){
+        $user = User::findOrFail($id);
+
+        if(is_null($user)){
+            return response(['error'=>'Error al actualizar'],200);
+        }
+        
+        $user->update(request()->all());
+        return response(['success'=>'Actualizado'],200);
     }
 
     public function deleteUser(Request $request, $id){

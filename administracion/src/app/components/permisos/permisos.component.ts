@@ -64,12 +64,12 @@ export class PermisosComponent {
     this.getUsersData()
   }
 
-  deleteRol(idRol:any){
+  deletePrivilegio(idRol:any){
     this.matDialog.open(DialogComfirmComponent,
       {
         data:{
           id: idRol,
-          message: "¿ Desea Eliminar Rol?",
+          message: "¿ Desea Eliminar Permiso?",
           processDelete: 1
         },
       width:"500px",

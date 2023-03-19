@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class rol_Privilegio extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
+    protected $fillable = ['id_rol', 'id_privilegio'];
 }

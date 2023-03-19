@@ -84,5 +84,16 @@ class RolPrivilegioController extends Controller
         //
     }
 
+    public function getRoles(){
+        $repetido = rol_Privilegio::select('rol__privilegios.id','rols.rol','rol__privilegios.id_rol','privilegios.description','rol__privilegios.id_privilegio')->
+                    join('rols','rols.id','=','rol__privilegios.id_rol')->
+                    join('privilegios','privilegios.id','=','rol__privilegios.id_privilegio')->
+                    where('rol__privilegios.id_rol',3)->
+                    get();        
+
+        return response()->json($repetido, 200);                 
+    }
+
     
+
 }

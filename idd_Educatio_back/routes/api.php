@@ -8,6 +8,8 @@ use App\Http\Controllers\Tiporecursocontroller;
 use App\Http\Controllers\Recursocontroller;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\PrivilegioController;
+use App\Http\Controllers\RolPrivilegioController;
+use App\Models\rol_Privilegio;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -64,9 +66,16 @@ Route::post('actualizarRol/{id}', [RolController::class, 'actualizarRol']);
 
 
 
+//--------------------- role-privilegio ---------------------//
+Route::get('getRoles', [RolPrivilegioController::class, 'getRoles']);
+
+
+
 //--------------------- privilegios o permisos ---------------------//
 Route::get('privilegios', [PrivilegioController::class, 'getPrivilegios']);
 
 Route::post('addPrivilegio', [PrivilegioController::class, 'addPrivilegio']);
 
 Route::delete('deletePrivilegio/{id}', [PrivilegioController::class, 'deletePrivilegio']);
+
+Route::get('getRolesNotIn', [PrivilegioController::class, 'getRolesNotIn']);

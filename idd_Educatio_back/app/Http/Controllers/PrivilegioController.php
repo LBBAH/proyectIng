@@ -139,16 +139,5 @@ class PrivilegioController extends Controller
         }
     
     }
-
-    public function getRolesNotIn(){      
-        $res = Privilegio::select('privilegios.id','privilegios.description')
-        ->whereNotIn('privilegios.id', function($query){
-            $query->select('id_privilegio')->from('rol__privilegios')->where('rol__privilegios.id_rol','=',3);
-        })->get()
-        ;
-
-        return response()->json($res, 200);                 
-    }
-
-
+   
 }

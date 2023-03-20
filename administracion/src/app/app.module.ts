@@ -20,6 +20,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { DialogNewPrivilegioComponent } from './components/dialog-new-privilegio/dialog-new-privilegio.component';
 import { DialogNewUserComponent } from './components/dialog-new-user/dialog-new-user.component';
 import { DialogEditUserComponent } from './components/dialog-edit-user/dialog-edit-user.component';
+import { RolPrivilegioComponent } from './components/rol-privilegio/rol-privilegio.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -27,7 +28,8 @@ const routes: Routes =[
   {path:'users', component:UsersComponent },
   {path:'user/:id/details', component:UserComponent },
   {path:'roles', component:RolesComponent},
-  {path:'privilegios', component:PermisosComponent}
+  {path:'privilegios', component:PermisosComponent},
+  {path:'rolPrivilegio/:id', component:RolPrivilegioComponent}
 ];
 
 
@@ -43,7 +45,8 @@ const routes: Routes =[
     DialogComponent,  
     DialogNewPrivilegioComponent,
     DialogNewUserComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    RolPrivilegioComponent
   ],
   imports: [
     BrowserModule,

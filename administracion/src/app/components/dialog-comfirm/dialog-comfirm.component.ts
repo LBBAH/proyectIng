@@ -12,7 +12,8 @@ export class DialogComfirmComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data:
     {
-      id: number,
+      id: number, //priv
+      id2: number, // rol
       message: string,
       processDelete: number
     },
@@ -65,6 +66,22 @@ export class DialogComfirmComponent {
         }
       })
     }
+
+    if(proces == 4){
+      console.log(id,this.data.id2)
+      this.userData.deleteRolPriv( {idRol : this.data.id2, idPrv:id} ).subscribe(res=>{
+        let arr = Object.entries(res);
+        if(arr[0][0] == "error"){
+          alert(arr[0][1])
+        }
+
+        if(arr[0][0] == "success"){
+          alert(arr[0][1])          
+        }
+      })
+    }
     
   }
+
+  
 }

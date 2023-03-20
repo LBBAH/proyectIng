@@ -5,38 +5,41 @@ namespace App\Http\Controllers\Api\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class AuthenticationController extends Controller
 {
     public function login(Request $request){    
 
-        $login = $request->validate([
-            'email' => ['required'],
-            'password' => ['required'],
-        ]);
+            $login = $request->validate([
+                'email' => ['required'],
+                'password' => ['required'],
+            ]);
         
 
-        if(!Auth::guard()->attempt($login)){
-            return response()->json(['message' => 'Usuario no encontrado'], 404);        
-        }
         
-        /**
-         * @var User $user
-         */
-
-        $user= Auth::user();
-
-        $token =$user->createToken($user->name);
-
-        return response([
-            'id'=>$user->id,
-            'name'=>$user->name,
-            'nameUser'=>$user->nameUser,
-            'email'=>$user->email,
-            'phone'=>$user->phone,
-            'token'=>$token->accessToken,
-            'token_expies_at'=>$token->token->expires_at,
-        ],200);
+            if(!Auth::guard()->attempt($login)){
+                return response()->json(['message' => 'Usuario no encontrado'], 404);        
+            }
+            
+            /**
+             * @var User $user
+             */
+    
+            $user= Auth::user();
+    
+            $token =$user->createToken($user->name);
+    
+            return response([
+                'id'=>$user->id,
+                'name'=>$user->name,
+                'nameUser'=>$user->nameUser,
+                'email'=>$user->email,
+                'phone'=>$user->phone,
+                'token'=>$token->accessToken,
+                'token_expies_at'=>$token->token->expires_at,
+            ],200);
+        
 
     }
 

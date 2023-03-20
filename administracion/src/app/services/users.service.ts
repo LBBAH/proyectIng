@@ -57,6 +57,16 @@ export class UsersService {
     return this.httpClient.post('http://127.0.0.1:8000/api/actualizarRol/'+id, datosRol);
   }
 
-  
+  getRolPrivId(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getRoles/' + id);
+  }  
+
+  deleteRolPriv(idpriv:any){
+    return this.httpClient.delete('http://127.0.0.1:8000/api/deleteRolPriv', idpriv);
+  }
+
+  addPriRol(datosPriRol:any) {
+    return this.httpClient.post('http://127.0.0.1:8000/api/addPriRol', datosPriRol);
+  }
 
 }

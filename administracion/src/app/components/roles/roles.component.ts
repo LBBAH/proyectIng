@@ -100,7 +100,7 @@ export class RolesComponent {
     })
   }
   asigPriuv(idRol:any){
-
+    this.router.navigate(['rolPrivilegio',idRol]); 
   }
-  
+    
 }

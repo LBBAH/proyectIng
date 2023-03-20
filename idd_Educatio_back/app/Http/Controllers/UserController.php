@@ -39,10 +39,11 @@ class UserController extends Controller
                     $user -> phone = $request->phone;                    
                     $user -> password = Hash::make($request->password);
 
-
-
-
-                    $user -> typeUser = 1;
+                    if(!$request->typeUser){
+                        $user -> typeUser = 1;
+                    }else{
+                        $user -> typeUser = $request->typeUser;                    
+                    }      
             
                     $user -> save();
             

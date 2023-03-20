@@ -47,12 +47,14 @@ Route::post('updateTypeUser', [UserController::class, 'updateTypeUser']);
 Route::get('deleteUser/{id}', [UserController::class, 'deleteUser']);
 
 
+
 //--------------------- para los recursos ---------------------//
 Route::get('getTypeRecurs', [Tiporecursocontroller::class, 'getTypeRecurs']);
 
 Route::get('getrecurosId/{id}', [Recursocontroller::class, 'getrecurosId']);
 
 Route::get('search', [Tiporecursocontroller::class, 'search']);
+
 
 
 //--------------------- roles ---------------------//
@@ -67,9 +69,11 @@ Route::post('actualizarRol/{id}', [RolController::class, 'actualizarRol']);
 
 
 //--------------------- role-privilegio ---------------------//
-Route::get('getRoles', [RolPrivilegioController::class, 'getRoles']);
+Route::get('getRoles/{id}', [RolPrivilegioController::class, 'getRoles']);
 
+Route::delete('deleteRolPriv', [RolPrivilegioController::class, 'deleteRolPriv']);
 
+Route::post('addPriRol', [RolPrivilegioController::class, 'addPriRol']);
 
 //--------------------- privilegios o permisos ---------------------//
 Route::get('privilegios', [PrivilegioController::class, 'getPrivilegios']);
@@ -77,5 +81,3 @@ Route::get('privilegios', [PrivilegioController::class, 'getPrivilegios']);
 Route::post('addPrivilegio', [PrivilegioController::class, 'addPrivilegio']);
 
 Route::delete('deletePrivilegio/{id}', [PrivilegioController::class, 'deletePrivilegio']);
-
-Route::get('getRolesNotIn', [PrivilegioController::class, 'getRolesNotIn']);

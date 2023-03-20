@@ -1,1 +1,25 @@
-<p>rol-privilegio works!</p>
+<div class="p-5">
+    <h1>Privilegios</h1>
+    <p>Click para Añadir Privilegio a este rol</p>
+    <div class="m-2">
+        <div *ngFor="let item of priv" style="display:inline-block ">
+            <form >
+                
+                <button  class="badge bg-success m-1" (click)="RolPriv(item.id)">
+                    {{item.description}}
+                </button>                
+            </form>
+        </div>
+    </div>
+    <div class="m-2">
+        <ol class="list-group list-group-numbered">
+            <li *ngFor="let item of privilegiosRolId" class="list-group-item d-flex justify-content-between align-items-start">
+              <div class="ms-2 me-auto">
+                <div class="fw-bold">{{ item.description }}</div>
+                {{item.id_privilegio}}
+              </div>
+              <button class="btn btn-danger" (click)="deleteRol(item.id_privilegio,item.id_rol)"><i class="bi bi-trash3-fill"></i></button>          
+            </li>            
+          </ol>
+    </div>
+</div>

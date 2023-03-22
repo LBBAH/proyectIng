@@ -21,6 +21,7 @@ import { DialogNewPrivilegioComponent } from './components/dialog-new-privilegio
 import { DialogNewUserComponent } from './components/dialog-new-user/dialog-new-user.component';
 import { DialogEditUserComponent } from './components/dialog-edit-user/dialog-edit-user.component';
 import { RolPrivilegioComponent } from './components/rol-privilegio/rol-privilegio.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -46,7 +47,8 @@ const routes: Routes =[
     DialogNewPrivilegioComponent,
     DialogNewUserComponent,
     DialogEditUserComponent,
-    RolPrivilegioComponent
+    RolPrivilegioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

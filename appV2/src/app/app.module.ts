@@ -25,6 +25,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { RecursoComponent } from './components/recurso/recurso.component';
 import { PreguntasFComponent } from './components/preguntas-f/preguntas-f.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 
@@ -40,7 +41,7 @@ const routes: Routes =[
   {path:'quienesSomos', component:QuienesSomosComponent },
   {path:'recursos', component:RecursosComponent },
   {path:'singIn', component:RegistroComponent },
-  { path:'recurso/:id',component:RecursoComponent },
+  {path:'recurso/:id',component:RecursoComponent },
   {path: 'preguntasf', component:PreguntasFComponent},
 ];
 
@@ -60,7 +61,8 @@ const routes: Routes =[
     RecursosComponent,
     RecursoComponent,
     PreguntasFComponent,
-    ScrollToTopComponent
+    ScrollToTopComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

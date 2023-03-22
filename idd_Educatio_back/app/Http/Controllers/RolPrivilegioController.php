@@ -126,4 +126,22 @@ class RolPrivilegioController extends Controller
         
     }
 
+    public function rolPrivUser(Request $request){
+        $priRolUser = rol_Privilegio :: where('id_rol',$request->id_rol)->where('id_Privilegio',$request->id_Privilegio)->get();;
+
+        if(count($priRolUser)==1){
+            return response()->json(['success'=>'Privilegio Consedido'], 200);            
+        }
+        return response()->json(['error'=>'Privilegio No Consedido'], 200);
+    }
+
+    public function rolPrivUser2(){
+        $priRolUser = rol_Privilegio :: where('id_rol',3)->where('id_Privilegio',10)->get();;
+
+        if(count($priRolUser)==1){
+            return response()->json(['success'=>'Privilegio Consedido'], 200);            
+        }
+        return response()->json(['error'=>'Privilegio No Consedido'], 200);
+    }
+
 }

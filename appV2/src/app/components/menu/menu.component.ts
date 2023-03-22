@@ -2,14 +2,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
-import { IddServicesService } from './service/idd-services.service';
+import { IddServicesService } from 'src/app/service/idd-services.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class AppComponent implements OnInit {
+export class MenuComponent {
   user:any;
   dataUser:Boolean=false;
   RegisterLogin:Boolean=true;
@@ -26,16 +26,10 @@ export class AppComponent implements OnInit {
   status(){
     const localData :any = localStorage.getItem('user');
     if(!localData){
-      this.dataUser= false;
-      this.RegisterLogin= true;
-      console.log(this.dataUser,this.RegisterLogin);
       this.isLoggedIn.next(false);
       console.log('User not logged in !!')
     }else{
       const userObj = JSON.parse(localData);
-      this.dataUser= true;
-      this.RegisterLogin= false;
-      console.log(this.dataUser,this.RegisterLogin);
       const token_expires_at = new Date(userObj.token_expies_at);
       const current_date = new Date();
       if(token_expires_at > current_date){
@@ -52,7 +46,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.status();
     if(localStorage.getItem('user')!=null){
-      
+      this.dataUser= true;
+      this.RegisterLogin= false;
+      console.log(this.dataUser,this.RegisterLogin);
       const user:any = localStorage.getItem('user');    
       const userObj = JSON.parse(user);      
       const token = userObj.token;
@@ -81,11 +77,10 @@ export class AppComponent implements OnInit {
       this.serviceAuth.logout(true).subscribe((res)=>{
         console.log(res);
         localStorage.removeItem('user');
-        this.router.navigate(['']).then(()=>{
+        this.router.navigate(['home']).then(()=>{
           window.location.reload();
         })
       })          
   }
 
-  title = 'appV2';
 }

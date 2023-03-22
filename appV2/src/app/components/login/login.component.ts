@@ -43,40 +43,16 @@ export class LoginComponent implements OnInit {
     
     if(this.formlogin.valid){
       this.dataService.login(this.formlogin.value).subscribe((res:any) => {
-        localStorage.setItem('user',JSON.stringify(res))
-        this.router.navigate(['/home']).then(()=>{
-          window.location.reload();
-        });
-        /*this.user = Object.entries(res)
-        console.log(this.user[0][1])
 
-        let array = Object.entries(res)
-        if(array[0][0]=="message"){
-          alert("error esta cuenta no existe")
+        let arr = Object.entries(res);
+        if(arr[0][0] == "error"){
+          alert(arr[0][1])
         }else{
-
-          for (let i = 0; i < array[0][1].password.length; i++) {
-            const indexInAbc = alfabeto.indexOf(array[0][1].password[i]);
-            if (indexInAbc < 0) {
-                decipherText += array[0][1].password[i]
-                continue;
-            }
-            let index = indexInAbc - alfabeto.indexOf(key[i]);
-            if (index >= 0) {
-                decipherText += alfabeto[index % alfabeto.length];
-                continue;
-            }
-            if (index < 0) {
-                decipherText += alfabeto[index + alfabeto.length];
-            }
-          }
-
-          if(this.formlogin.value.password == decipherText){
-            alert("Login exito")
-          }else{
-            alert("Contraseña incorrecta")
-          }
-        }*/
+          localStorage.setItem('user',JSON.stringify(res))
+          this.router.navigate(['']).then(()=>{
+            window.location.reload();
+          })
+        }              
       })
       
     }else{

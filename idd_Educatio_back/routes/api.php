@@ -37,6 +37,7 @@ Route::post('addUser', [UserController::class, 'addUser']);
 
 Route::group(['namespace'=>'App\Http\Controllers\Api\Auth'],function(){    
     Route::post('/login', 'AuthenticationController@login');
+    Route::post('/loginAdmin', 'AuthenticationController@loginAdmin');
     Route::post('/logout', 'AuthenticationController@logout')->middleware('auth:api');
 });
 
@@ -74,6 +75,10 @@ Route::get('getRoles/{id}', [RolPrivilegioController::class, 'getRoles']);
 Route::delete('deleteRolPriv', [RolPrivilegioController::class, 'deleteRolPriv']);
 
 Route::post('addPriRol', [RolPrivilegioController::class, 'addPriRol']);
+
+Route::post('rolPrivUser', [RolPrivilegioController::class, 'rolPrivUser']);
+
+Route::post('rolPrivUser2', [RolPrivilegioController::class, 'rolPrivUser2']);
 
 //--------------------- privilegios o permisos ---------------------//
 Route::get('privilegios', [PrivilegioController::class, 'getPrivilegios']);

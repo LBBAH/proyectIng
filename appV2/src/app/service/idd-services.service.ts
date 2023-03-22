@@ -45,6 +45,5 @@ export class IddServicesService {
       var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
       return this.httpClient.post('http://127.0.0.1:8000/api/logout',{allDevice:allDevice},{headers: tokenHeader})
     }
-
   
 }

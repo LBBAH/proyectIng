@@ -67,7 +67,7 @@ export class RolPrivilegioComponent implements OnInit{
     this.id=this.activeRouter.snapshot.paramMap.get('id');
     console.log(idPri)
 
-    this.dataUser.addPriRol({id_privilegio:this.id, id_rol :idPri}).subscribe(res=>{
+    this.dataUser.addPriRol({id_rol :this.id,  id_privilegio:idPri}).subscribe(res=>{
       let arr = Object.entries(res);
       if(arr[0][0] == "error"){
         alert(arr[0][1])

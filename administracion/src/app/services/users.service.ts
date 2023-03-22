@@ -68,5 +68,21 @@ export class UsersService {
   addPriRol(datosPriRol:any) {
     return this.httpClient.post('http://127.0.0.1:8000/api/addPriRol', datosPriRol);
   }
+  
+  login(datosUsuario:any) {
+    return this.httpClient.post('http://127.0.0.1:8000/api/loginAdmin', datosUsuario);
+  }
 
+  logout(allDevice: boolean){
+    const user:any = localStorage.getItem('user');
+    console.log(user)
+    const userObj = JSON.parse(user);        
+    const token = userObj.token;  
+    var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
+    return this.httpClient.post('http://127.0.0.1:8000/api/logout',{allDevice:allDevice},{headers: tokenHeader})
+  }
+
+  getRolPrivUser(id_rol:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/rolPrivUser',id_rol);
+  }
 }

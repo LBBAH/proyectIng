@@ -10,26 +10,28 @@ use App\Models\User;
 class AuthenticationController extends Controller
 {
     public function login(Request $request){    
-
+        
+        $chochos = User::where('email',$request->email)->where('typeUser',1)->get();
+        if(count($chochos) == 1 ){
             $login = $request->validate([
                 'email' => ['required'],
                 'password' => ['required'],
             ]);
-        
-
-        
+            
+    
+            
             if(!Auth::guard()->attempt($login)){
-                return response()->json(['message' => 'Usuario no encontrado'], 404);        
+                return response()->json(['error' => 'Usuario no encontrado'], 200);
             }
+                
             
             /**
              * @var User $user
-             */
-    
+            */
             $user= Auth::user();
-    
+        
             $token =$user->createToken($user->name);
-    
+        
             return response([
                 'id'=>$user->id,
                 'name'=>$user->name,
@@ -39,8 +41,47 @@ class AuthenticationController extends Controller
                 'token'=>$token->accessToken,
                 'token_expies_at'=>$token->token->expires_at,
             ],200);
-        
+        }
 
+        return response()->json(['error' => 'Nivel de acceso no autorizado'], 200);                
+    }
+
+    public function loginAdmin(Request $request){    
+        
+        $chochos = User::where('email',$request->email)->where('typeUser','!=',1)->get();
+        if(count($chochos) == 1 ){
+            $login = $request->validate([
+                'email' => ['required'],
+                'password' => ['required'],
+            ]);
+            
+    
+            
+            if(!Auth::guard()->attempt($login)){
+                return response()->json(['error' => 'Usuario no encontrado'], 200);
+            }
+                
+            
+            /**
+             * @var User $user
+            */
+            $user= Auth::user();
+        
+            $token =$user->createToken($user->name);
+        
+            return response([
+                'id'=>$user->id,
+                'name'=>$user->name,
+                'nameUser'=>$user->nameUser,
+                'phone'=>$user->phone,
+                'email'=>$user->email,
+                'typeUser'=>$user->typeUser,
+                'token'=>$token->accessToken,
+                'token_expies_at'=>$token->token->expires_at,
+            ],200);
+        }
+
+        return response()->json(['error' => 'Nivel de acceso no autorizado'], 200);                
     }
 
     public function logout(Request $request){

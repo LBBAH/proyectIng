@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">      
-      <button mat-raised-button color="primary" (click)="roles()">Gestionar Roles</button>
+      <button mat-raised-button color="primary" (click)="roles()" *ngIf="gestionRoles">Gestionar Roles</button>
     </div>
     <div class="col-sm d-flex flex-row-reverse">
       <div class="example-button-container" (click)="refrescar()">
@@ -14,7 +14,7 @@
         </button>
       </div>
       <div style="text-align : end;">
-        <button mat-raised-button color="basic" (click)="agregarUsuario()">Agregar Usuarios</button>
+        <button mat-raised-button color="basic" (click)="agregarUsuario()" *ngIf="registrarAdmins">Agregar Usuarios</button>
       </div>    
     </div>
   </div>
@@ -56,8 +56,8 @@
       <th mat-header-cell *matHeaderCellDef> opciones </th>
       <td mat-cell *matCellDef="let element"> 
         
-        <button name="" (click)="editarUsuario(element.id, element.name, element.nameUser, element.phone, element.email)" class="btn btn-warning" href="#" role="button"><i class="bi bi-pencil-square"></i></button>
-        <button name="" (click)="UsuarioInactivo(element.id)" class="btn btn-danger" href="#" role="button"><i class="bi bi-person-fill-slash"></i></button>
+        <button *ngIf="modificarDatosUser" (click)="editarUsuario(element.id, element.name, element.nameUser, element.phone, element.email)" class="btn btn-warning" href="#" role="button"><i class="bi bi-pencil-square"></i></button>
+        <button *ngIf="usuarioInactivo" (click)="UsuarioInactivo(element.id)" class="btn btn-danger" href="#" role="button"><i class="bi bi-person-fill-slash"></i></button>
       </td>
     </ng-container>
 

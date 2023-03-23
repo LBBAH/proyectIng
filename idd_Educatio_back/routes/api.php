@@ -95,3 +95,4 @@ Route::delete('deletePrivilegio/{id}', [PrivilegioController::class, 'deletePriv
 
 //------------------------ PasswordUserReset ------------------------//
 Route::post('questionSecrectUser', [QuestionSecretUserController::class, 'recuperarPregunta']);
+Route::post('respuesta', [QuestionSecretUserController::class, 'respuesta']);

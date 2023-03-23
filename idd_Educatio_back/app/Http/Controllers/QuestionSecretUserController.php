@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\QuestionSecretUser;
 use Illuminate\Http\Request;
 use App\Models\QuestonSecret;
-
+use Illuminate\Support\Str;
+use App\Models\User;
 
 class QuestionSecretUserController extends Controller
 {
@@ -94,10 +95,23 @@ class QuestionSecretUserController extends Controller
         where('users.email',$request->email)->get();
         
         if(count($question) == 1){
-            return response()->json($question,200);
+            return \response()->json($question);
         }
 
         return response()->json(['error'=>'No se encontro usuario o no tiene pregunta secreta'],200);
+    }
+
+    public function respuesta(Request $request){
+        $question = QuestionSecretUser :: where('id_user',$request->id_user)->where('answer',$request->answer)->get();
+        
+        if(count($question) == 1){
+            $user = User::findOrFail($request->id_user);            
+            $password=Str::random(8);
+            $user->update(['password'=>$password]);
+            return \response()->json($password);
+        }
+
+        return response()->json(['error'=>'Error en tu respuesta intenta de nuevo'],200);
     }
     
 }

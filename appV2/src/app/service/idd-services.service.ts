@@ -49,5 +49,9 @@ export class IddServicesService {
     passwordQuestionSecret(email:any) {
       return this.httpClient.post('http://127.0.0.1:8000/api/questionSecrectUser', email);
     }
+
+    anserQuestionSecret(dataAnswer:any) {
+      return this.httpClient.post('http://127.0.0.1:8000/api/respuesta', dataAnswer);
+    }
   
 }

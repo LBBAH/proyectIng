@@ -29,7 +29,10 @@ import { MenuComponent } from './components/menu/menu.component';
 import { QuestionSecretPasswordComponent } from './components/question-secret-password/question-secret-password.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
+ 
+import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from 'ng-recaptcha';
 
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -67,7 +70,7 @@ const routes: Routes =[
     PreguntasFComponent,
     ScrollToTopComponent,
     MenuComponent,
-    QuestionSecretPasswordComponent
+    QuestionSecretPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,12 +80,21 @@ const routes: Routes =[
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgxCaptchaModule,
     CommonModule,
+    RecaptchaV3Module,
+    HttpClientModule,    
+    
     RouterModule.forRoot(
       routes
     )
   ],
-  providers: [],
+  providers: [
+    {
+      provide: RECAPTCHA_V3_SITE_KEY,
+      useValue: 'pon_la_key_de_google',
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl ,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ReCaptchaV3Service } from 'ng-recaptcha';
 import { IddServicesService } from 'src/app/service/idd-services.service';
+import { RecaptchaService } from 'src/app/service/recaptcha.service';
 
 @Component({
   selector: 'app-question-secret-password',
@@ -17,21 +19,66 @@ export class QuestionSecretPasswordComponent {
   dataQuestionAnsers:any;
   dataAnswer:any;
   
+  public robot: boolean;
+  public presionado: boolean;
+
+  siteKey:string="6LfeRCYlAAAAADAry4-Fs1iNzksdyGXmRCo9aXk_";
+   
+  
+
 
   constructor(
     public formulario:FormBuilder, 
     public serviceIdd:IddServicesService,
-    public router:Router
-  ){  
+    public router:Router,
+    private httpService: RecaptchaService,  private recaptchaV3Service: ReCaptchaV3Service) 
+      
+  {  
+    this.robot = true;
+      this.presionado = false;
     this.resetPass=this.formulario.group({      
       email:['',[Validators.required]],        
     });
     this.answerQuestion=this.formulario.group({      
       answer:['',[Validators.required]],
-      id_user:['',[Validators.required]]
+      recaptch:['',[Validators.required]]
     })
   }
 
+  ngOnInit(): void {
+    this.robot = true;
+    this.presionado = false;
+  }
+ 
+  getInfoRecaptcha() {
+    this.robot = true;
+    this.presionado = true;
+    this.recaptchaV3Service.execute('')
+      .subscribe((token) => {
+          const auxiliar = this.httpService.getTokenClientModule(token)
+          auxiliar.subscribe( {
+            complete: () => {
+              this.presionado = false;
+            },
+            error: () => {
+              this.presionado = false;
+              this.robot = true;
+              alert('Tenemos un problema, recarga la página página para solucionarlo o contacta con 1938web@gmail.com');
+            },
+            next: (resultado: Boolean) => {
+              if (resultado === true) {
+                this.presionado = false;
+                this.robot = false;
+              } else {
+                alert('Error en el captcha. Eres un robot')
+                this.presionado = false;
+                this.robot = true;
+              }
+            }
+          });
+        }
+      );
+  }
 
   resetPasswordUser(){
     this.serviceIdd.passwordQuestionSecret(this.resetPass.value).subscribe(res=>{
@@ -50,17 +97,22 @@ export class QuestionSecretPasswordComponent {
 
   respuestaPreguna(id_u:any){
     //console.log(id_user, this.answerQuestion.value.answer)
-    this.serviceIdd.anserQuestionSecret({id_user:id_u,answer:this.answerQuestion.value.answer}).subscribe(res=>{
-      let arr = Object.entries(res);
-        if(arr[0][0] == "error"){
-          alert(arr[0][1])
-        }else{
-          this.dataAnswer=res
-          this.formAnswer=false
-          this.divNuexPas=true
-          console.log(this.dataQuestionAnsers.value.questionsSecret)
-        }
-    })
+    if(this.answerQuestion.valid){
+      this.serviceIdd.anserQuestionSecret({id_user:id_u,answer:this.answerQuestion.value.answer}).subscribe(res=>{
+        let arr = Object.entries(res);
+          if(arr[0][0] == "error"){
+            alert(arr[0][1])
+          }else{
+            this.dataAnswer=res
+            this.formAnswer=false
+            this.divNuexPas=true
+            console.log(this.dataQuestionAnsers.value.questionsSecret)
+          }
+      })
+    }
+    else{
+      alert('Compruebe todos los campos')
+    }  
   }
 
   redirectLogin(){

@@ -26,6 +26,7 @@ import { RecursoComponent } from './components/recurso/recurso.component';
 import { PreguntasFComponent } from './components/preguntas-f/preguntas-f.component';
 import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { QuestionSecretPasswordComponent } from './components/question-secret-password/question-secret-password.component';
 
 
 
@@ -43,6 +44,7 @@ const routes: Routes =[
   {path:'singIn', component:RegistroComponent },
   {path:'recurso/:id',component:RecursoComponent },
   {path: 'preguntasf', component:PreguntasFComponent},
+  {path: 'preguntaSecreta', component:QuestionSecretPasswordComponent},
 ];
 
 @NgModule({
@@ -62,7 +64,8 @@ const routes: Routes =[
     RecursoComponent,
     PreguntasFComponent,
     ScrollToTopComponent,
-    MenuComponent
+    MenuComponent,
+    QuestionSecretPasswordComponent
   ],
   imports: [
     BrowserModule,

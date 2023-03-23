@@ -124,9 +124,6 @@ export class AppComponent implements OnInit{
         console.log(err)
       });
 
-
-      
-
     }else{
 
       this.dataUser= false;

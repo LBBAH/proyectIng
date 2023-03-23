@@ -9,7 +9,9 @@ use App\Http\Controllers\Recursocontroller;
 use App\Http\Controllers\RolController;
 use App\Http\Controllers\PrivilegioController;
 use App\Http\Controllers\RolPrivilegioController;
-use App\Models\rol_Privilegio;
+use App\Http\Controllers\QuestionSecretUserController;
+
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -80,9 +82,16 @@ Route::post('rolPrivUser', [RolPrivilegioController::class, 'rolPrivUser']);
 
 Route::post('rolPrivUser2', [RolPrivilegioController::class, 'rolPrivUser2']);
 
+
+
 //--------------------- privilegios o permisos ---------------------//
 Route::get('privilegios', [PrivilegioController::class, 'getPrivilegios']);
 
 Route::post('addPrivilegio', [PrivilegioController::class, 'addPrivilegio']);
 
 Route::delete('deletePrivilegio/{id}', [PrivilegioController::class, 'deletePrivilegio']);
+
+
+
+//------------------------ PasswordUserReset ------------------------//
+Route::post('questionSecrectUser', [QuestionSecretUserController::class, 'recuperarPregunta']);

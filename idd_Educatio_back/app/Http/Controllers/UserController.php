@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use App\Mail\resetPassword;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -95,6 +97,52 @@ class UserController extends Controller
         return response()->json(null, 204);
     }
 
+
+    public function resetPasswordEmail(Request $request){
+        $userId = User :: select('id')->where('email',$request->email)->first();    
+        $user = User::findOrFail($userId)->first();      
+        
+
+        if($user){
+            $password=Str::random(8);
+            $p=Hash::make($password);        
+            $user->update(['password'=>$p]);            
+            
+            $b='IDD Education';
+            $c='iddEducation@email.com';
+            $d=$request->email;
+
+            $data[]=[$password,$b,$c,$d];
+            Mail::send('correo.newPassword', $data, function($msg) use($password,$b,$c, $d){
+                $msg->from($c,$b);
+                $msg->subject($password);
+                $msg->to($d);
+            });
+
+            return response()->json($user, 200);
+        }else{
+            return response()->json(['error'=>'no se puede actualizar tu contraseña'], 200);
+        }
+    
+    }
+
+    public function changePassword(Request $request, $id){
+        $userPasswor = User :: where('id',$id)->first();                
+        
+        if(!(Hash::check($request->passwordBefore,$userPasswor->password))){
+            return response()->json(['error'=>'Contraseña Incorrecta'], 200);
+        }    
+
+        $pwd=Hash::make($request->passwordNew);
+
+        $userPasswor->update(['password'=> $pwd]);
+
+        return response()->json(['success'=>'Contraseña Actualizada con exito'], 200);
+
+        
+    }
+
     
     
 }
+

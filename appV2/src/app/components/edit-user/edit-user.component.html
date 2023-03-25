@@ -1,1 +1,17 @@
-<p>edit-user works!</p>
+<form class="p-3" [formGroup]="formEditUser" >
+    <label class="w-100">Nombre</label>
+    <input class="w-100" formControlName="name" >
+    <label class="w-100">Nombre usuario</label>
+    <input class="w-100" formControlName="nameUser">
+    <label class="w-100">Telefono</label>
+    <input class="w-100" formControlName="phone">
+    <label class="w-100">Email</label>
+    <input class="w-100" formControlName="email">
+    
+    
+    
+    <div>
+      <button (click)="closeDialog()">Cerrar</button>
+      <button (click)="UpdateUserz()" >Actualizar</button>
+    </div>   
+</form>

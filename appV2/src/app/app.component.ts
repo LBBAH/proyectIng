@@ -52,7 +52,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.status();
     if(localStorage.getItem('user')!=null){
-      
       const user:any = localStorage.getItem('user');    
       const userObj = JSON.parse(user);      
       const token = userObj.token;
@@ -71,11 +70,12 @@ export class AppComponent implements OnInit {
       this.dataUser= false;
       this.RegisterLogin= true;
       console.log(this.dataUser,this.RegisterLogin);
-
     }
-  
   }
     
+  perfilUser(id:any){
+    this.router.navigate(['perfilU',id])
+  }
 
   logout(){    
       this.serviceAuth.logout(true).subscribe((res)=>{

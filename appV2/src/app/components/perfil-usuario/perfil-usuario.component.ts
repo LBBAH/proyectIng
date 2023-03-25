@@ -1,10 +1,109 @@
-import { Component } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { AlertNewQuestionSecretComponent } from '../alert-new-question-secret/alert-new-question-secret.component';
+import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { EditUserComponent } from '../edit-user/edit-user.component';
 
 @Component({
   selector: 'app-perfil-usuario',
   templateUrl: './perfil-usuario.component.html',
   styleUrls: ['./perfil-usuario.component.css']
 })
-export class PerfilUsuarioComponent {
+export class PerfilUsuarioComponent implements OnInit{
 
+  private isLoggedIn = new BehaviorSubject<boolean>(false);
+
+  user:any;
+  constructor(
+    private router:Router,
+    private http:HttpClient,
+    private matDialog: MatDialog,
+  ){
+
+  }
+
+  ngOnInit(): void {
+    this.status();
+
+    if(localStorage.getItem('user')!=null){
+      
+      const user:any = localStorage.getItem('user');    
+      const userObj = JSON.parse(user);      
+      const token = userObj.token;
+      var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
+      
+      this.http.get('http://127.0.0.1:8000/api/user',{headers:tokenHeader}).subscribe((res)=>{        
+        this.user=res;
+        console.log(this.user);
+        
+      },(err) =>{
+        console.log(err)
+      });
+
+    }
+  }
+
+  toggleLoginIn(state:boolean):void{
+    this.isLoggedIn.next(state);
+  };
+
+  status(){
+    const localData :any = localStorage.getItem('user');
+    if(!localData){      
+      this.isLoggedIn.next(false);
+      this.router.navigate([''])
+    }else{      
+      const userObj = JSON.parse(localData);
+      const token_expires_at = new Date(userObj.token_expies_at);
+      const current_date = new Date();
+      
+      if(token_expires_at > current_date){
+        this.isLoggedIn.next(true)
+      }else{
+        this.isLoggedIn.next(false);
+        console.log('token expires !!')
+      }
+    }
+  }
+
+  editarUsuario(id_u:any, nombre:any, nombreU:any, email:any, telefon:any){
+    
+    this.matDialog.open(EditUserComponent,
+      {
+        data:{
+          id:id_u,
+          nombre:nombre,
+          nameU:nombreU,
+          correo:email,
+          telefono:telefon
+        },
+        width:"500px",
+        height: "500px"
+      });
+  }
+
+  questionSecret(id_u:any){
+    this.matDialog.open(AlertNewQuestionSecretComponent,
+      {
+        data:{
+          id:id_u
+        },
+        width:"500px",
+        height: "500px"
+      });
+  }
+
+  changePassword(id_u:any){
+    this.matDialog.open(ChangePasswordComponent,
+      {
+        data:{
+          id:id_u
+        },
+        width:"500px",
+        height: "500px"
+      });
+  }
 }

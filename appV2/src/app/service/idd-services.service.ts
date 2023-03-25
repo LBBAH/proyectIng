@@ -54,4 +54,19 @@ export class IddServicesService {
       return this.httpClient.post('http://127.0.0.1:8000/api/respuesta', dataAnswer);
     }
   
+    UpdateUserz(id:any, datosUsuario:any){
+      return this.httpClient.post('http://127.0.0.1:8000/api/updateUser/'+id, datosUsuario);
+    }
+
+    getQuestions(){
+      return this.httpClient.get('http://127.0.0.1:8000/api/getQuestion');
+    }
+
+    addQuestionUser(idUser:any, dataQuestionUser:any){
+      return this.httpClient.post('http://127.0.0.1:8000/api/addQuestionUser/'+idUser, dataQuestionUser);
+    }
+
+    changePassword(idUser:any, dataQuestionUser:any){
+      return this.httpClient.post('http://127.0.0.1:8000/api/changePassword/'+idUser, dataQuestionUser);
+    }
 }

@@ -85,4 +85,8 @@ export class UsersService {
   getRolPrivUser(id_rol:any){
     return this.httpClient.post('http://127.0.0.1:8000/api/rolPrivUser',id_rol);
   }
+
+  getAsociasiones(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getAsociasiones');
+  }
 }

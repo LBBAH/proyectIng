@@ -21,7 +21,7 @@
       <a mat-stroked-button color="primary" [routerLink]="['/singIn']" >Sing in</a>      
     </div>
     <div class="col-md-3 text-end" *ngIf="dataUser">
-      <a mat-raised-button color="primary" [routerLink]="['/login']" style="margin-right: 6px;">{{user.nameUser}}</a>
+      <a mat-raised-button color="primary" (click)="perfilUser(user.id)" style="margin-right: 6px;">{{user.nameUser}}</a>
       <a mat-stroked-button color="primary" (click)="logout()" >LogOut</a>      
     </div>
   </header>

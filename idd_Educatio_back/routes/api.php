@@ -10,6 +10,8 @@ use App\Http\Controllers\RolController;
 use App\Http\Controllers\PrivilegioController;
 use App\Http\Controllers\RolPrivilegioController;
 use App\Http\Controllers\QuestionSecretUserController;
+use App\Http\Controllers\AsociasionesController;
+use App\Http\Controllers\QuestonSecretController;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
@@ -49,7 +51,9 @@ Route::post('updateTypeUser', [UserController::class, 'updateTypeUser']);
 
 Route::get('deleteUser/{id}', [UserController::class, 'deleteUser']);
 
+Route::post('resetPasswordEmail', [UserController::class, 'resetPasswordEmail']);
 
+Route::post('changePassword/{id}', [UserController::class, 'changePassword']);
 
 //--------------------- para los recursos ---------------------//
 Route::get('getTypeRecurs', [Tiporecursocontroller::class, 'getTypeRecurs']);
@@ -96,3 +100,14 @@ Route::delete('deletePrivilegio/{id}', [PrivilegioController::class, 'deletePriv
 //------------------------ PasswordUserReset ------------------------//
 Route::post('questionSecrectUser', [QuestionSecretUserController::class, 'recuperarPregunta']);
 Route::post('respuesta', [QuestionSecretUserController::class, 'respuesta']);
+Route::post('addQuestionUser/{id}', [QuestionSecretUserController::class, 'addQuestionUser']);
+
+
+//--------------------------- Preguntas Secretas ---------------------------//
+
+Route::get('getQuestion', [QuestonSecretController::class, 'getQuestion']);
+
+
+//--------------------------- Preguntas Asociasiones ---------------------------//
+
+Route::get('getAsociasiones', [AsociasionesController::class, 'index']);

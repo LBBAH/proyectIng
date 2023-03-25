@@ -33,6 +33,8 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from 'ng-recaptcha';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { AlertNewQuestionSecretComponent } from './components/alert-new-question-secret/alert-new-question-secret.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -49,7 +51,7 @@ const routes: Routes =[
   {path:'recurso/:id',component:RecursoComponent },
   {path: 'preguntasf', component:PreguntasFComponent},
   {path: 'preguntaSecreta', component:QuestionSecretPasswordComponent},
-  {path: 'perfilU', component:PerfilUsuarioComponent},
+  {path: 'perfilU/:id', component:PerfilUsuarioComponent},
 ];
 
 @NgModule({
@@ -71,6 +73,10 @@ const routes: Routes =[
     ScrollToTopComponent,
     MenuComponent,
     QuestionSecretPasswordComponent,
+    PerfilUsuarioComponent,
+    EditUserComponent,
+    AlertNewQuestionSecretComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

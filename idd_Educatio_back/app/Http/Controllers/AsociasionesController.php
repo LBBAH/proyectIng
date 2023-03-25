@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\QuestonSecret;
+use App\Models\asociasiones;
 use Illuminate\Http\Request;
 
-class QuestonSecretController extends Controller
+class AsociasionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class QuestonSecretController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(asociasiones::all(), 200);
     }
 
     /**
@@ -41,10 +41,10 @@ class QuestonSecretController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\QuestonSecret  $questonSecret
+     * @param  \App\Models\asociasiones  $asociasiones
      * @return \Illuminate\Http\Response
      */
-    public function show(QuestonSecret $questonSecret)
+    public function show(asociasiones $asociasiones)
     {
         //
     }
@@ -52,10 +52,10 @@ class QuestonSecretController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\QuestonSecret  $questonSecret
+     * @param  \App\Models\asociasiones  $asociasiones
      * @return \Illuminate\Http\Response
      */
-    public function edit(QuestonSecret $questonSecret)
+    public function edit(asociasiones $asociasiones)
     {
         //
     }
@@ -64,10 +64,10 @@ class QuestonSecretController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\QuestonSecret  $questonSecret
+     * @param  \App\Models\asociasiones  $asociasiones
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, QuestonSecret $questonSecret)
+    public function update(Request $request, asociasiones $asociasiones)
     {
         //
     }
@@ -75,14 +75,11 @@ class QuestonSecretController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\QuestonSecret  $questonSecret
+     * @param  \App\Models\asociasiones  $asociasiones
      * @return \Illuminate\Http\Response
      */
-    public function destroy(QuestonSecret $questonSecret)
+    public function destroy(asociasiones $asociasiones)
     {
         //
-    }
-    public function getQuestion(){
-        return response()->json(QuestonSecret::all(), 200);
     }
 }

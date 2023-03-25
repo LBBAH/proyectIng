@@ -6,6 +6,7 @@ use App\Models\QuestionSecretUser;
 use Illuminate\Http\Request;
 use App\Models\QuestonSecret;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class QuestionSecretUserController extends Controller
@@ -107,11 +108,21 @@ class QuestionSecretUserController extends Controller
         if(count($question) == 1){
             $user = User::findOrFail($request->id_user);            
             $password=Str::random(8);
-            $user->update(['password'=>$password]);
+            $p=Hash::make($password);
+            $user->update(['password'=>$p]);
             return \response()->json($password);
         }
 
         return response()->json(['error'=>'Error en tu respuesta intenta de nuevo'],200);
+    }
+
+    public function addQuestionUser(Request $request ,$id){        
+        QuestionSecretUser::updateOrCreate(
+            ['id_user' => $id],
+            ['id_questionSecret' => $request->id_questionSecret, 'answer' => $request->answer]
+        );
+
+        return response()->json(['success'=>'Pregunta secreta actualizada con exito'],200);
     }
     
 }

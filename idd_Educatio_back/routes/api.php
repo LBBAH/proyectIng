@@ -1,5 +1,7 @@
 <?php
 
+use App\Console\Commands\DatabaseBackup;
+use App\Console\Kernel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -11,10 +13,16 @@ use App\Http\Controllers\PrivilegioController;
 use App\Http\Controllers\RolPrivilegioController;
 use App\Http\Controllers\QuestionSecretUserController;
 use App\Http\Controllers\AsociasionesController;
+use App\Http\Controllers\BackupsBDController;
 use App\Http\Controllers\QuestonSecretController;
+use App\Http\Controllers\ObjectivosCursoController;
+use App\Http\Controllers\SeccionController;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
+
+
+
 
 
 /*
@@ -65,6 +73,7 @@ Route::get('search', [Tiporecursocontroller::class, 'search']);
 Route::post('addTypeRecurso', [Tiporecursocontroller::class, 'addTypeRecurso']);
 
 Route::post('agregarImg/{id}', [Tiporecursocontroller::class, 'agregarImg']);
+
 
 
 //--------------------- roles ---------------------//
@@ -118,3 +127,22 @@ Route::get('getAsociasiones', [AsociasionesController::class, 'index']);
 //--------------------------- Recursos ---------------------------//
 
 Route::get('getRecursos', [Recursocontroller::class, 'getRecursos']);
+Route::post('getrecurosIdUser', [Recursocontroller::class, 'getrecurosIdUser']);
+
+Route::post('addRecurso', [Recursocontroller::class, 'addRecurso']);
+Route::post('getrecurosEditId', [Recursocontroller::class, 'getrecurosEditId']);
+
+
+//--------------------------- Objetivo cursos ---------------------------//
+
+Route::post('showObejtivoCursoId', [ObjectivosCursoController::class, 'showObejtivoCursoId']);
+
+//--------------------------- Secciones cursos ---------------------------//
+Route::post('showSeccionCursoId', [SeccionController::class, 'showSeccionCursoId']);
+Route::get('handle', [DatabaseBackup::class, 'handle']);
+
+//--------------------------- BackUp ---------------------------//
+
+Route::post('bdRespose', [BackupsBDController::class, 'bdRespose']);
+
+Route::get('index', [BackupsBDController::class, 'index']);

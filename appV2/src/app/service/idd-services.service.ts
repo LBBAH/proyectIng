@@ -69,4 +69,28 @@ export class IddServicesService {
     changePassword(idUser:any, dataQuestionUser:any){
       return this.httpClient.post('http://127.0.0.1:8000/api/changePassword/'+idUser, dataQuestionUser);
     }
+
+    getrecurosIdUser(id:any){
+      return this.httpClient.post('http://127.0.0.1:8000/api/getrecurosIdUser',id);
+    }
+    
+    getAsociasiones(){
+      return this.httpClient.get('http://127.0.0.1:8000/api/getAsociasiones');
+    }
+
+    getTypeRecursos(){
+      return this.httpClient.get('http://127.0.0.1:8000/api/getTypeRecurs');
+    }
+
+    getrecurosEditId(id:any){
+      return this.httpClient.post('http://127.0.0.1:8000/api/getrecurosEditId',id);
+    }
+
+    showObejtivoCursoId(id:any){
+      return this.httpClient.post('http://127.0.0.1:8000/api/showObejtivoCursoId',id);
+    }
+
+    showSeccionCursoId(id:any){
+      return this.httpClient.post('http://127.0.0.1:8000/api/showSeccionCursoId',id);
+    }
 }

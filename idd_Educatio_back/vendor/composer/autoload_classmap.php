@@ -6,12 +6,14 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\DatabaseBackup' => $baseDir . '/app/Console/Commands/DatabaseBackup.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Api\\Auth\\AuthenticationController' => $baseDir . '/app/Http/Controllers/Api/Auth/AuthenticationController.php',
     'App\\Http\\Controllers\\AsociasionesController' => $baseDir . '/app/Http/Controllers/AsociasionesController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\EstadoController' => $baseDir . '/app/Http/Controllers/EstadoController.php',
+    'App\\Http\\Controllers\\ObjectivosCursoController' => $baseDir . '/app/Http/Controllers/ObjectivosCursoController.php',
     'App\\Http\\Controllers\\PrivilegioController' => $baseDir . '/app/Http/Controllers/PrivilegioController.php',
     'App\\Http\\Controllers\\QuestionSecretUserController' => $baseDir . '/app/Http/Controllers/QuestionSecretUserController.php',
     'App\\Http\\Controllers\\QuestonSecretController' => $baseDir . '/app/Http/Controllers/QuestonSecretController.php',
@@ -50,6 +52,7 @@ return array(
     'App\\Models\\Tiporecurso' => $baseDir . '/app/Models/Tiporecurso.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\asociasiones' => $baseDir . '/app/Models/asociasiones.php',
+    'App\\Models\\backupsBD' => $baseDir . '/app/Models/backupsBD.php',
     'App\\Models\\resetPassword' => $baseDir . '/app/Models/resetPassword.php',
     'App\\Models\\rol_Privilegio' => $baseDir . '/app/Models/rol_Privilegio.php',
     'App\\Policies\\PrivilegioPolicy' => $baseDir . '/app/Policies/PrivilegioPolicy.php',

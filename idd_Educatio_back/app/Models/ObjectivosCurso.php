@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ObjectivosCurso extends Model
 {
-    use HasFactory;
+    public $timestamps = false;
+    protected $fillable = ['objetivo'];
 }

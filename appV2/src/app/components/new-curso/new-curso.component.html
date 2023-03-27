@@ -1,0 +1,31 @@
+<form class="p-3" [formGroup]="formNewCurso">
+    <label class="w-100">Nuevo Curso</label>
+    <input class="w-100" formControlName="name">
+    <label class="w-100">Decripcion</label>
+    <input class="w-100" formControlName="Descripcion">
+
+    <label class="w-100">Tipo:</label>
+    <select  formControlName="tipo"  class="w-100">              
+      <option value="gratis">Gratis</option>
+      <option value="paga">Paga</option>
+    </select>  
+    <label class="w-100">Precio (Si es gratis marcar como 0)</label>
+    <input class="w-100" formControlName="precio">
+
+    
+
+    <label class="w-100">Selecciona asociacion:</label>
+    <select  formControlName="id_asociasion"  class="w-100">              
+      <option *ngFor="let item of asociacion" value="{{item.id}}">{{item.asociasion}}</option>
+    </select>  
+
+    <label class="w-100">Selecciona asociacion:</label>
+    <select  formControlName="tipyRec"  class="w-100">              
+      <option *ngFor="let item of typerECURSO" value="{{item.id}}">{{item.name}}</option>
+    </select> 
+
+    <div>
+      <button (click)="closeDialog()">Cerrar</button>
+      <button (click)="registraRol()">Registrar</button>
+    </div>
+</form>

@@ -51,27 +51,24 @@
             </div>
             <div class="d-flex justify-content-between align-items-center mb-4">
               <p class="lead fw-normal mb-0">Tus Cursos</p>
-              <p class="mb-0"><a href="#!" class="text-muted">Show all</a></p>
+              <button type="button" class="btn btn-success mb-0" (click)="newCurso(user.id)">Nuevo curso</button>
             </div>
-            <div class="row g-2">
-              <div class="col mb-2">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
-                  alt="image 1" class="w-100 rounded-3">
-              </div>
-              <div class="col mb-2">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-                  alt="image 1" class="w-100 rounded-3">
-              </div>
-            </div>
-            <div class="row g-2">
-              <div class="col">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                  alt="image 1" class="w-100 rounded-3">
-              </div>
-              <div class="col">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                  alt="image 1" class="w-100 rounded-3">
-              </div>
+            <div class="row d-flex">
+              <div class="col-md-12 col-lg-3 mb-4 mb-lg-0" *ngFor="let item of cursosForIdUser" style="padding-bottom: 10px;" data-aos="zoom-out-up">
+                <div class="card">
+                  <div class="d-flex justify-content-between p-3" style="padding-bottom: 5px;">
+                    <h6>{{item.name}}</h6>            
+                  </div>          
+                    <img src="http://127.0.0.1:8000/img/imgVistaRecursos/{{item.vistaprevia}}" style="width: 100%; height:250px" />
+                  <div class="card-body">          
+                    
+                    <div class="d-flex justify-content-between mb-3">
+                      <button mat-button color="primary" (click)="verCursosId(item.id)" role="button">Editar</button>              
+                      <p  >{{item.tipo}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>     
             </div>
           </div>
         </div>

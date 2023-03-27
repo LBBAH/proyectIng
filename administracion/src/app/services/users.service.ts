@@ -109,4 +109,17 @@ export class UsersService {
     });
   }
 
+  handle(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/handle')
+  }
+
+  bdRespose(dataBd:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/bdRespose',dataBd)
+  }
+
+  bdData(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/index')
+  }
+
+
 }

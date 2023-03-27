@@ -1,0 +1,22 @@
+<div style="margin: 5px; padding:5px">
+    <h1>Gestion de Base de datos</h1>
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">      
+        <button mat-raised-button color="primary" (click)="respaldo()" >Respaldo de base de datos</button>
+      </div>
+      <div class="col-sm d-flex flex-row-reverse">
+        <div class="example-button-container" (click)="refrescar()">
+          <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+            <i class="bi bi-arrow-clockwise"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a >ads</a>
+
+  <a *ngFor="let item of redirectBD" href="{{item.url}}">{{item.name}}ads</a>

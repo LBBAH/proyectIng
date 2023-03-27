@@ -19,9 +19,13 @@ return new class extends Migration
             $table->string('Descripcion');
             $table->string('tipo');
             $table->string('precio');
+            $table->unsignedBigInteger('id_Usuario')->nullable();
+            $table->unsignedBigInteger('id_asociasion')->nullable();
             $table->unsignedBigInteger('id_Estado')->nullable();
             $table->unsignedBigInteger('tipyRec')->nullable();
 
+            $table->foreign('id_Usuario')->references('id')->on('users');
+            $table->foreign('id_asociasion')->references('id')->on('asociasiones');
             $table->foreign('id_Estado')->references('id')->on('estados');
             $table->foreign('tipyRec')->references('id')->on('tiporecursos');        
             $table->string('vistaprevia');

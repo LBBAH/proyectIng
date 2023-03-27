@@ -27,6 +27,7 @@ import { RecursosComponent } from './components/recursos/recursos.component';
 import { TiposRecursosComponent } from './components/tipos-recursos/tipos-recursos.component';
 import { NewTypesRecurComponent } from './components/new-types-recur/new-types-recur.component';
 import { NewImageComponent } from './components/new-image/new-image.component';
+import { BaseDeDatosComponent } from './components/base-de-datos/base-de-datos.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -38,7 +39,8 @@ const routes: Routes =[
   {path:'rolPrivilegio/:id', component:RolPrivilegioComponent},
   {path:'asociasiones', component:AsociacionesComponent},
   {path:'cursos', component:RecursosComponent},
-  {path:'Tipocursos', component:TiposRecursosComponent}
+  {path:'Tipocursos', component:TiposRecursosComponent},
+  {path:'baseDatos', component:BaseDeDatosComponent},
 ];
 
 
@@ -61,7 +63,8 @@ const routes: Routes =[
     RecursosComponent,
     TiposRecursosComponent,
     NewTypesRecurComponent,
-    NewImageComponent
+    NewImageComponent,
+    BaseDeDatosComponent
   ],
   imports: [
     BrowserModule,

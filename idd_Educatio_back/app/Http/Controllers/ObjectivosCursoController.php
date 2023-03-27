@@ -82,4 +82,9 @@ class ObjectivosCursoController extends Controller
     {
         //
     }
+
+    public function showObejtivoCursoId(Request $request){
+        $objetivos=ObjectivosCurso::where('id_curso',$request->id_curso)->get();
+        return \response()->json($objetivos,200);
+    }
 }

@@ -11,7 +11,7 @@ class AuthenticationController extends Controller
 {
     public function login(Request $request){    
         
-        $chochos = User::where('email',$request->email)->where('typeUser',1)->get();
+        $chochos = User::where('email',$request->email)->where('typeUser',1)->orWhere('typeUser',11)->get();
         if(count($chochos) == 1 ){
             $login = $request->validate([
                 'email' => ['required'],

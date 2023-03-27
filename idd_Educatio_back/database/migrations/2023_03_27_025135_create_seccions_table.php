@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('seccions', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->string('plataforma');
+            $table->string('url');
+            $table->unsignedBigInteger('id_curso')->nullable();
+            $table->foreign('id_curso')->references('id')->on('recursos');
             $table->timestamps();
         });
     }

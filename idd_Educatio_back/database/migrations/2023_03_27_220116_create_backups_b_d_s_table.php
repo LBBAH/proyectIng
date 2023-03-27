@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('objectivos_cursos', function (Blueprint $table) {
+        Schema::create('backups_b_d_s', function (Blueprint $table) {
             $table->id();
-            $table->string('objetivo');
-            $table->unsignedBigInteger('id_curso')->nullable();
-            $table->foreign('id_curso')->references('id')->on('recursos');
+            $table->string('name');
+            $table->string('url');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('objectivos_cursos');
+        Schema::dropIfExists('backups_b_d_s');
     }
 };

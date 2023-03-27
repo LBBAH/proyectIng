@@ -42,8 +42,8 @@ export class RecursoComponent implements OnInit {
     this.getrecId();
     AOS.init();
   }
-  verCursosId(id:any){
-
+  verCursosId(id:any){    
+    this.router.navigate(['infoRecurso/', id]); 
   }
 
 }

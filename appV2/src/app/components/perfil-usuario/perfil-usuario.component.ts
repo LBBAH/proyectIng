@@ -3,9 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { IddServicesService } from 'src/app/service/idd-services.service';
 import { AlertNewQuestionSecretComponent } from '../alert-new-question-secret/alert-new-question-secret.component';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { EditUserComponent } from '../edit-user/edit-user.component';
+import { NewCursoComponent } from '../new-curso/new-curso.component';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -16,11 +18,14 @@ export class PerfilUsuarioComponent implements OnInit{
 
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
+  cursosForIdUser:any;
+
   user:any;
   constructor(
     private router:Router,
     private http:HttpClient,
     private matDialog: MatDialog,
+    private dataService: IddServicesService
   ){
 
   }
@@ -33,6 +38,7 @@ export class PerfilUsuarioComponent implements OnInit{
       const user:any = localStorage.getItem('user');    
       const userObj = JSON.parse(user);      
       const token = userObj.token;
+      const id_u = userObj.id;
       var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
       
       this.http.get('http://127.0.0.1:8000/api/user',{headers:tokenHeader}).subscribe((res)=>{        
@@ -42,9 +48,15 @@ export class PerfilUsuarioComponent implements OnInit{
       },(err) =>{
         console.log(err)
       });
+      console.log(id_u)
+      this.dataService.getrecurosIdUser({id:id_u}).subscribe(res=>{
+        console.log(res)
+        this.cursosForIdUser=res
+      })
 
     }
   }
+
 
   toggleLoginIn(state:boolean):void{
     this.isLoggedIn.next(state);
@@ -98,6 +110,20 @@ export class PerfilUsuarioComponent implements OnInit{
 
   changePassword(id_u:any){
     this.matDialog.open(ChangePasswordComponent,
+      {
+        data:{
+          id:id_u
+        },
+        width:"500px",
+        height: "500px"
+      });
+  }
+  verCursosId(id:any){
+    this.router.navigate(['editCursoid/', id]);  
+  }
+
+  newCurso(id_u:any){
+    this.matDialog.open(NewCursoComponent,
       {
         data:{
           id:id_u

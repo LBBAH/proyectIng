@@ -593,12 +593,14 @@ class ComposerStaticInita1a1dbe22dffd0d80812552541e1116f
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\DatabaseBackup' => __DIR__ . '/../..' . '/app/Console/Commands/DatabaseBackup.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Api\\Auth\\AuthenticationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/Auth/AuthenticationController.php',
         'App\\Http\\Controllers\\AsociasionesController' => __DIR__ . '/../..' . '/app/Http/Controllers/AsociasionesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EstadoController' => __DIR__ . '/../..' . '/app/Http/Controllers/EstadoController.php',
+        'App\\Http\\Controllers\\ObjectivosCursoController' => __DIR__ . '/../..' . '/app/Http/Controllers/ObjectivosCursoController.php',
         'App\\Http\\Controllers\\PrivilegioController' => __DIR__ . '/../..' . '/app/Http/Controllers/PrivilegioController.php',
         'App\\Http\\Controllers\\QuestionSecretUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/QuestionSecretUserController.php',
         'App\\Http\\Controllers\\QuestonSecretController' => __DIR__ . '/../..' . '/app/Http/Controllers/QuestonSecretController.php',
@@ -637,6 +639,7 @@ class ComposerStaticInita1a1dbe22dffd0d80812552541e1116f
         'App\\Models\\Tiporecurso' => __DIR__ . '/../..' . '/app/Models/Tiporecurso.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\asociasiones' => __DIR__ . '/../..' . '/app/Models/asociasiones.php',
+        'App\\Models\\backupsBD' => __DIR__ . '/../..' . '/app/Models/backupsBD.php',
         'App\\Models\\resetPassword' => __DIR__ . '/../..' . '/app/Models/resetPassword.php',
         'App\\Models\\rol_Privilegio' => __DIR__ . '/../..' . '/app/Models/rol_Privilegio.php',
         'App\\Policies\\PrivilegioPolicy' => __DIR__ . '/../..' . '/app/Policies/PrivilegioPolicy.php',

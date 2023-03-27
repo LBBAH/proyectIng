@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Seccion;
+use App\Models\backupsBD;
 use Illuminate\Http\Request;
 
-class SeccionController extends Controller
+class BackupsBDController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class SeccionController extends Controller
      */
     public function index()
     {
-        //
+        return \response()->json(backupsBD::all(),200);
     }
 
     /**
@@ -41,10 +41,10 @@ class SeccionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Seccion  $seccion
+     * @param  \App\Models\backupsBD  $backupsBD
      * @return \Illuminate\Http\Response
      */
-    public function show(Seccion $seccion)
+    public function show(backupsBD $backupsBD)
     {
         //
     }
@@ -52,10 +52,10 @@ class SeccionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Seccion  $seccion
+     * @param  \App\Models\backupsBD  $backupsBD
      * @return \Illuminate\Http\Response
      */
-    public function edit(Seccion $seccion)
+    public function edit(backupsBD $backupsBD)
     {
         //
     }
@@ -64,10 +64,10 @@ class SeccionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Seccion  $seccion
+     * @param  \App\Models\backupsBD  $backupsBD
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Seccion $seccion)
+    public function update(Request $request, backupsBD $backupsBD)
     {
         //
     }
@@ -75,16 +75,21 @@ class SeccionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Seccion  $seccion
+     * @param  \App\Models\backupsBD  $backupsBD
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Seccion $seccion)
+    public function destroy(backupsBD $backupsBD)
     {
         //
     }
 
-    public function showSeccionCursoId(Request $request){
-        $objetivos=Seccion::where('id_curso',$request->id_curso)->get();
-        return \response()->json($objetivos,200);
-    }    
+
+    public function bdRespose(Request $request){
+        $newBDrespaldo = new backupsBD ;
+        $newBDrespaldo -> name = $request->name;
+        $newBDrespaldo -> url = $request->url;        
+        $newBDrespaldo -> save();
+
+        return \response()->json($newBDrespaldo,200);
+    }
 }

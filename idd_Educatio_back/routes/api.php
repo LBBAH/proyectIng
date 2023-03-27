@@ -62,6 +62,9 @@ Route::get('getrecurosId/{id}', [Recursocontroller::class, 'getrecurosId']);
 
 Route::get('search', [Tiporecursocontroller::class, 'search']);
 
+Route::post('addTypeRecurso', [Tiporecursocontroller::class, 'addTypeRecurso']);
+
+Route::post('agregarImg/{id}', [Tiporecursocontroller::class, 'agregarImg']);
 
 
 //--------------------- roles ---------------------//
@@ -111,3 +114,7 @@ Route::get('getQuestion', [QuestonSecretController::class, 'getQuestion']);
 //--------------------------- Preguntas Asociasiones ---------------------------//
 
 Route::get('getAsociasiones', [AsociasionesController::class, 'index']);
+
+//--------------------------- Recursos ---------------------------//
+
+Route::get('getRecursos', [Recursocontroller::class, 'getRecursos']);

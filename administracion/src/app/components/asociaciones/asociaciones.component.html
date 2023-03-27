@@ -1,3 +1,22 @@
+<div style="margin: 5px; padding:5px">
+    <h1>Gestion de Asociaciones</h1>
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm d-flex flex-row-reverse">
+      <div class="example-button-container" (click)="refrescar()">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a home icon">
+          <i class="bi bi-arrow-clockwise"></i>
+        </button>
+      </div>
+      <div style="text-align : end;">
+        <button mat-raised-button color="basic" (click)="agregarRol()">Agregar Asociasion</button>
+      </div>    
+    </div>    
+  </div>
+</div>
+
 <div class="mat-elevation-z8 m-2">
     <table mat-table [dataSource]="dataSource">
   

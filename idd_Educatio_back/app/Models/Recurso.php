@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Recurso extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['name', 'Descripcion', 'tipyRec', 'vistaprevia'];
+    protected $fillable = ['name', 'Descripcion', 'tipo', 'precio','tipyRec', 'vistaprevia'];
 }

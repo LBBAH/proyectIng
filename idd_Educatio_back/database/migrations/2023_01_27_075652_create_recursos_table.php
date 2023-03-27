@@ -17,7 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('Descripcion');
-            $table->integer('tipyRec');
+            $table->string('tipo');
+            $table->string('precio');
+            $table->unsignedBigInteger('id_Estado')->nullable();
+            $table->unsignedBigInteger('tipyRec')->nullable();
+
+            $table->foreign('id_Estado')->references('id')->on('estados');
+            $table->foreign('tipyRec')->references('id')->on('tiporecursos');        
             $table->string('vistaprevia');
             $table->timestamps();
         });

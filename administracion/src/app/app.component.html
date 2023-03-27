@@ -68,7 +68,15 @@
     </li>
 
     <li class="nav-item" *ngIf="dataCursos">
-        <a class="nav-link collapsed" [routerLink]="['/privilegios']" data-toggle="collapse" data-target="#collapsePermisos"
+        <a class="nav-link collapsed" [routerLink]="['/Tipocursos']" data-toggle="collapse" data-target="#collapsePermisos"
+            aria-expanded="true" aria-controls="collapseAsociaciones">
+            <i class="bi bi-list-ul"></i>
+            <span>Tipo Cursos</span>
+        </a>    
+    </li>
+
+    <li class="nav-item" *ngIf="dataCursos">
+        <a class="nav-link collapsed" [routerLink]="['/cursos']" data-toggle="collapse" data-target="#collapsePermisos"
             aria-expanded="true" aria-controls="collapseAsociaciones">
             <i class="bi bi-play-btn-fill"></i>
             <span>Cursos</span>
@@ -340,9 +348,8 @@
                   <li class="nav-item dropdown no-arrow">                
                       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
-                          <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.nameUser}}</span>
-                          <img class="img-profile rounded-circle"
-                              src="../assets/img/userProfile.jpg">
+                          <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{user.nameUser}}</span>                          
+                            <img class="img-profile rounded-circle" src="http://127.0.0.1:8000/img/user-male-circle-blue-512.png" alt=""> 
                       </a>
                       <!-- Dropdown - User Information -->
                       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

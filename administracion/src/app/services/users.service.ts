@@ -89,4 +89,24 @@ export class UsersService {
   getAsociasiones(){
     return this.httpClient.get('http://127.0.0.1:8000/api/getAsociasiones');
   }
+
+  getRecursos(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getRecursos');
+  }
+
+  getTypeRecursos(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getTypeRecurs');
+  }
+
+  addTypeRecurso(dataTypeRecurso:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/addTypeRecurso', dataTypeRecurso);
+  }
+
+  agregarImg(id:any, dataImg:any){
+    const headers = new HttpHeaders();
+    return this.httpClient.post('http://127.0.0.1:8000/api/agregarImg/'+id, dataImg,{
+      headers:headers
+    });
+  }
+
 }

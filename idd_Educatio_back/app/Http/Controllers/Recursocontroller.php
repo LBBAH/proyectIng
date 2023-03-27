@@ -8,6 +8,10 @@ use App\Models\Tiporecurso;
 
 class Recursocontroller extends Controller
 {
+    public function getRecursos(){
+        return response()->json(Recurso::all());
+    }
+
     public function getrecurosId($id){
         $band = Recurso::where('tipyRec',$id)->get();  
 

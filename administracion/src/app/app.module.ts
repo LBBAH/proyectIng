@@ -23,6 +23,10 @@ import { DialogEditUserComponent } from './components/dialog-edit-user/dialog-ed
 import { RolPrivilegioComponent } from './components/rol-privilegio/rol-privilegio.component';
 import { LoginComponent } from './components/login/login.component';
 import { AsociacionesComponent } from './components/asociaciones/asociaciones.component';
+import { RecursosComponent } from './components/recursos/recursos.component';
+import { TiposRecursosComponent } from './components/tipos-recursos/tipos-recursos.component';
+import { NewTypesRecurComponent } from './components/new-types-recur/new-types-recur.component';
+import { NewImageComponent } from './components/new-image/new-image.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -32,7 +36,9 @@ const routes: Routes =[
   {path:'roles', component:RolesComponent},
   {path:'privilegios', component:PermisosComponent},
   {path:'rolPrivilegio/:id', component:RolPrivilegioComponent},
-  {path:'asociasiones', component:AsociacionesComponent}
+  {path:'asociasiones', component:AsociacionesComponent},
+  {path:'cursos', component:RecursosComponent},
+  {path:'Tipocursos', component:TiposRecursosComponent}
 ];
 
 
@@ -51,7 +57,11 @@ const routes: Routes =[
     DialogEditUserComponent,
     RolPrivilegioComponent,
     LoginComponent,
-    AsociacionesComponent
+    AsociacionesComponent,
+    RecursosComponent,
+    TiposRecursosComponent,
+    NewTypesRecurComponent,
+    NewImageComponent
   ],
   imports: [
     BrowserModule,

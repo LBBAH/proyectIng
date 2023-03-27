@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { IddServicesService } from 'src/app/service/idd-services.service';
+import * as AOS from 'aos'
 
 @Component({
   selector: 'app-recurso',
@@ -39,6 +40,10 @@ export class RecursoComponent implements OnInit {
 
   ngOnInit(): void {
     this.getrecId();
+    AOS.init();
+  }
+  verCursosId(id:any){
+
   }
 
 }

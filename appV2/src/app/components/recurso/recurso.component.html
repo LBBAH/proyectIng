@@ -1,11 +1,11 @@
-<header class="py-3 border-bottom">
+<header class="py-3 border-bottom ">
   <div class="container d-flex flex-wrap justify-content-center">
     <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
       <nav class="d-flex">
         <h6 class="mb-0">
           <a href="" class="text-reset">Home</a>
           <span>/</span>
-          <a href="" class="text-reset">Recuros</a>           
+          <a href="" class="text-reset">Recursos</a>           
         </h6>
       </nav>
     </a>
@@ -13,20 +13,27 @@
   </div>
 </header>
 
-<div style="padding-top:10px">
-  <h1 class="text-center">Recursos</h1><br>    
-  <app-search></app-search>
-  <div class="container align-items-center justify-content-center" >
-      <div class="row g-5" >
-          <div class="col-md-3 text-center" *ngFor="let item of recurso">
-              <div>
-                  <img src="../assets/img/{{item.vistaprevia}}" width="100" height="auto">
-              </div>            
-              <div>
-                  <a name="" id="" class="btn btn-primary" href="#" role="button">{{item.name}}</a>
-              </div>                                
-              <p class="p-4 mb-3 bg-light">{{item.Descripcion}}</p>
+<section>
+  <div class="container py-5">
+    <h1 class="text-center">Recursos</h1><br>  
+    <div class="row d-flex">
+      <div class="col-md-12 col-lg-3 mb-4 mb-lg-0" *ngFor="let item of recurso" style="padding-bottom: 10px;" data-aos="zoom-out-up">
+        <div class="card">
+          <div class="d-flex justify-content-between p-3" style="padding-bottom: 5px;">
+            <h6>{{item.name}}</h6>            
+          </div>          
+            <img src="http://127.0.0.1:8000/img/imgVistaRecursos/{{item.vistaprevia}}" style="width: 100%; height:250px" />
+          <div class="card-body">          
+            
+            <div class="d-flex justify-content-between mb-3">
+              <button mat-button color="primary" (click)="verCursosId(item.id)" role="button">Ver curso</button>              
+              <p  >{{item.tipo}}</p>
+            </div>
           </div>
-      </div>
-  </div>                
-</div>
+        </div>
+      </div>     
+    </div>
+  </div>
+</section>
+
+

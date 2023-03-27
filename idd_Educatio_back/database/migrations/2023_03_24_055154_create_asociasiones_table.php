@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('asociasion');
             $table->string('correo');
-            $table->string('logo');
             $table->string('Descripcion');
             $table->string('Direccion');
             $table->string('telefono');

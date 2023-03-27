@@ -4,10 +4,6 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogComponent } from '../dialog/dialog.component';
-import { Privilegios } from 'src/app/services/privilegios';
-import { DialogNewPrivilegioComponent } from '../dialog-new-privilegio/dialog-new-privilegio.component';
-import { DialogComfirmComponent } from '../dialog-comfirm/dialog-comfirm.component';
 import { asociacion } from 'src/app/services/asociaciones';
 
 @Component({
@@ -42,5 +38,11 @@ export class AsociacionesComponent {
   }
   asiacionId(id:any){
 
+  }
+  refrescar(){
+
+  }
+  agregarRol(){
+    
   }
 }

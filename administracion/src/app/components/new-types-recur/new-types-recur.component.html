@@ -1,0 +1,12 @@
+<h6>Agregar un tipo de recurso ayuda a clasificar mejor los cursos creados</h6>
+
+<form class="p-3" [formGroup]="formTypeRec" >
+    <label class="w-100" >Nombre tipo recurso</label>
+    <input class="w-100" formControlName="name">
+    <label class="w-100">Descripcion</label>
+    <input type="text" class="w-100" formControlName="description">
+    <div>
+      <button (click)="closeDialog()">Cerrar</button>
+      <button (click)="RegistrarRol()" >Registrar</button>
+    </div>
+  </form>

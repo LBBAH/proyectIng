@@ -31,7 +31,7 @@ class DatabaseBackup extends Command
     {
         $path = storage_path('/app/backup/');
         $filename = 'backup_'.strtotime(now()).".sql";
-        $command = "mysqlduump --user=".env('DB_USERNAME')."--password=".env('DB_PASSWORD')."--host=".env('DB_HOST')."".env('DB:DATABASE').">"."backup/".$filename;
+        $command = "mysqldump --user=".env('DB_USERNAME')."--password=".env('DB_PASSWORD')."--host=".env('DB_HOST')."".env('DB_DATABASE').">"."backup/".$filename;
         exec($command);    
 
         return response()->json($filename, 200);

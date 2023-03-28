@@ -38,6 +38,9 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
 import { NewCursoComponent } from './components/new-curso/new-curso.component';
 import { EditCursoIdComponent } from './components/edit-curso-id/edit-curso-id.component';
 import { InfoRecursoIdComponent } from './components/info-recurso-id/info-recurso-id.component';
+import { NotFountComponent } from './components/not-fount/not-fount.component';
+import { Error400Component } from './components/error400/error400.component';
+import { Error500Component } from './components/error500/error500.component';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -57,6 +60,9 @@ const routes: Routes =[
   {path: 'perfilU/:id', component:PerfilUsuarioComponent},
   {path: 'editCursoid/:id', component:EditCursoIdComponent},
   {path: 'infoRecurso/:id', component:InfoRecursoIdComponent},
+  { path: '**', component:NotFountComponent },    
+  { path: '400', component: Error400Component},
+  { path: '500', component: Error500Component},
 ];
 
 @NgModule({

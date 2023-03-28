@@ -93,4 +93,8 @@ export class IddServicesService {
     showSeccionCursoId(id:any){
       return this.httpClient.post('http://127.0.0.1:8000/api/showSeccionCursoId',id);
     }
+
+    getRolPrivUser(id_rol:any){
+      return this.httpClient.post('http://127.0.0.1:8000/api/rolPrivUser',id_rol);
+    }
 }

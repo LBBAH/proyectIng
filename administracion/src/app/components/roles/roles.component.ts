@@ -20,13 +20,17 @@ import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.co
   styleUrls: ['./roles.component.css']
 })
 export class RolesComponent {
+
+  gestionPermisos:Boolean=false;
+  AgregaRol:Boolean=false;
   displayedColumns: string[] = ['id', 'rol', 'Description', 'option'];
   dataSource: any;
   
 
   constructor(private dataService:UsersService, 
     private router: Router,
-    private matDialog: MatDialog ) {     
+    private matDialog: MatDialog,private serviceAuth:UsersService
+    ) {     
   }
   
   user: any;
@@ -37,6 +41,25 @@ export class RolesComponent {
 
   ngAfterViewInit() {    
     this.getUsersData();
+    if(localStorage.getItem('user')!=null){
+            
+      const user:any = localStorage.getItem('user');    
+      const userObj = JSON.parse(user);      
+      const token = userObj.token;
+      const typeUser = userObj.typeUser;
+      this.serviceAuth.getRolPrivUser({id_rol:typeUser, id_Privilegio:14}).subscribe(res=>{            
+        let arr = Object.entries(res);
+        if(arr[0][0] == "success"){
+          this.gestionPermisos=true
+        }
+      }) 
+      this.serviceAuth.getRolPrivUser({id_rol:typeUser, id_Privilegio:5}).subscribe(res=>{            
+        let arr = Object.entries(res);
+        if(arr[0][0] == "success"){
+          this.AgregaRol=true
+        }
+      }) 
+    }
   }
   getUsersData(){
     this.dataService.getRols().subscribe(res => {

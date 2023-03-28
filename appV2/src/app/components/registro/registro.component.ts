@@ -55,24 +55,6 @@ export class RegistroComponent implements OnInit {
 
   registrarUsuario(): any{
     if(this.formUser.valid){
-
-      /*var alfabeto = 'abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ0123456789-_$&#@';
-      var key = "llaveparacifrar"
-      var password = this.formUser.value.password;
-
-      let cipherText = "";
-      for (let i = 0; i < password.length; i++) {
-        const indexInAbc = alfabeto.indexOf(password[i]);
-        if (indexInAbc < 0) {
-          cipherText += password[i]
-            continue;
-        }
-        let index = indexInAbc + alfabeto.indexOf(key[i]);
-        cipherText += alfabeto[index % alfabeto.length];
-      }
-
-      this.formUser.value.password = cipherText;*/
-
       this.dataService.adduser(this.formUser.value).subscribe(res => {
         let arr = Object.entries(res);
         if(arr[0][0] == "error"){

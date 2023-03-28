@@ -146,3 +146,4 @@ Route::get('handle', [DatabaseBackup::class, 'handle']);
 Route::post('bdRespose', [BackupsBDController::class, 'bdRespose']);
 
 Route::get('index', [BackupsBDController::class, 'index']);
+

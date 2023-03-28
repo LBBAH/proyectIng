@@ -4,7 +4,7 @@
   
 <div class="container">
   <div class="row">
-    <div class="col-sm">      
+    <div class="col-sm" *ngIf="gestionPermisos" >       
       <button mat-raised-button color="primary"(click)="permisos()">Gestionar Permisos</button>
     </div>
     <div class="col-sm d-flex flex-row-reverse">
@@ -13,8 +13,8 @@
           <i class="bi bi-arrow-clockwise"></i>
         </button>
       </div>
-      <div style="text-align : end;">
-        <button mat-raised-button color="basic" (click)="agregarRol()">Agregar Permiso</button>
+      <div style="text-align : end;"  *ngIf="AgregaRol">
+        <button mat-raised-button color="basic" (click)="agregarRol()">Agregar Rol</button>
       </div>    
     </div>
   </div>

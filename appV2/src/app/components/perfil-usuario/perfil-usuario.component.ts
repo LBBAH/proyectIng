@@ -16,6 +16,7 @@ import { NewCursoComponent } from '../new-curso/new-curso.component';
 })
 export class PerfilUsuarioComponent implements OnInit{
 
+  CrearRecursos:Boolean=false;
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
   cursosForIdUser:any;
@@ -39,6 +40,13 @@ export class PerfilUsuarioComponent implements OnInit{
       const userObj = JSON.parse(user);      
       const token = userObj.token;
       const id_u = userObj.id;
+      const typeUser = userObj.typeUser;
+      this.dataService.getRolPrivUser({id_rol:typeUser, id_Privilegio:23}).subscribe(res=>{            
+        let arr = Object.entries(res);
+        if(arr[0][0] == "success"){
+          this.CrearRecursos=true
+        }
+      }) 
       var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
       
       this.http.get('http://127.0.0.1:8000/api/user',{headers:tokenHeader}).subscribe((res)=>{        

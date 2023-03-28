@@ -11,8 +11,15 @@ class AuthenticationController extends Controller
 {
     public function login(Request $request){    
         
-        $chochos = User::where('email',$request->email)->where('typeUser',1)->orWhere('typeUser',11)->get();
-        if(count($chochos) == 1 ){
+        
+
+        $chochos = User::where(function ($query) {
+            $query->where('typeUser', '=', 1)
+                  ->orWhere('typeUser', '=', 11);
+        })->where('email',$request->email)->get();
+
+        
+        if(count($chochos) == 1){
             $login = $request->validate([
                 'email' => ['required'],
                 'password' => ['required'],
@@ -43,7 +50,7 @@ class AuthenticationController extends Controller
             ],200);
         }
 
-        return response()->json(['error' => 'Nivel de acceso no autorizado'], 200);                
+        return response()->json(['error' => 'Nivel de acceso no autorizado'], 200);            
     }
 
     public function loginAdmin(Request $request){    

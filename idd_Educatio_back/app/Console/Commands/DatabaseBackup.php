@@ -29,11 +29,15 @@ class DatabaseBackup extends Command
      */
     public function handle()
     {
-        $path = storage_path('/app/backup/');
-        $filename = 'backup_'.strtotime(now()).".sql";
-        $command = "mysqldump --user=".env('DB_USERNAME')."--password=".env('DB_PASSWORD')."--host=".env('DB_HOST')."".env('DB_DATABASE').">"."backup/".$filename;
-        exec($command);    
-
-        return response()->json($filename, 200);
+        
+        $filename = "backup_.sql";
+        $command = "/opt/lampp/bin/mysqldump --user=".env('DB_USERNAME')." --password=".env('DB_PASSWORD')." --host=".env('DB_HOST')." --databases idd_proyect"." > "."public/backup/".$filename;
+        
+        $returnVar = NULL;
+        $output  = NULL;
+  
+        exec($command, $output, $returnVar);
+        return response()->json($filename);        
+    
     }
 }

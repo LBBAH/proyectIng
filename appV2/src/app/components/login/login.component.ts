@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
     this.matDialog.open(SelectForgetPasswordComponent,
       {        
       width:"500px",
-      height: "100px",
+      height: "150px",
       disableClose: false
     })
   }

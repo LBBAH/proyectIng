@@ -31,6 +31,8 @@
                 </div>
                 <div *ngIf=" _name?.invalid && (_name?.dirty || _name?.touched)" class="alert alert-danger">
                     <div *ngIf="_name?.errors?.['required']">Campo requerido</div>
+                    <div *ngIf="_name?.errors?.['maxlength']">Tamaño maximo revasado</div>
+                    <div *ngIf="_name?.errors?.['pattern']">No introducir caracteres especiales</div>
                 </div>
                 
 
@@ -45,6 +47,8 @@
                 </div>  
                 <div *ngIf="nameUser?.invalid && (nameUser?.dirty || nameUser?.touched )" class="alert alert-danger">
                     <div *ngIf="nameUser?.errors?.['required']">Campo requerido</div>
+                    <div *ngIf="nameUser?.errors?.['mimlength']">Tamaño maximo revasado</div>
+                    <div *ngIf="nameUser?.errors?.['pattern']">No introducir caracteres especiales</div>
                 </div>
 
 
@@ -53,12 +57,13 @@
                         <i class="bi bi-telephone-fill text-white"></i>
                     </span>
                     <div class="form-floating">
-                        <input type="Number" formControlName="phone" class="form-control" placeholder="Telefono">
+                        <input type="phone" formControlName="phone" class="form-control" placeholder="Telefono">
                         <label for="floatingInput">Telefono</label>
                     </div>                    
                 </div>  
                 <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched )" class="alert alert-danger">
                     <div *ngIf="phone?.errors?.['required']">Campo requerido</div>
+                    <div *ngIf="phone?.errors?.['maxlength']">Tamaño maximo de 10 caracteres</div>
                 </div>
 
                 <div class="input-group mb-3">
@@ -73,6 +78,7 @@
                 <div *ngIf="email?.invalid && (email?.dirty || email?.touched )" class="alert alert-danger">
                     <div *ngIf="email?.errors?.['required']">Campo requerido</div>
                     <div *ngIf="email?.errors?.['pattern']">Error sitaxis</div>
+                    <div *ngIf="email?.errors?.['maxlength']">Error sitaxis</div>
                 </div>
                 
                 <div class="input-group mb-3">
@@ -86,7 +92,8 @@
                 </div>
                 <div *ngIf="password?.invalid && (password?.dirty || password?.touched )" class="alert alert-danger">
                     <div *ngIf="password?.errors?.['required']">Campo requerido</div>
-                    <div *ngIf="password?.errors?.['minLength']">Tamaño minimo 8</div>
+                    <div *ngIf="password?.errors?.['minlength']">Tamaño minimo 8</div>
+                    <div *ngIf="password?.errors?.['maxlength']">Caracteres maximo revado</div>
                     <div *ngIf="password?.errors?.['pattern']">Mayusculas y minusculas</div>
                     <div *ngIf="password?.errors?.['pattern']">Numeros y caracteres especiales</div>
                 </div>
@@ -127,7 +134,9 @@
                 <p class="text-center mt-3">¿Ya estas registrado?
                     <a [routerLink]="['/login']">Inicia sesion</a>
                 </p>
-            </form>
+            </form> 
         </div>
     </div>
 </div>
+
+<app-footer data-aos="flip-right"></app-footer>

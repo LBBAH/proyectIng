@@ -33,20 +33,15 @@ export class PerfilUsuarioComponent implements OnInit{
 
   ngOnInit(): void {
     this.status();
+   
 
-    if(localStorage.getItem('user')!=null){
-      
-      const user:any = localStorage.getItem('user');    
+    if(localStorage.getItem('user')!=null){ 
+       const user:any = localStorage.getItem('user');    
       const userObj = JSON.parse(user);      
       const token = userObj.token;
       const id_u = userObj.id;
       const typeUser = userObj.typeUser;
-      this.dataService.getRolPrivUser({id_rol:typeUser, id_Privilegio:23}).subscribe(res=>{            
-        let arr = Object.entries(res);
-        if(arr[0][0] == "success"){
-          this.CrearRecursos=true
-        }
-      }) 
+      console.log(typeUser, id_u)
       var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
       
       this.http.get('http://127.0.0.1:8000/api/user',{headers:tokenHeader}).subscribe((res)=>{        
@@ -57,12 +52,19 @@ export class PerfilUsuarioComponent implements OnInit{
         console.log(err)
       });
       console.log(id_u)
+      this.dataService.getRolPrivUser({id_rol:typeUser, id_Privilegio:23}).subscribe(res=>{            
+        console.log(res)
+        let arr = Object.entries(res);
+        if(arr[0][0] == "success"){
+          this.CrearRecursos=true
+        }
+      }) 
       this.dataService.getrecurosIdUser({id:id_u}).subscribe(res=>{
         console.log(res)
         this.cursosForIdUser=res
       })
-
     }
+    
   }
 
 

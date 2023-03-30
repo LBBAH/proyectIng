@@ -1,8 +1,15 @@
 <form class="p-3" [formGroup]="formPriv" (ngSubmit)="RegistrarPriv()" >
-    <label class="w-100">Nuevo permiso</label>
-    <input class="w-100" formControlName="description">
-    <div>
-      <button (click)="closeDialog()">Cerrar</button>
-      <button (click)="registraRol()">Registrar</button>
+
+  <div class="input-group mb-3">
+    <label for="">Agregar Permisos</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" formControlName="description" placeholder="Nuevo Permiso">
+    <label for="text">Permiso</label>
+  </div>
+   
+    <div class="gap-3 d-md-flex justify-content-md-end mb-3">
+      <button type="button" class="btn btn-danger" (click)="closeDialog()">Cerrar</button>
+      <button type="button" class="btn btn-info" (click)="registraRol()">Registrar</button>
     </div>
 </form>

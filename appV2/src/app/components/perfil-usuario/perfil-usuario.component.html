@@ -54,7 +54,7 @@
               <button type="button"  *ngIf="CrearRecursos" class="btn btn-success mb-0" (click)="newCurso(user.id)">Nuevo curso</button>
             </div>
             <div class="row d-flex" *ngIf="CrearRecursos">
-              <div class="col-md-12 col-lg-3 mb-4 mb-lg-0" *ngFor="let item of cursosForIdUser" style="padding-bottom: 10px;" data-aos="zoom-out-up">
+                <div class="col-md-12 col-lg-3 mb-4 mb-lg-0" *ngFor="let item of cursosForIdUser" style="padding-bottom: 10px;" data-aos="zoom-out-up">
                 <div class="card">
                   <div class="d-flex justify-content-between p-3" style="padding-bottom: 5px;">
                     <h6>{{item.name}}</h6>            

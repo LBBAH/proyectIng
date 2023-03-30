@@ -29,7 +29,7 @@ export class AlertNewQuestionSecretComponent implements OnInit{
   ){  
     this.formNewQuestion=this.formulario.group({      
       id_questionSecret:['', [Validators.required]],
-      answer:['', [Validators.required]],      
+      answer:['', [Validators.required, Validators.maxLength(10), Validators.pattern(/^[a-z\s\u00E0-\u00FC\u00f1]*$/i)]],
     });
    
   }
@@ -51,4 +51,5 @@ export class AlertNewQuestionSecretComponent implements OnInit{
           alert(arr[0][1])
     }) 
   }
+  get answer(){ return this.formNewQuestion.get('answer');}
 }

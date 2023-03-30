@@ -16,8 +16,8 @@ export class RegistroComponent implements OnInit {
   constructor( public formulario:FormBuilder, private dataService:IddServicesService ) { 
     this.formUser=this.formulario.group({
       name:['', [Validators.required, Validators.maxLength(30), Validators.pattern(/^[a-z\s\u00E0-\u00FC\u00f1]*$/i),]],
-      nameUser:['', [Validators.required, Validators.minLength(20), Validators.pattern(/^[a-z\s\u00E0-\u00FC\u00f1]*$/i)]],
-      phone:['', [Validators.required, Validators.maxLength(10)]],
+      nameUser:['', [Validators.required, Validators.maxLength(12), Validators.pattern(/^[a-zA-Z0-9]+$/i)]],
+      phone:['', [Validators.required, Validators.maxLength(10),Validators.pattern(/^[0-9]+$/i)]],
       email:['' , [Validators.required, Validators.maxLength(30), Validators.pattern(this.emailPattern)]],
       password:['', [Validators.required, Validators.minLength(8), Validators.maxLength(10), Validators.pattern(this.passPattern)]],
       confirmpassword:['', [Validators.required]],

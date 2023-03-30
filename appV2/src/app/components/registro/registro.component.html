@@ -47,8 +47,8 @@
                 </div>  
                 <div *ngIf="nameUser?.invalid && (nameUser?.dirty || nameUser?.touched )" class="alert alert-danger">
                     <div *ngIf="nameUser?.errors?.['required']">Campo requerido</div>
-                    <div *ngIf="nameUser?.errors?.['mimlength']">Tamaño maximo revasado</div>
-                    <div *ngIf="nameUser?.errors?.['pattern']">No introducir caracteres especiales</div>
+                    <div *ngIf="nameUser?.errors?.['maxlength']">Tamaño maximo 15 caracteres</div>
+                    <div *ngIf="nameUser?.errors?.['pattern']">No introducir caracteres especiales ni espacios</div>
                 </div>
 
 
@@ -57,13 +57,14 @@
                         <i class="bi bi-telephone-fill text-white"></i>
                     </span>
                     <div class="form-floating">
-                        <input type="phone" formControlName="phone" class="form-control" placeholder="Telefono">
+                        <input type="tel" formControlName="phone" class="form-control" placeholder="Telefono">
                         <label for="floatingInput">Telefono</label>
                     </div>                    
                 </div>  
                 <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched )" class="alert alert-danger">
                     <div *ngIf="phone?.errors?.['required']">Campo requerido</div>
                     <div *ngIf="phone?.errors?.['maxlength']">Tamaño maximo de 10 caracteres</div>
+                    <div *ngIf="phone?.errors?.['pattern']">Solo Numeros</div>
                 </div>
 
                 <div class="input-group mb-3">

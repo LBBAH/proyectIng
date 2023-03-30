@@ -27,10 +27,10 @@ export class NewCursoComponent implements OnInit{
     private router:Router
   ){
     this.formNewCurso=this.formulario.group({      
-      name:['', [Validators.required]],
-      Descripcion:['', [Validators.required]],
+      name:['', [Validators.required,Validators.maxLength(20), Validators.pattern(/^[a-z\s\u00E0-\u00FC\u00f1]*$/i),]],
+      Descripcion:['', [Validators.required, Validators.maxLength(160),Validators.pattern(/^[a-z\s\u00E0-\u00FC\u00f1]*$/i)]],
       tipo:['', [Validators.required]],
-      precio:['', [Validators.required]],
+      precio:['', [Validators.required, Validators.pattern(/^[0-9]+$/i)]],
       id_Usuario:['', [Validators.required]],
       id_asociasion:['', [Validators.required]],
       tipyRec:['', [Validators.required]],
@@ -52,9 +52,22 @@ export class NewCursoComponent implements OnInit{
 
   }
   registraRol(){
-    this.formNewCurso.get('id_Usuario')?.setValue(this.data.id)
+    if(this.formNewCurso.valid){
+      this.formNewCurso.get('id_Usuario')?.setValue(this.data.id)
 
 
     console.log(this.formNewCurso.value)
+    }
+    alert("llene todos los campos correctamente")
+    
   }
+
+
+  get name(){ return this.formNewCurso.get('name');}
+  get Descripcion(){ return this.formNewCurso.get('Descripcion');}
+  get tipo(){ return this.formNewCurso.get('tipo');}
+  get precio(){ return this.formNewCurso.get('precio');}
+  get id_Usuario(){ return this.formNewCurso.get('id_Usuario');}
+  get id_asociasion(){ return this.formNewCurso.get('id_asociasion');}
+  get tipyRec(){ return this.formNewCurso.get('tipyRec0');}
 }

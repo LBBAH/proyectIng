@@ -45,6 +45,7 @@ class AuthenticationController extends Controller
                 'nameUser'=>$user->nameUser,
                 'email'=>$user->email,
                 'phone'=>$user->phone,
+                'typeUser'=>$user->typeUser,
                 'token'=>$token->accessToken,
                 'token_expies_at'=>$token->token->expires_at,
             ],200);

@@ -12,6 +12,7 @@ import { IddServicesService } from 'src/app/service/idd-services.service';
 })
 export class ChangePasswordComponent {
 
+  private passPattern: any = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[ -/:-@\[-`{-~]).{6,64}$/;
   formChangePass:FormGroup;
 
   constructor(
@@ -28,7 +29,7 @@ export class ChangePasswordComponent {
   ){  
     this.formChangePass=this.formulario.group({      
       passwordBefore:['', [Validators.required]],
-      passwordNew:['', [Validators.required]],      
+      passwordNew:['', [Validators.required, Validators.minLength(8), Validators.maxLength(10), Validators.pattern(this.passPattern)]],
     });
    
   }
@@ -49,4 +50,5 @@ export class ChangePasswordComponent {
         }
     })
   }
+  get passwordNew(){ return this.formChangePass.get('passwordNew');}
 }

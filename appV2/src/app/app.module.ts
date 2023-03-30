@@ -41,6 +41,10 @@ import { InfoRecursoIdComponent } from './components/info-recurso-id/info-recurs
 import { NotFountComponent } from './components/not-fount/not-fount.component';
 import { Error400Component } from './components/error400/error400.component';
 import { Error500Component } from './components/error500/error500.component';
+import { StickyMessageComponent } from './components/sticky-message/sticky-message.component';
+import { BannerComponent } from './components/banner/banner.component';
+
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 const routes: Routes =[
   {path:'', pathMatch:'full', redirectTo:'home'},
@@ -60,9 +64,9 @@ const routes: Routes =[
   {path: 'perfilU/:id', component:PerfilUsuarioComponent},
   {path: 'editCursoid/:id', component:EditCursoIdComponent},
   {path: 'infoRecurso/:id', component:InfoRecursoIdComponent},
-  { path: '**', component:NotFountComponent },    
   { path: '400', component: Error400Component},
   { path: '500', component: Error500Component},
+  { path: '**', component:NotFountComponent },    
 ];
 
 @NgModule({
@@ -90,7 +94,9 @@ const routes: Routes =[
     ChangePasswordComponent,
     NewCursoComponent,
     EditCursoIdComponent,
-    InfoRecursoIdComponent
+    InfoRecursoIdComponent,
+    StickyMessageComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +113,9 @@ const routes: Routes =[
     
     RouterModule.forRoot(
       routes
-    )
+    ),
+    
+    
   ],
   providers: [
     {

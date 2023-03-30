@@ -1,8 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { IddServicesService } from './service/idd-services.service';
+import { Router, NavigationEnd } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
@@ -16,8 +18,10 @@ export class AppComponent implements OnInit {
   logOutUser:Boolean=true;
 
   private isLoggedIn = new BehaviorSubject<boolean>(false);
+
+  constructor (private http:HttpClient, private serviceAuth:IddServicesService, private router:Router){
     
-  constructor (private http:HttpClient, private serviceAuth:IddServicesService, private router:Router){}
+  }
 
   toggleLoginIn(state:boolean):void{
     this.isLoggedIn.next(state);

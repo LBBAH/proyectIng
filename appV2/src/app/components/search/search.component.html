@@ -9,7 +9,7 @@
            [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="SelectBand($event.option.value)">
       <mat-option *ngFor="let option of FinalData | async" [value]="option.name">
-        <a href="recurso/{{ option.id }}" style="text-decoration: none ">{{ option.name }}</a>
+        <p style="text-decoration: none" (click)="redirecRecursos(option.id)">{{ option.name }}</p>
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>

@@ -96,7 +96,11 @@ const routes: Routes =[
     EditCursoIdComponent,
     InfoRecursoIdComponent,
     StickyMessageComponent,
-    BannerComponent
+    BannerComponent,
+    Error400Component,
+    Error500Component,
+    NotFountComponent,
+    QuienesSomosComponent
   ],
   imports: [
     BrowserModule,

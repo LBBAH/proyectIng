@@ -37,7 +37,7 @@ export class BaseDeDatosComponent implements OnInit{
       this.redirectBD=res   
       console.log(this.redirectBD)      
     });
-    this.serviceAuth.bdRespose({name:this.redirectBD, url:'http://127.0.0.1:8000/backup/backup_.sql'}).subscribe(res=>{
+    this.serviceAuth.bdRespose({name:this.redirectBD, url:'https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/backup/backup_.sql'}).subscribe(res=>{
       console.log(res)    
     })
     this.serviceAuth.bdData().subscribe(res=>{

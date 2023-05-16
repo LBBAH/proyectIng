@@ -100,8 +100,7 @@ class RolController extends Controller
         $res = Rol::select('rols.id')
         ->whereIn('rols.id', function($query){
             $query->select('typeUser')->from('users');
-        })->where('id', $id)->get()
-        ;
+        })->where('id', $id)->get();
 
         if(count($res)){
             return response()->json(['error'=>'No se puede eliminar ya que afecta a otros registros'], 200);

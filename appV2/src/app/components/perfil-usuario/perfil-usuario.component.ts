@@ -44,7 +44,7 @@ export class PerfilUsuarioComponent implements OnInit{
       console.log(typeUser, id_u)
       var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
       
-      this.http.get('http://127.0.0.1:8000/api/user',{headers:tokenHeader}).subscribe((res)=>{        
+      this.http.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/user',{headers:tokenHeader}).subscribe((res)=>{        
         this.user=res;
         console.log(this.user);
         

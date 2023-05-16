@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { IddServicesService } from 'src/app/service/idd-services.service';
@@ -16,7 +17,8 @@ export class SearchComponent implements OnInit{
 
   FinalData !: Observable<tipoRecurso[]>;
 
-  constructor(private service:IddServicesService) { 
+  constructor(private service:IddServicesService,
+    private router :Router) { 
     this.service.search().subscribe(item =>{
       this.options=item;
     })
@@ -39,6 +41,10 @@ export class SearchComponent implements OnInit{
   private _filter(name:string):tipoRecurso[]{
     const filterValue=name.toLocaleLowerCase();
     return this.options.filter(opt=>opt.name.toLocaleLowerCase().includes(filterValue));
+  }
+
+  redirecRecursos(id:any){
+    this.router.navigate(['recurso/',id])
   }
 
 }

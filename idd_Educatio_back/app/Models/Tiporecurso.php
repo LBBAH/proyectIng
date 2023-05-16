@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Tiporecurso extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['name', 'Descripcion', 'img'];
+    protected $fillable = ['name', 'descripcion', 'img'];
 }

@@ -10,27 +10,26 @@ use App\Models\User;
 class AuthenticationController extends Controller
 {
     public function login(Request $request){    
-        
-        
-
-        $chochos = User::where(function ($query) {
+                
+        /*$chochos = User::where(function ($query) {
             $query->where('typeUser', '=', 1)
                   ->orWhere('typeUser', '=', 11);
-        })->where('email',$request->email)->get();
+        })->where('email',$request->email)->get();*/
 
+        $chochos = User::where(function ($query) use ($request) {
+            $query->where('typeUser', '=', 1)
+                  ->orWhere('typeUser', '=', 5);
+        })->where('email', $request->email)->get();
         
-        if(count($chochos) == 1){
+        if($chochos){
             $login = $request->validate([
                 'email' => ['required'],
                 'password' => ['required'],
             ]);
             
-    
-            
             if(!Auth::guard()->attempt($login)){
                 return response()->json(['error' => 'Usuario no encontrado'], 200);
-            }
-                
+            }  
             
             /**
              * @var User $user

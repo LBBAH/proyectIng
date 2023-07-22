@@ -58,7 +58,7 @@
                         </div>
                         <div style="padding-left: 100px;">
                                 <div>
-                                        <button type="button" class="btn btn-primary" (click)="verCursosId(item.id)">Cursos</button>
+                                        <button type="button" class="btn btn-primary" (click)="verCursosId(item.id,item.name)">Ver</button>
                                 </div>
                         </div>                                                
                 </div>
@@ -67,6 +67,11 @@
         </div>        
       </div>     
     </div>
+  </div>
+  <div class="container">
+    <p>Paginas</p>
+    <button class="btn btn-outline-primary"  (click)="cambiarPagina(currentPage - 1)" [disabled]="currentPage === 1"><i class="bi bi-arrow-left-circle-fill"></i> anterior</button>
+    <button class="btn btn-outline-primary"  (click)="cambiarPagina(currentPage + 1)">Siguiente<i class="bi bi-arrow-right-circle-fill"></i></button>
   </div>
 </section>
 

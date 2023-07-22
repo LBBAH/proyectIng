@@ -7,7 +7,10 @@ use App\Models\Tiporecurso;
 
 class Tiporecursocontroller extends Controller
 {
-    public function getTypeRecurs(){
+    public function getTypeRecurs(Request $request){
+
+        
+
         return response()->json(Tiporecurso::all(), 200);
     }
 

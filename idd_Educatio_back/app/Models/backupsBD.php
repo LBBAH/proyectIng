@@ -9,4 +9,5 @@ class backupsBD extends Model
 {
     public $timestamps = false;
     protected $fillable = ['name','url'];
+    
 }

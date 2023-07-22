@@ -8,12 +8,42 @@ use App\Models\Tiporecurso;
 
 class Recursocontroller extends Controller
 {
-    public function getRecursos(){
+    public function getRecursos(Request $request){
+    
         return response()->json(Recurso::all());
     }
 
-    public function getrecurosId($id){
-        $band = Recurso::where('tipyRec',$id)->where('id_Estado','!=',1)->get();  
+
+    public function getrecurosUsersId(Request $request, $id){
+
+        $perPage = $request->input('per_page', 20); // Obtiene el número de elementos por página, con un valor predeterminado de 20
+        $datos = Recurso::where('id_Usuario',$id)->paginate($perPage);
+           
+        /*$band2 = Tiporecurso::find($id);
+
+        if(is_null($band2)) {
+            return response()->json(['warning' => 'Error 400 de peticion']);
+        }*/
+        
+        return response()->json($datos);
+      
+    }
+
+    public function getrecurosId(Request $request, $id){
+
+        $perPage = $request->input('per_page', 20); // Obtiene el número de elementos por página, con un valor predeterminado de 20
+        $datos = Recurso::where('tipyRec',$id)->where('id_Estado','!=',1)->paginate($perPage)   ;
+           
+        $band2 = Tiporecurso::find($id);
+
+        if(is_null($band2)) {
+            return response()->json(['warning' => 'Error 400 de peticion']);
+        }
+        
+        return response()->json($datos);
+
+
+        /*$band = Recurso::where('tipyRec',$id)->where('id_Estado','!=',1)->get();  
 
         $band2 = Tiporecurso::find($id);
 
@@ -21,7 +51,7 @@ class Recursocontroller extends Controller
             return response()->json(['warning' => 'Error 400 de peticion']);
         }
 
-        return \response()->json($band);
+        return \response()->json($band);*/
     }
 
     public function getrecurosEditId(Request $request){
@@ -62,9 +92,28 @@ class Recursocontroller extends Controller
                     return response()->json(['success' => 'Registrado con exito buscalo entre tus cursos para publicarlo'], 200);
         }else{
             return response()->json(['error' => 'Curso ya registrado'], 200);
-        }
+        }     
+    }
 
+
+    public function searchRecursos(Request $request){
         
+        $posts = Recurso::where('name', 'LIKE', '%'.$request->name.'%')->get();
+        
+        return \response()->json($posts);
+    }
+
+    public function obtenerDatos(Request $request)
+    {
+        $data = $request->json()->all(); // Obtener el contenido JSON de la solicitud como un array
+
+        $valores = array_column($data, 'nombre'); // Obtener los valores del campo 'nombre'
+
+        // Realizar la consulta a la base de datos utilizando los valores
+        $resultados = Recurso::whereIn('name', $valores)->get();
+
+        // Retornar los resultados en la respuesta de la API
+        return response()->json($resultados);       
     }
 
 }

@@ -16,8 +16,9 @@ use App\Http\Controllers\AsociasionesController;
 use App\Http\Controllers\BackupsBDController;
 use App\Http\Controllers\QuestonSecretController;
 use App\Http\Controllers\ObjectivosCursoController;
-use App\Http\Controllers\SeccionController;
-
+use App\Http\Controllers\EtiquetaController;
+use App\Http\Controllers\EtiquetaCursoController;
+use App\Http\Controllers\CourseController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
 
@@ -65,6 +66,8 @@ Route::post('changePassword/{id}', [UserController::class, 'changePassword']);
 
 //--------------------- para los recursos ---------------------//
 Route::get('getTypeRecurs', [Tiporecursocontroller::class, 'getTypeRecurs']);
+
+Route::get('getrecurosUsersId/{id}', [Recursocontroller::class, 'getrecurosUsersId']);
 
 Route::get('getrecurosId/{id}', [Recursocontroller::class, 'getrecurosId']);
 
@@ -131,6 +134,7 @@ Route::post('getrecurosIdUser', [Recursocontroller::class, 'getrecurosIdUser']);
 
 Route::post('addRecurso', [Recursocontroller::class, 'addRecurso']);
 Route::post('getrecurosEditId', [Recursocontroller::class, 'getrecurosEditId']);
+Route::get('searchRecursos', [Recursocontroller::class, 'searchRecursos']);
 
 
 //--------------------------- Objetivo cursos ---------------------------//
@@ -146,4 +150,9 @@ Route::get('handle', [DatabaseBackup::class, 'handle']);
 Route::post('bdRespose', [BackupsBDController::class, 'bdRespose']);
 
 Route::get('index', [BackupsBDController::class, 'index']);
+
+Route::get('etiquetasCursos', [EtiquetaCursoController::class, 'index']);
+
+Route::post('getDatML', [Recursocontroller::class, 'obtenerDatos']);
+Route::get('getDataIngles', [CourseController::class, 'obtenerDatosIngles']);
 

@@ -2,24 +2,31 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { IddServicesService } from './service/idd-services.service';
-import { Router, NavigationEnd } from '@angular/router';
-
+import { Router } from '@angular/router';
+import { LocalStorageServiceService } from 'src/app/service/local-storage-service.service';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [LocalStorageServiceService]
 })
 export class AppComponent implements OnInit {
   user:any;
   dataUser:Boolean=false;
   RegisterLogin:Boolean=true;
   logOutUser:Boolean=true;
+  dataML:any;
+  valoresCampo: any[] = []; // Array para almacenar los valores
+  recurso:any;
 
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
-  constructor (private http:HttpClient, private serviceAuth:IddServicesService, private router:Router){
+  constructor (private http:HttpClient, 
+    private serviceAuth:IddServicesService, 
+    private router:Router,
+    private LocalStorageServiceService: LocalStorageServiceService){
     
   }
 
@@ -54,6 +61,9 @@ export class AppComponent implements OnInit {
   
 
   ngOnInit(): void {
+
+
+
     this.status();
     if(localStorage.getItem('user')!=null){
       const user:any = localStorage.getItem('user');    
@@ -70,11 +80,37 @@ export class AppComponent implements OnInit {
       });
 
     }else{
-
       this.dataUser= false;
       this.RegisterLogin= true;
       console.log(this.dataUser,this.RegisterLogin);
     }
+
+    
+    
+  }
+
+  getDataLS(){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    const options = { headers: headers };
+
+    const data = this.LocalStorageServiceService.getItem('myData');
+    const titulo = data.title
+    console.log(data.title);
+    this.serviceAuth.getDataML(titulo,options).subscribe(
+      (response) => {
+        console.log(response)
+        this.valoresCampo = response;
+        this.serviceAuth.obtenerDatos(this.valoresCampo).subscribe((res)=>{
+          console.log(res)
+          this.recurso=res;
+        })
+        console.log(this.valoresCampo)
+      }
+    )
+        
   }
     
   perfilUser(id:any){

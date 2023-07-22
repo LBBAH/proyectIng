@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { IddServicesService } from 'src/app/service/idd-services.service';
 import { AlertNewQuestionSecretComponent } from '../alert-new-question-secret/alert-new-question-secret.component';
 import { ChangePasswordComponent } from '../change-password/change-password.component';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { NewCursoComponent } from '../new-curso/new-curso.component';
+import * as AOS from 'aos'
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -19,19 +20,52 @@ export class PerfilUsuarioComponent implements OnInit{
   CrearRecursos:Boolean=false;
   private isLoggedIn = new BehaviorSubject<boolean>(false);
 
+  id:any;
   cursosForIdUser:any;
+  recurso:any;
+  currentPage = 1;
+
 
   user:any;
   constructor(
     private router:Router,
     private http:HttpClient,
     private matDialog: MatDialog,
-    private dataService: IddServicesService
+    private dataService: IddServicesService,
+    private activeRouter:ActivatedRoute
   ){
 
   }
 
+  obtenerDatosPaginados(idBusqueda: number, page: number): void {
+    this.dataService.obtenerDatosPaginados(idBusqueda, page).subscribe(
+      response => {
+        let array = Object.entries(response);        
+        if(array[0][0]=="warning"){
+          this.router.navigate(['400']);
+        }else{
+          console.log(response.data)
+          this.cursosForIdUser=response.data;        
+        }    
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
+  cambiarPagina(page: number): void {
+    this.currentPage = page;
+    this.obtenerDatosPaginados(page, this.id);
+  }
+
+  buscarPorId(id: string): void {
+    this.id = id;
+    this.obtenerDatosPaginados(this.currentPage, this.id);
+  }
+
   ngOnInit(): void {
+    AOS.init();
     this.status();
    
 
@@ -58,13 +92,9 @@ export class PerfilUsuarioComponent implements OnInit{
         if(arr[0][0] == "success"){
           this.CrearRecursos=true
         }
-      }) 
-      this.dataService.getrecurosIdUser({id:id_u}).subscribe(res=>{
-        console.log(res)
-        this.cursosForIdUser=res
-      })
+      })     
     }
-    
+    this.obtenerDatosPaginados(this.currentPage, this.id);
   }
 
 
@@ -142,4 +172,6 @@ export class PerfilUsuarioComponent implements OnInit{
         height: "500px"
       });
   }
+
+  
 }

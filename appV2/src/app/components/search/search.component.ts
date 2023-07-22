@@ -5,26 +5,78 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { IddServicesService } from 'src/app/service/idd-services.service';
 import { tipoRecurso } from 'src/app/service/tiporecurso';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { LocalStorageServiceService } from 'src/app/service/local-storage-service.service';
+import { HttpHeaders } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styleUrls: ['./search.component.css'],
+  providers: [LocalStorageServiceService],
 })
-export class SearchComponent implements OnInit{
-  myControl = new FormControl('');
-  options !: tipoRecurso[];
+export class SearchComponent {
 
-  FinalData !: Observable<tipoRecurso[]>;
+  resultados: any[] = [];
+  recursoSee:any;
+  titulosee:any;
+  valoresCampo: any[] = [];
 
-  constructor(private service:IddServicesService,
+  private busquedaSubject = new Subject<string>();
+
+
+  constructor(private nameServicio: IddServicesService,
+    private router: Router,
+    private LocalStorageServiceService: LocalStorageServiceService) {}
+
+  ngOnInit(): void {  
+    this.busquedaSubject.pipe(
+      debounceTime(300),
+      distinctUntilChanged(),
+      switchMap((name: string) => 
+      {
+        if (name.trim() === '') {
+          this.resultados = []; // Borra los resultados si el campo de entrada está vacío
+          return [];
+        } else {
+          return this.nameServicio.buscarPorNombre(name);
+        }
+      })
+    ).subscribe((response) => {
+      this.resultados = response;
+      console.log(response)
+    });
+  }
+
+  
+
+  buscar(name: string): void {
+    this.busquedaSubject.next(name);  
+  }
+
+
+  cursoId(id:any, title:any){    
+    const data = { title: title };
+    this.LocalStorageServiceService.setItem('myData', data);    
+    this.router.navigate(['infoRecurso/', id]); 
+  }
+}
+  //myControl = new FormControl('');
+  //options !: tipoRecurso[];
+
+  //FinalData !: Observable<tipoRecurso[]>;
+
+  /*constructor(private service:IddServicesService,
     private router :Router) { 
     this.service.search().subscribe(item =>{
       this.options=item;
     })
-  }
+  }*/
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.FinalData=this.myControl.valueChanges.pipe(
       startWith(''),
       map(item=>{
@@ -32,19 +84,20 @@ export class SearchComponent implements OnInit{
         return name?this._filter(name as string):this.options
       })
     )
-  }
+  }*/
 
-  SelectBand(name:any){
+  /*SelectBand(name:any){
     console.log(name);
-  }
+  }*/
 
-  private _filter(name:string):tipoRecurso[]{
+  /*private _filter(name:string):tipoRecurso[]{
     const filterValue=name.toLocaleLowerCase();
     return this.options.filter(opt=>opt.name.toLocaleLowerCase().includes(filterValue));
   }
 
   redirecRecursos(id:any){
     this.router.navigate(['recurso/',id])
+<<<<<<< Updated upstream
   }
-
-}
+=======
+  }*/

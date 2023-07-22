@@ -28,6 +28,7 @@ import { ScrollToTopComponent } from './components/scroll-to-top/scroll-to-top.c
 import { MenuComponent } from './components/menu/menu.component';
 import { QuestionSecretPasswordComponent } from './components/question-secret-password/question-secret-password.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
+import { Injectable, Inject } from '@angular/core';
 
  
 import {RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module} from 'ng-recaptcha';

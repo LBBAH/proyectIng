@@ -11,29 +11,53 @@ export class IddServicesService {
 
   constructor( private httpClient: HttpClient ) { }
     
+  private apiUrl = 'http://127.0.0.1:8000/api';
+
+  private apiUrlML = 'http://127.0.0.1:5000//api/recomendaciones?titulo=';
+
   
     getData(){
-      return this.httpClient.get('http://127.0.0.1:8000/api/Usuarios');
+      return this.httpClient.get(`${this.apiUrl}/Usuarios`);
+    }
+
+    getDataML(title:any, options:any){
+      return this.httpClient.post<any>(`${this.apiUrlML}${title}`, options);
     }
   
     adduser(datosUsuario:any) {
-      return this.httpClient.post('http://127.0.0.1:8000/api/addUser', datosUsuario);
+      return this.httpClient.post(`${this.apiUrl}/addUser`, datosUsuario);
+    }
+
+    obtenerDatos(datosML:any) {
+      return this.httpClient.post(`${this.apiUrl}/getDatML`, datosML);
     }
   
     login(datosUsuario:any) {
-      return this.httpClient.post('http://127.0.0.1:8000/api/login', datosUsuario);
+      return this.httpClient.post(`${this.apiUrl}/login`, datosUsuario);
     }
-  
+     
     getTypeRecurs() {
-      return this.httpClient.get('http://127.0.0.1:8000/api/getTypeRecurs');
+      return this.httpClient.get(`${this.apiUrl}/getTypeRecurs`);
+    }
+
+    obtenerDatosPaginadosUseridurso(id:any, page: number): Observable<any> {
+      return this.httpClient.get(`${this.apiUrl}/getrecurosUsersId/`+id+`?page=${page}&per_page=20`);
+    }
+
+    obtenerDatosPaginados(id:any, page: number): Observable<any> {
+      return this.httpClient.get(`${this.apiUrl}/getrecurosId/`+id+`?page=${page}&per_page=20`);
     }
   
     findBandId(id:any):Observable<Recurso[]>{
-      return this.httpClient.get<Recurso[]>('http://127.0.0.1:8000/api/getrecurosId/'+id);
+      return this.httpClient.get<Recurso[]>(`${this.apiUrl}/getrecurosId/`+id);
+    }
+
+    buscarPorNombre(name: string): Observable<any> {
+      return this.httpClient.get(`${this.apiUrl}/searchRecursos?name=${name}`);
     }
   
     search():Observable<tipoRecurso[]>{
-      return this.httpClient.get<tipoRecurso[]>('http://127.0.0.1:8000/api/search');
+      return this.httpClient.get<tipoRecurso[]>(`${this.apiUrl}/search`);
     }
 
     logout(allDevice: boolean){
@@ -43,58 +67,58 @@ export class IddServicesService {
       const token = userObj.token;
   
       var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
-      return this.httpClient.post('http://127.0.0.1:8000/api/logout',{allDevice:allDevice},{headers: tokenHeader})
+      return this.httpClient.post(`${this.apiUrl}/logout`,{allDevice:allDevice},{headers: tokenHeader})
     }
 
     passwordQuestionSecret(email:any) {
-      return this.httpClient.post('http://127.0.0.1:8000/api/questionSecrectUser', email);
+      return this.httpClient.post(`${this.apiUrl}/questionSecrectUser`, email);
     }
 
     anserQuestionSecret(dataAnswer:any) {
-      return this.httpClient.post('http://127.0.0.1:8000/api/respuesta', dataAnswer);
+      return this.httpClient.post(`${this.apiUrl}/respuesta`, dataAnswer);
     }
   
     UpdateUserz(id:any, datosUsuario:any){
-      return this.httpClient.post('http://127.0.0.1:8000/api/updateUser/'+id, datosUsuario);
+      return this.httpClient.post(`${this.apiUrl}/updateUser/`+id, datosUsuario);
     }
 
     getQuestions(){
-      return this.httpClient.get('http://127.0.0.1:8000/api/getQuestion');
+      return this.httpClient.get(`${this.apiUrl}/getQuestion`);
     }
 
     addQuestionUser(idUser:any, dataQuestionUser:any){
-      return this.httpClient.post('http://127.0.0.1:8000/api/addQuestionUser/'+idUser, dataQuestionUser);
+      return this.httpClient.post(`${this.apiUrl}/addQuestionUser/`+idUser, dataQuestionUser);
     }
 
     changePassword(idUser:any, dataQuestionUser:any){
-      return this.httpClient.post('http://127.0.0.1:8000/api/changePassword/'+idUser, dataQuestionUser);
+      return this.httpClient.post(`${this.apiUrl}/changePassword/`+idUser, dataQuestionUser);
     }
 
     getrecurosIdUser(id:any){
-      return this.httpClient.post('http://127.0.0.1:8000/api/getrecurosIdUser',id);
+      return this.httpClient.post(`${this.apiUrl}/api/getrecurosIdUser`,id);
     }
     
     getAsociasiones(){
-      return this.httpClient.get('http://127.0.0.1:8000/api/getAsociasiones');
+      return this.httpClient.get(`${this.apiUrl}/getAsociasiones`);
     }
 
     getTypeRecursos(){
-      return this.httpClient.get('http://127.0.0.1:8000/api/getTypeRecurs');
+      return this.httpClient.get(`${this.apiUrl}/getTypeRecurs`);
     }
 
     getrecurosEditId(id:any){
-      return this.httpClient.post('http://127.0.0.1:8000/api/getrecurosEditId',id);
+      return this.httpClient.post(`${this.apiUrl}/getrecurosEditId`,id);
     }
 
     showObejtivoCursoId(id:any){
-      return this.httpClient.post('http://127.0.0.1:8000/api/showObejtivoCursoId',id);
+      return this.httpClient.post(`${this.apiUrl}/showObejtivoCursoId`,id);
     }
 
     showSeccionCursoId(id:any){
-      return this.httpClient.post('http://127.0.0.1:8000/api/showSeccionCursoId',id);
+      return this.httpClient.post(`${this.apiUrl}/showSeccionCursoId`,id);
     }
 
     getRolPrivUser(id_rol:any){
-      return this.httpClient.post('http://127.0.0.1:8000/api/rolPrivUser',id_rol);
+      return this.httpClient.post(`${this.apiUrl}/rolPrivUser`,id_rol);
     }
 }

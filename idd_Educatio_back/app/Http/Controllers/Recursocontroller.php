@@ -32,7 +32,7 @@ class Recursocontroller extends Controller
     public function getrecurosId(Request $request, $id){
 
         $perPage = $request->input('per_page', 20); // Obtiene el número de elementos por página, con un valor predeterminado de 20
-        $datos = Recurso::where('tipyRec',$id)->where('id_Estado','!=',1)->paginate($perPage)   ;
+        $datos = Recurso::where('tipyRec','=' ,$id)->where('id_Estado','!=',1)->paginate($perPage)   ;
            
         $band2 = Tiporecurso::find($id);
 

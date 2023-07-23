@@ -1,0 +1,190 @@
+"Aprender y aplicar conceptos básicos de teoría musical.",
+"Comprender la estructura de diferentes géneros musicales.",
+"Tener una noción de la historia de la música y sus compositores.",
+"Desarrollar el sentido del ritmo y la métrica.",
+"Mejorar la precisión en la ejecución musical.",
+"Desarrollar habilidades de improvisación musical.",
+"Aprender a transcribir y componer música.",
+"Dominar la técnica básica en el instrumento elegido.",
+"Aprender a tocar acordes en guitarra.",
+"Desarrollar habilidades de digitación en el piano.",
+"Mejorar la embocadura en instrumentos de viento.",
+"Aprender a mantener un tono adecuado en los instrumentos de cuerda.",
+"Desarrollar habilidades de interpretación en instrumentos de percusión.",
+"Mejorar la coordinación entre manos en el piano y otros instrumentos.",
+"Aprender a tocar escalas en diferentes tonalidades.",
+"Explorar diferentes técnicas de interpretación según el estilo musical.",
+"Mejorar la entonación al cantar.",
+"Aprender a controlar la respiración al cantar.",
+"Desarrollar la proyección vocal.",
+"Aprender a cantar en diferentes registros y tonalidades.",
+"Explorar diferentes estilos de canto (jazz, pop, ópera, etc.).",
+"Aprender a armonizar en grupo.",
+"Mejorar la articulación y la dicción al cantar.",
+"Aprender a tocar en conjunto con otros músicos.",
+"Desarrollar la habilidad de seguir un líder musical en grupo.",
+"Mejorar la coordinación y sincronización en un conjunto.",
+"Participar en la interpretación de obras musicales en grupo.",
+"Aprender a adaptarse a diferentes roles dentro de un conjunto musical.",
+"Desarrollar habilidades de escucha activa durante la interpretación en grupo.",
+"Explorar diferentes emociones a través de la música.",
+"Aprender a interpretar una pieza musical con sentimiento.",
+"Desarrollar habilidades de expresión corporal al tocar o cantar.",
+"Utilizar la música como medio de comunicación emocional.",
+"Explorar el uso de adaptaciones para el instrumento elegido.",
+"Aprender a utilizar software y aplicaciones de música accesible.",
+"Desarrollar habilidades para tocar instrumentos adaptados.",
+"Aprender a utilizar software de notación musical adaptada.",
+"Mejorar la memoria para recordar melodías y armonías.",
+"Aprender a memorizar piezas musicales para presentaciones.",
+"Desarrollar la memoria para reconocer patrones rítmicos.",
+"Reconocer y diferenciar diferentes timbres instrumentales.",
+"integracionde musica a personas con discapacidad en la comunidad.",
+"Identificar cambios en la dinámica de una pieza musical.",
+"Desarrollar la capacidad de reconocer intervalos musicales auditivamente.",
+"Aprender a seguir y mantener el pulso de una pieza musical.",
+"Utilizar la música para mejorar habilidades motoras finas y gruesas.",
+"Utilizar la música para mejorar habilidades cognitivas, como la memoria y la concentración.",
+Aprovechar la música como herramienta para la expresión emocional y la relajación.",
+"Utilizar la música para fomentar la comunicación y la interacción social.",
+"Fomentar la participación activa de personas con discapacidad en agrupaciones musicales inclusivas.",
+"Promover la sensibilización y empatía hacia la música interpretada por personas con discapacidad.",
+"Desarrollar estrategias para facilitar la inclusión de personas con discapacidad en eventos musicales y actuaciones públicas.",
+"Fomentar la colaboración y el trabajo en equipo en contextos musicales.",
+"Desarrollar habilidades para dar y recibir retroalimentación constructiva en el ámbito musical.",
+"Aprender a respetar los turnos y espacios de otros músicos en actividades grupales.",
+"Utilizar la música para estimular diferentes sentidos, como la audición y el tacto.",
+"Explorar la música como herramienta para la relajación y la reducción del estrés.",
+"Diseñar programas de educación musical adaptados a las necesidades individuales de cada estudiante.",
+"Utilizar recursos visuales y táctiles para facilitar el aprendizaje musical.",
+"Fomentar la creatividad y la exploración musical en un entorno adaptado.",
+"Seleccionar piezas musicales adecuadas al nivel y habilidades de cada estudiante.",
+"Adaptar arreglos musicales para ajustarse a las capacidades de los músicos con discapacidad.",
+"Fomentar la autonomía en la práctica musical individual.",
+Desarrollar habilidades para tocar o cantar en solitario.",
+"Fomentar el interés y la pasión por la música en personas con discapacidad.",
+"Desarrollar un sentido de logro y satisfacción personal a través del aprendizaje musical.",
+"Establecer objetivos musicales medibles y alcanzables para cada estudiante.",
+"Realizar seguimiento y evaluación periódica del progreso musical de cada estudiante.",
+"Preparar y participar en conciertos o actuaciones públicas para ganar confianza y experiencia en el escenario.",
+"Desarrollar habilidades de comunicación y presentación en el escenario.",
+"Utilizar la música como medio de expresión y comunicación con el público.",
+"Desarrollar habilidades para interpretar y comunicar el significado emocional de una pieza musical.",
+"Fomentar la creatividad y la experimentación en la composición musical.",
+"Explorar nuevas formas de expresión musical y estilos adaptados.",
+"Desarrollar habilidades para superar desafíos técnicos o interpretativos en una pieza musical."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender y aplicar conceptos básicos de teoría musical.', 347, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Comprender la estructura de diferentes géneros musicales.', 347, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Tener una noción de la historia de la música y sus compositores.', 347, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar el sentido del ritmo y la métrica.', 347, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Mejorar la precisión en la ejecución musical.', 347, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades de improvisación musical.', 366, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a transcribir y componer música.', 366, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Dominar la técnica básica en el instrumento elegido.', 366, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a tocar acordes en guitarra.', 366, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades de digitación en el piano.', 366, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Mejorar la embocadura en instrumentos de viento.', 367, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a mantener un tono adecuado en los instrumentos de cuerda.', 367, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades de interpretación en instrumentos de percusión.', 367, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Mejorar la coordinación entre manos en el piano y otros instrumentos.', 367, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a tocar escalas en diferentes tonalidades.', 367, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Explorar diferentes técnicas de interpretación según el estilo musical.', 501, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Mejorar la entonación al cantar.', 501, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a controlar la respiración al cantar.', 501, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar la proyección vocal.', 501, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a cantar en diferentes registros y tonalidades.', 501, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Explorar diferentes estilos de canto (jazz, pop, ópera, etc.).', 502, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a armonizar en grupo.', 502, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Mejorar la articulación y la dicción al cantar.', 502, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a tocar en conjunto con otros músicos.', 502, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar la habilidad de seguir un líder musical en grupo.', 502, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Mejorar la coordinación y sincronización en un conjunto.', 579, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Participar en la interpretación de obras musicales en grupo.', 579, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a adaptarse a diferentes roles dentro de un conjunto musical.', 579, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades de escucha activa durante la interpretación en grupo.',579, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Explorar diferentes emociones a través de la música.', 579, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a interpretar una pieza musical con sentimiento.', 609, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades de expresión corporal al tocar o cantar.', 609, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Utilizar la música como medio de comunicación emocional.', 609, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Explorar el uso de adaptaciones para el instrumento elegido.', 609, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a utilizar software y aplicaciones de música accesible.', 609, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades para tocar instrumentos adaptados.', 610, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a utilizar software de notación musical adaptada.', 610, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Mejorar la memoria para recordar melodías y armonías.', 610, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a memorizar piezas musicales para presentaciones.', 610, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar la memoria para reconocer patrones rítmicos.', 610, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Reconocer y diferenciar diferentes timbres instrumentales.', 627, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('integracionde musica a personas con discapacidad en la comunidad.', 627, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Identificar cambios en la dinámica de una pieza musical.', 627, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar la capacidad de reconocer intervalos musicales auditivamente.', 627, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a seguir y mantener el pulso de una pieza musical.', 627, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Utilizar la música para mejorar habilidades motoras finas y gruesas.', 628, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Utilizar la música para mejorar habilidades cognitivas, como la memoria y la concentración.', 628, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprovechar la música como herramienta para la expresión emocional y la relajación.', 628, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Utilizar la música para fomentar la comunicación y la interacción social.', 628, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Fomentar la participación activa de personas con discapacidad en agrupaciones musicales inclusivas.', 628, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Promover la sensibilización y empatía hacia la música interpretada por personas con discapacidad.', 701, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar estrategias para facilitar la inclusión de personas con discapacidad en eventos musicales y actuaciones públicas.', 701, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Fomentar la colaboración y el trabajo en equipo en contextos musicales.', 701, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Aprender a respetar los turnos y espacios de otros músicos en actividades grupales.', 701, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Utilizar la música para estimular diferentes sentidos, como la audición y el tacto.', 701, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Explorar la música como herramienta para la relajación y la reducción del estrés.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Diseñar programas de educación musical adaptados a las necesidades individuales de cada estudiante.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Utilizar recursos visuales y táctiles para facilitar el aprendizaje musical.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Fomentar la creatividad y la exploración musical en un entorno adaptado.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Seleccionar piezas musicales adecuadas al nivel y habilidades de cada estudiante.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Adaptar arreglos musicales para ajustarse a las capacidades de los músicos con discapacidad.', 759, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Fomentar la autonomía en la práctica musical individual.', 759, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades para tocar o cantar en solitario.', 759, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Fomentar el interés y la pasión por la música en personas con discapacidad.', 759, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar un sentido de logro y satisfacción personal a través del aprendizaje musical.', 759, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Establecer objetivos musicales medibles y alcanzables para cada estudiante.', 760, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Realizar seguimiento y evaluación periódica del progreso musical de cada estudiante.', 760, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Preparar y participar en conciertos o actuaciones públicas para ganar confianza y experiencia en el escenario.', 760, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades de comunicación y presentación en el escenario.', 760, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Utilizar la música como medio de expresión y comunicación con el público.', 760, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades para interpretar y comunicar el significado emocional de una pieza musical.', 789, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Fomentar la creatividad y la experimentación en la composición musical.', 789, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Explorar nuevas formas de expresión musical y estilos adaptados.', 789, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades para superar desafíos técnicos o interpretativos en una pieza musical.', 789, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Desarrollar habilidades para dar y recibir retroalimentación constructiva en el ámbito musical.', 789, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+
+
+
+
+
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Cantando en diferentes registros', 790, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Estilos de canto (jazz, pop, ópera).', 790, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Armonizacion en grupo.', 790, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Articulación y la dicción al cantar.', 790, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Tocando en conjunto con otros músicos.', 790, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Diseñar programas de educación musical adaptados a las necesidades individuales de cada estudiante.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Utilizar recursos visuales y táctiles para facilitar el aprendizaje musical.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Fomentar la creatividad y la exploración musical en un entorno adaptado.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Seleccionar piezas musicales adecuadas al nivel y habilidades de cada estudiante.', 702, '2023-07-23 01:31:03', '2023-07-23 01:31:03');
+INSERT INTO `objectivos_cursos` (`objetivo`, `id_curso`, `created_at`, `updated_at`) VALUES ('Adaptar arreglos musicales para ajustarse a las capacidades de los músicos con discapacidad.', 759, '2023-07-23 01:31:03', '2023-07-23 01:31:03');

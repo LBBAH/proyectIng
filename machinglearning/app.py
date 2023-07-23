@@ -8,14 +8,14 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app) 
 
-@app.route("/api/recomendaciones", methods=['POST'])
+@app.route("/api/recomendaciones", methods=['POST', 'GET'])
 def obtener_recomendaciones():
      
     titulo = request.args.get("titulo")
    
     ruta_archivo_json = 'http://127.0.0.1:8000/api/etiquetasCursos'
     datos = pd.read_json(ruta_archivo_json, orient='records')
-    datos = datos.drop(["id","5","6","7","8","9"], axis=1)
+    datos = datos.drop(["id","5"], axis=1)
     datos['tiporecurso'] = datos['tiporecurso'].replace({1: 'Gamificación educativa', 2: 'Enseñanza', 3: 'Comunidades de aprendizaje', 4: 'Plataformas educativas', 5: 'Información', 6: 'Juegos didácticos', 7: 'Consejos'})
 
     tfidf = TfidfVectorizer()

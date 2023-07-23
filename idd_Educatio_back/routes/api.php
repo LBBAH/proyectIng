@@ -16,7 +16,7 @@ use App\Http\Controllers\AsociasionesController;
 use App\Http\Controllers\BackupsBDController;
 use App\Http\Controllers\QuestonSecretController;
 use App\Http\Controllers\ObjectivosCursoController;
-use App\Http\Controllers\EtiquetaController;
+use App\Http\Controllers\SeccionController;
 use App\Http\Controllers\EtiquetaCursoController;
 use App\Http\Controllers\CourseController;
 use Illuminate\Routing\Router;

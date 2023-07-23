@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
       const token = userObj.token;
       var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
       
-      this.http.get('http://127.0.0.1:8000/api/user',{headers:tokenHeader}).subscribe((res)=>{        
+      this.serviceAuth.dataUser(tokenHeader).subscribe((res)=>{        
         this.user=res;
         console.log(this.user);
         

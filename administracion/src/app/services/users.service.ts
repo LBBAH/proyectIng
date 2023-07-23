@@ -7,70 +7,72 @@ import { Observable } from 'rxjs';
 })
 export class UsersService {
 
+  private apiUrl = 'http://127.0.0.1:8000/api';
+
   constructor(private httpClient: HttpClient ) { }
 
   getData(){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/Usuarios');
+    return this.httpClient.get(`${this.apiUrl}/Usuarios`);
   }
 
   getRols(){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/rols');
+    return this.httpClient.get(`${this.apiUrl}/rols`);
   }
 
   getUser(id:any){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/getUser/'+id);
+    return this.httpClient.get(`${this.apiUrl}/getUser/`+id);
   }
 
   getPrivilegios(){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/privilegios');
+    return this.httpClient.get(`${this.apiUrl}/privilegios`);
   }
 
   addPrivilegio(description:any){
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/addPrivilegio', description);
+    return this.httpClient.post(`${this.apiUrl}/addPrivilegio`, description);
   }
 
   deletePrivilegio(id:any){
-    return this.httpClient.delete('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/deletePrivilegio/'+id);
+    return this.httpClient.delete(`${this.apiUrl}/deletePrivilegio/`+id);
   }
 
   addRol(data:any){
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/addRol', data);
+    return this.httpClient.post(`${this.apiUrl}/addRol`, data);
   }
 
   deleteRol(id:any){
-    return this.httpClient.delete('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/deleteRol/'+id);
+    return this.httpClient.delete(`${this.apiUrl}/deleteRol/`+id);
   }
   
   adduser(datosUsuario:any) {
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/addUser', datosUsuario);
+    return this.httpClient.post(`${this.apiUrl}/addUser`, datosUsuario);
   }
   
   updateTypeU(id:any) {
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/updateTypeUser', id);
+    return this.httpClient.post(`${this.apiUrl}/updateTypeUser`, id);
   }
 
   UpdateUserz(id:any, datosUsuario:any){
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/updateUser/'+id, datosUsuario);
+    return this.httpClient.post(`${this.apiUrl}/updateUser/`+id, datosUsuario);
   }
 
   UpdateRol(id:any, datosRol:any){
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/actualizarRol/'+id, datosRol);
+    return this.httpClient.post(`${this.apiUrl}/actualizarRol/`+id, datosRol);
   }
 
   getRolPrivId(id:any){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/getRoles/' + id);
+    return this.httpClient.get(`${this.apiUrl}/getRoles/` + id);
   }  
 
   deleteRolPriv(idpriv:any){
-    return this.httpClient.delete('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/deleteRolPriv', idpriv);
+    return this.httpClient.delete(`${this.apiUrl}/deleteRolPriv`, idpriv);
   }
 
   addPriRol(datosPriRol:any) {
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/addPriRol', datosPriRol);
+    return this.httpClient.post(`${this.apiUrl}/addPriRol`, datosPriRol);
   }
   
   login(datosUsuario:any) {
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/loginAdmin', datosUsuario);
+    return this.httpClient.post(`${this.apiUrl}/loginAdmin`, datosUsuario);
   }
 
   logout(allDevice: boolean){
@@ -79,46 +81,51 @@ export class UsersService {
     const userObj = JSON.parse(user);        
     const token = userObj.token;  
     var tokenHeader = new HttpHeaders({ 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' });
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/logout',{allDevice:allDevice},{headers: tokenHeader})
+    return this.httpClient.post(`${this.apiUrl}/logout`,{allDevice:allDevice},{headers: tokenHeader})
   }
 
   getRolPrivUser(id_rol:any){
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/rolPrivUser',id_rol);
+    return this.httpClient.post(`${this.apiUrl}/rolPrivUser`,id_rol);
   }
 
   getAsociasiones(){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/getAsociasiones');
+    return this.httpClient.get(`${this.apiUrl}/getAsociasiones`);
   }
 
   getRecursos(){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/getRecursos');
+    return this.httpClient.get(`${this.apiUrl}/getRecursos`);
   }
 
   getTypeRecursos(){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/getTypeRecurs');
+    return this.httpClient.get(`${this.apiUrl}/getTypeRecurs`);
   }
 
   addTypeRecurso(dataTypeRecurso:any){
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/addTypeRecurso', dataTypeRecurso);
+    return this.httpClient.post(`${this.apiUrl}/addTypeRecurso`, dataTypeRecurso);
   }
 
   agregarImg(id:any, dataImg:any){
     const headers = new HttpHeaders();
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/agregarImg/'+id, dataImg,{
+    return this.httpClient.post(`${this.apiUrl}/agregarImg/`+id, dataImg,{
       headers:headers
     });
   }
 
   handle(){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/handle')
+    return this.httpClient.get(`${this.apiUrl}/handle`)
   }
 
   bdRespose(dataBd:any){
-    return this.httpClient.post('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/bdRespose',dataBd)
+    return this.httpClient.post(`${this.apiUrl}/bdRespose`,dataBd)
   }
 
   bdData(){
-    return this.httpClient.get('https://educacionespecialmx.site/iddeduback/idd_Educatio_back/public_html/api/index')
+    return this.httpClient.get(`${this.apiUrl}/index`)
+  }  
+
+
+  dataUser(tokenHeader:any){
+    return this.httpClient.get(`${this.apiUrl}/user`,{headers:tokenHeader});
   }
 
 

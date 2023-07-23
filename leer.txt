@@ -1,1 +1,5 @@
-nop
+
+laravel: php artisan serve
+machinglearning: python app.py
+appv2: descargar y pegar carpeta de node_modules en app- https://drive.google.com/file/d/1RUDUd8DCashjp3bYjZKyD8IPFkBS_luG/view?usp=sharing
+despues solo ejecurar   ng serve

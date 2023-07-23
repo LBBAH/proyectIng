@@ -74,7 +74,7 @@ export class RecursoComponent implements OnInit {
     this.id=this.activeRouter.snapshot.paramMap.get('id');
     //this.getrecId();
     AOS.init();
-    this.obtenerDatosPaginados(this.currentPage, this.id);
+    this.obtenerDatosPaginados(this.id, this.currentPage);
   }
 
 

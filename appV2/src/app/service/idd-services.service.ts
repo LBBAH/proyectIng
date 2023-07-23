@@ -121,4 +121,8 @@ export class IddServicesService {
     getRolPrivUser(id_rol:any){
       return this.httpClient.post(`${this.apiUrl}/rolPrivUser`,id_rol);
     }
+
+    dataUser(tokenHeader:any){
+      return this.httpClient.post(`${this.apiUrl}/user`,{headers:tokenHeader});
+    }
 }

@@ -38,7 +38,7 @@ export class PerfilUsuarioComponent implements OnInit{
   }
 
   obtenerDatosPaginados(idBusqueda: number, page: number): void {
-    this.dataService.obtenerDatosPaginados(idBusqueda, page).subscribe(
+    this.dataService.obtenerDatosPaginadosUseridurso(idBusqueda, page).subscribe(
       response => {
         let array = Object.entries(response);        
         if(array[0][0]=="warning"){
@@ -56,12 +56,12 @@ export class PerfilUsuarioComponent implements OnInit{
 
   cambiarPagina(page: number): void {
     this.currentPage = page;
-    this.obtenerDatosPaginados(page, this.id);
+    this.obtenerDatosPaginados(this.id,page);
   }
 
   buscarPorId(id: string): void {
     this.id = id;
-    this.obtenerDatosPaginados(this.currentPage, this.id);
+    this.obtenerDatosPaginados(this.id, this.currentPage,);
   }
 
   ngOnInit(): void {
@@ -93,8 +93,9 @@ export class PerfilUsuarioComponent implements OnInit{
           this.CrearRecursos=true
         }
       })     
+      this.obtenerDatosPaginados(id_u,this.currentPage);
     }
-    this.obtenerDatosPaginados(this.currentPage, this.id);
+    
   }
 
 

@@ -9,13 +9,8 @@ use App\Models\User;
 
 class AuthenticationController extends Controller
 {
-    public function login(Request $request){    
-                
-        /*$chochos = User::where(function ($query) {
-            $query->where('typeUser', '=', 1)
-                  ->orWhere('typeUser', '=', 11);
-        })->where('email',$request->email)->get();*/
-
+    public function login(Request $request){
+                    
         $chochos = User::where(function ($query) use ($request) {
             $query->where('typeUser', '=', 1)
                   ->orWhere('typeUser', '=', 5);

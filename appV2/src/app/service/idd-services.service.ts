@@ -123,6 +123,6 @@ export class IddServicesService {
     }
 
     dataUser(tokenHeader:any){
-      return this.httpClient.post(`${this.apiUrl}/user`,{headers:tokenHeader});
+      return this.httpClient.get(`${this.apiUrl}/user`,{headers:tokenHeader});
     }
 }

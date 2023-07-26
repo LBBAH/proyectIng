@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Recurso;
 use App\Models\Tiporecurso;
+use Illuminate\Support\Facades\DB;
+
 
 class Recursocontroller extends Controller
 {
@@ -115,5 +117,45 @@ class Recursocontroller extends Controller
         // Retornar los resultados en la respuesta de la API
         return response()->json($resultados);       
     }
+
+
+    public function obtenerDatosML(Request $request)
+    {
+        $resultado = DB::table('recursos')
+            ->select('recursos.id', DB::raw('GROUP_CONCAT(DISTINCT tiporecursos.name) as tipoRecurso') , DB::raw('GROUP_CONCAT(DISTINCT recursos.name) as nombre_curso'), DB::raw('GROUP_CONCAT(DISTINCT etiquetas.name SEPARATOR ",") as etiquetas '), DB::raw('GROUP_CONCAT(DISTINCT objectivos_cursos.objetivo SEPARATOR ",") as objetivos'))            
+            ->leftJoin('etiqueta_cursos', 'recursos.id', '=', 'etiqueta_cursos.id_curso')            
+            ->leftJoin('objectivos_cursos', 'recursos.id', '=', 'objectivos_cursos.id_curso')    
+            ->leftJoin('etiquetas', 'etiqueta_cursos.id_etiqueta', '=', 'etiquetas.id')
+            ->leftJoin('tiporecursos', 'recursos.tipyRec', '=', 'tiporecursos.id')
+            ->groupBy('recursos.id')
+            ->get();
+
+        $nuevasColumnas = [];        
+
+        foreach ($resultado as $registro) {
+            $columnas = explode(',', $registro->etiquetas);
+            $columnas2 = explode(',', $registro->objetivos);
+            $nuevasColumnas[] = array_merge(['id' => $registro->id],['tiporecurso' => $registro->tipoRecurso],['nombre_curso' => $registro->nombre_curso], $columnas, $columnas2);
+        }
+        
+        
+        return response()->json($nuevasColumnas);   
+
+        /*$resultado2 = DB::table('recursos')
+            ->select('recursos.id', DB::raw('GROUP_CONCAT(objectivos_cursos.objetivo) as objetivos'))
+            ->leftJoin('objectivos_cursos', 'recursos.id', '=', 'objectivos_cursos.id_curso')        
+            ->groupBy('recursos.id')
+            ->get();
+
+
+        $resultado = DB::table('recursos')
+            ->select('recursos.id', DB::raw('GROUP_CONCAT(objectivos_cursos.objetivo) as objetivos'))
+            ->leftJoin('objectivos_cursos', 'recursos.id', '=', 'objectivos_cursos.id_curso')        
+            ->groupBy('recursos.id')
+            ->get();
+            */
+    }
+
+    
 
 }

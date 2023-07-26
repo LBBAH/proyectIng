@@ -19,6 +19,7 @@ use App\Http\Controllers\ObjectivosCursoController;
 use App\Http\Controllers\SeccionController;
 use App\Http\Controllers\EtiquetaCursoController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CursoUsuarioController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
 
@@ -156,3 +157,8 @@ Route::get('etiquetasCursos', [EtiquetaCursoController::class, 'index']);
 Route::post('getDatML', [Recursocontroller::class, 'obtenerDatos']);
 Route::get('getDataIngles', [CourseController::class, 'obtenerDatosIngles']);
 
+
+Route::post('recursoUsuario', [CursoUsuarioController::class, 'store']);
+Route::post('recursoidUsuario', [CursoUsuarioController::class, 'getcursosidUser']);
+Route::post('getcursosUserid', [CursoUsuarioController::class, 'getcursosUserid']);
+Route::get('obtenerDatosML', [Recursocontroller::class, 'obtenerDatosML']);

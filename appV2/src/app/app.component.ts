@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { IddServicesService } from './service/idd-services.service';
 import { Router } from '@angular/router';
 import { LocalStorageServiceService } from 'src/app/service/local-storage-service.service';
 
+declare var paypal: { Buttons: (arg0: { createOrder: (data: any, action: any) => any; onApprove: (data: any, actions: any) => Promise<void>; onError: (err: any) => void; }) => { (): any; new(): any; render: { (arg0: any): void; new(): any; }; }; };
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { LocalStorageServiceService } from 'src/app/service/local-storage-servic
   providers: [LocalStorageServiceService]
 })
 export class AppComponent implements OnInit {
+  @ViewChild('paypal', { static: true }) paypalElement!: ElementRef;
   user:any;
   dataUser:Boolean=false;
   RegisterLogin:Boolean=true;
@@ -57,12 +59,9 @@ export class AppComponent implements OnInit {
       }
     }
   }
-  
-  
-
-  ngOnInit(): void {
 
 
+  ngOnInit(): void {    
 
     this.status();
     if(localStorage.getItem('user')!=null){
@@ -90,6 +89,7 @@ export class AppComponent implements OnInit {
   }
 
   getDataLS(){
+    
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });

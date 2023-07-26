@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit{
   recursoSee:any;
   titulo:any
   titulosee:any
+  recomendacionCompra:Boolean= false
 
   constructor (private http:HttpClient, 
     private serviceAuth:IddServicesService, 
@@ -58,26 +59,35 @@ export class HomeComponent implements OnInit{
   }
 
   getDataLSsee(){
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
+    if(localStorage.getItem('user')!=null){
+      const user:any = localStorage.getItem('user');    
+      const userObj = JSON.parse(user);      
+      const idUser = userObj.id;
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json'
+      });
 
-    const options = { headers: headers };
+      const options = { headers: headers };
 
-    const data = this.LocalStorageServiceService.getItem('datasee');
-    this.titulosee = data.title
-    console.log(data.title);
-    this.serviceAuth.getDataML(this.titulosee,options).subscribe(
-      (response) => {
-        console.log(response)
-        this.valoresCampo = response;
-        this.serviceAuth.obtenerDatos(this.valoresCampo).subscribe((res)=>{
-          console.log(res)
-          this.recursoSee=res;
-        })
-        console.log(this.valoresCampo)
+      const data = this.LocalStorageServiceService.getItem('datasee');
+      const DataUsersee = data.id_user
+      if(idUser == DataUsersee){    
+        this.recomendacionCompra = true  
+        this.titulosee = data.title
+        console.log(data.title);
+        this.serviceAuth.getDataML(this.titulosee,options).subscribe(
+          (response) => {
+            console.log(response)
+            this.valoresCampo = response;
+            this.serviceAuth.obtenerDatos(this.valoresCampo).subscribe((res)=>{
+              console.log(res)
+              this.recursoSee=res;
+            })
+            console.log(this.valoresCampo)
+          }
+        )
       }
-    )
+    }
         
   }
 

@@ -79,8 +79,7 @@ export class RecursoComponent implements OnInit {
 
 
   verCursosId(id:any, title:any){    
-    const data = { title: title };
-    this.LocalStorageServiceService.setItem('datasee', data);
+    
     this.router.navigate(['infoRecurso/', id]); 
   }
 

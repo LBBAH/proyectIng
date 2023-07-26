@@ -13,7 +13,7 @@ export class IddServicesService {
     
   private apiUrl = 'http://127.0.0.1:8000/api';
 
-  private apiUrlML = 'http://127.0.0.1:5000//api/recomendaciones?titulo=';
+  private apiUrlML = 'http://127.0.0.1:5000//apiv2/recomendaciones?titulo=';
 
   
     getData(){
@@ -124,5 +124,17 @@ export class IddServicesService {
 
     dataUser(tokenHeader:any){
       return this.httpClient.get(`${this.apiUrl}/user`,{headers:tokenHeader});
+    }
+
+    usercurso(cursosDeUsuario:any){
+      return this.httpClient.post(`${this.apiUrl}/recursoUsuario`,cursosDeUsuario);
+    }
+
+    getCursoidUser(cursosDeUsuario:any){
+      return this.httpClient.post(`${this.apiUrl}/recursoidUsuario`,cursosDeUsuario);
+    }
+
+    getCursoUserid(cursosDeUsuario:any){
+      return this.httpClient.post(`${this.apiUrl}/getcursosUserid`,cursosDeUsuario);
     }
 }

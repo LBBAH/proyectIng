@@ -54,5 +54,6 @@ export class RecursosComponent implements OnInit{
     
     this.router.navigate(['recurso/', id]);    
   }
+  
 
 }

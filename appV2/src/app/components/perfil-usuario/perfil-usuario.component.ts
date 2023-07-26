@@ -24,7 +24,7 @@ export class PerfilUsuarioComponent implements OnInit{
   cursosForIdUser:any;
   recurso:any;
   currentPage = 1;
-
+  cursosForUserId:any;
 
   user:any;
   constructor(
@@ -54,6 +54,17 @@ export class PerfilUsuarioComponent implements OnInit{
     );
   }
 
+  obtenerDatocursoUsuaiioId(idusuario: number): void {
+    this.dataService.getCursoUserid({id_usuario:idusuario}).subscribe(response => {   
+        console.log(response)     
+          this.cursosForUserId=response;                
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
+
   cambiarPagina(page: number): void {
     this.currentPage = page;
     this.obtenerDatosPaginados(this.id,page);
@@ -68,7 +79,6 @@ export class PerfilUsuarioComponent implements OnInit{
     AOS.init();
     this.status();
    
-
     if(localStorage.getItem('user')!=null){ 
        const user:any = localStorage.getItem('user');    
       const userObj = JSON.parse(user);      
@@ -94,6 +104,7 @@ export class PerfilUsuarioComponent implements OnInit{
         }
       })     
       this.obtenerDatosPaginados(id_u,this.currentPage);
+      this.obtenerDatocursoUsuaiioId(id_u)
     }
     
   }

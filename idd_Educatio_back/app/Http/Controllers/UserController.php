@@ -25,6 +25,7 @@ class UserController extends Controller
         return response()->json($user::find($id),200);
     }
 
+    
     public function addUser(Request $request){        
         $user = new User;    
 
@@ -137,9 +138,22 @@ class UserController extends Controller
 
         $userPasswor->update(['password'=> $pwd]);
 
-        return response()->json(['success'=>'Contraseña Actualizada con exito'], 200);
+        return response()->json(['success'=>'Contraseña Actualizada con exito'], 200);        
+    }
 
+
+    public function createResourcesByIdUser($id){
+       
+        $resultado = User::where('typeUser', 5)
+        ->where('id', $id) // Verificar si el ID coincide
+        ->first(); 
         
+
+        if(!$resultado){            
+            return response()->json(['message'=>'No puedes crear cursos, conviertete en creador'], 200);        
+        }
+
+        return response()->json(['message'=>'Crea los cursos que quieras, si eres una asociasion te recomendamos cambiar tus datos para que los usuarios te conoscan'], 200);        
     }
 
     

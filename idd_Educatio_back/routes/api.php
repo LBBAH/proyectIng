@@ -20,13 +20,9 @@ use App\Http\Controllers\SeccionController;
 use App\Http\Controllers\EtiquetaCursoController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CursoUsuarioController;
+use App\Http\Controllers\ImagenUserController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -47,8 +43,11 @@ Route::get('Usuarios', [UserController::class, 'getUsers']);
 
 Route::get('getUser/{id}', [UserController::class, 'getUserId']);
 
-Route::post('addUser', [UserController::class, 'addUser']);
+Route::post('changePassword/{id}', [UserController::class, 'changePassword']);
 
+// ---------------------------Registro de usuario--------------------//
+Route::post('addUser', [UserController::class, 'addUser']);
+//---------------------------- login y logout--------------------------//
 Route::group(['namespace'=>'App\Http\Controllers\Api\Auth'],function(){    
     Route::post('/login', 'AuthenticationController@login');
     Route::post('/loginAdmin', 'AuthenticationController@loginAdmin');
@@ -63,8 +62,9 @@ Route::get('deleteUser/{id}', [UserController::class, 'deleteUser']);
 
 Route::post('resetPasswordEmail', [UserController::class, 'resetPasswordEmail']);
 
-Route::post('changePassword/{id}', [UserController::class, 'changePassword']);
+Route::get('createResourcesByIdUser/{id}', [UserController::class, 'createResourcesByIdUser']);
 
+Route::post('updateUser/{id}', [UserController::class, 'updateUser']);
 //--------------------- para los recursos ---------------------//
 Route::get('getTypeRecurs', [Tiporecursocontroller::class, 'getTypeRecurs']);
 
@@ -134,7 +134,7 @@ Route::get('getRecursos', [Recursocontroller::class, 'getRecursos']);
 Route::post('getrecurosIdUser', [Recursocontroller::class, 'getrecurosIdUser']);
 
 Route::post('addRecurso', [Recursocontroller::class, 'addRecurso']);
-Route::post('getrecurosEditId', [Recursocontroller::class, 'getrecurosEditId']);
+Route::get('getrecurosEditId/{id}', [Recursocontroller::class, 'getrecurosEditId']);
 Route::get('searchRecursos', [Recursocontroller::class, 'searchRecursos']);
 
 
@@ -162,3 +162,12 @@ Route::post('recursoUsuario', [CursoUsuarioController::class, 'store']);
 Route::post('recursoidUsuario', [CursoUsuarioController::class, 'getcursosidUser']);
 Route::post('getcursosUserid', [CursoUsuarioController::class, 'getcursosUserid']);
 Route::get('obtenerDatosML', [Recursocontroller::class, 'obtenerDatosML']);
+
+
+Route::post('imgUser/{id}', [ImagenUserController::class, 'imgUser']);
+Route::post('imgBackGroundUser/{id}', [ImagenUserController::class, 'imgBackGroundUser']);
+Route::get('imgByIdUser/{id}', [ImagenUserController::class, 'imgByIdUser']);
+
+
+Route::post('vistapreviaCurso/{id}', [Recursocontroller::class, 'vistapreviaCurso']);
+Route::post('updateCursoUserId/{id}', [Recursocontroller::class, 'updateCursoUserId']);

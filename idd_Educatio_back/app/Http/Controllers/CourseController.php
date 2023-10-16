@@ -88,4 +88,8 @@ class CourseController extends Controller
         return response()->json(course::all(), 200);
 
     }
+
+    public function updateCursoUserId (Request $request, $id){
+
+    }
 }

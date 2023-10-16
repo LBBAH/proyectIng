@@ -31,10 +31,7 @@ export class NewImageComponent {
     
   }
 
-  imagensXD(){
-         
-    
-    
+  imagensXD(){       
     this.dataService.agregarImg(this.data.id,this.formdata).subscribe(res=>{
       console.log(res)      
     })
@@ -43,8 +40,7 @@ export class NewImageComponent {
   imagenUp(event:any){      
     this.file=event.target.files[0];    
     this.formdata.append("file", this.file, this.file.name)
-    console.log(this.formdata)
-   
+    console.log(this.formdata)   
   }
 }
 

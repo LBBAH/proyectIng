@@ -1,57 +1,53 @@
 
 
 <nav id="navbar" >
-  <div class="col navbarDiv">
-          <img src="../assets/img/logoNavbar.png" alt="" style="width: 20px;">            
-  </div>
-  <div class="col text-center navbarDiv">
-          <button class="returnHome">
-                  Pagina de inicio
-          </button>                
-  </div>
-  <div class="col text-end navbarDiv" *ngIf="RegisterLogin">
-    <a href=""class="text-dark links">Quienes Somos</a>
-    |
-    <a [routerLink]="['/login']" class="text-dark links"  >Login</a>
-    
-    |
-    <a [routerLink]="['/singIn']" class="text-dark links" >Sing-In</a>            
-  </div>
-  <div class="col text-end navbarDiv" *ngIf="dataUser">
-        <a class="text-dark links">Quienes Somos</a>
-        |
-        <a (click)="perfilUser(user.id)" class="text-dark links" >{{user.nameUser}}</a>
-        |
-        <a (click)="logout()" class="text-dark links" >LogOut</a>        
-      </div>
-  
-  
+        <div class="col navbarDiv">
+                <img src="../assets/img/logoNavbar.png" alt="" style="width: 20px;">            
+        </div>
+        <div class="col text-center navbarDiv">
+                <button class="returnHome">
+                          Pagina de inicio
+                </button>                
+        </div>
+        <div class="col text-end navbarDiv" *ngIf="RegisterLogin">
+                <a [routerLink]="['/quienesSomos']" class="text-dark links">Quienes Somos</a>
+                |
+                <a [routerLink]="['/login']" class="text-dark links"  >Login</a>    
+                |
+                <a [routerLink]="['/singIn']" class="text-dark links" >Sing-In</a>            
+        </div>
+        <div class="col text-end navbarDiv" *ngIf="dataUser">
+                <a [routerLink]="['/quienesSomos']" class="text-dark links">Quienes Somos</a>
+                |
+                <a (click)="perfilUser(user.id)" class="text-dark links" >{{user.nameUser}}</a>
+                |
+                <a (click)="logout()" class="text-dark links" >LogOut</a>        
+        </div>
 </nav>
 
 <div class="navbar-menu" style="background-color: #ffffff; position: sticky;">
-  <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <a [routerLink]="['/home']" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                <img src="../assets/img/logotipo2.png" width="140">
+        <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <a [routerLink]="['/home']" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                        <img src="../assets/img/logotipo2.png" width="140">
           
-          </a>
+                </a>
     
-          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                  <li><a [routerLink]="['/home']" class="nav-link px-2 text-secondary">Inicio</a></li>                            
-                  <li><a [routerLink]="['/contactUs']" class="nav-link px-2 text-secondary">Contacto</a></li>
-                  <li><a [routerLink]="['/recursos']" class="nav-link px-2 text-secondary">Recursos</a></li>
-                  <li><a [routerLink]="['/chat']" class="nav-link px-2 text-secondary">chat</a></li>
-                  <li><a [routerLink]="['/donacion']" class="nav-link px-2 text-secondary">Donaciones</a></li>      
-          </ul>
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                        <li><a [routerLink]="['/home']" class="nav-link px-2 text-secondary">Inicio</a></li>                            
+                        <li><a [routerLink]="['/contactUs']" class="nav-link px-2 text-secondary">Contacto</a></li>
+                        <li><a [routerLink]="['/recursos']" class="nav-link px-2 text-secondary">Recursos</a></li>
+                        <li><a [routerLink]="['/chat']" class="nav-link px-2 text-secondary">chat</a></li>
+                        <li><a [routerLink]="['/donacion']" class="nav-link px-2 text-secondary">Donaciones</a></li>      
+                </ul>
 
-          <div class="col-md-3 text-start">
-                <app-search></app-search>
-          </div>                  
-
-  </header>
+                <div class="col-md-3 text-start">
+                        <app-search></app-search>
+                </div>                  
+        </header>
 </div>
 
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
   
-  <app-sticky-message></app-sticky-message>
-  <app-scroll-to-top></app-scroll-to-top>
+<app-sticky-message></app-sticky-message>
+<app-scroll-to-top></app-scroll-to-top>
 

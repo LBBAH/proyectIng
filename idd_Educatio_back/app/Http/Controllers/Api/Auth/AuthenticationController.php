@@ -10,11 +10,11 @@ use App\Models\User;
 class AuthenticationController extends Controller
 {
     public function login(Request $request){
-                    
+                          
         $chochos = User::where(function ($query) use ($request) {
-            $query->where('typeUser', '=', 1)
-                  ->orWhere('typeUser', '=', 5);
-        })->where('email', $request->email)->get();
+            $query->where('typeUser', 1)
+                  ->orWhere('typeUser', 5);
+        })->where('email', $request->email)->first(); ;
         
         if($chochos){
             $login = $request->validate([
@@ -49,12 +49,12 @@ class AuthenticationController extends Controller
     }
 
     public function loginAdmin(Request $request){    
-        
-        //$chochos = User::where('email',$request->email)->where('typeUser','!=',1)->get();
+           
         $chochos = User::where(function ($query) use ($request) {
-            $query->where('typeUser', '!=', 1)
-                  ->orWhere('typeUser', '!=', 5);
-        })->where('email', $request->email)->get();
+            $query->where('typeUser','!=', 1)
+                  ->orWhere('typeUser','!=', 5);
+        })->where('email', $request->email)->first(); ;
+
         if(count($chochos) == 1 ){
             $login = $request->validate([
                 'email' => ['required'],

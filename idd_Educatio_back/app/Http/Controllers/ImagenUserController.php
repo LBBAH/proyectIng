@@ -133,8 +133,7 @@ class ImagenUserController extends Controller
         }
     }
 
-    public function imgByIdUser($id){
-        
+    public function imgByIdUser($id){        
         $perfilUser = ImagenUser :: where('id_usuario',$id)->first();   
         
         if($perfilUser){            

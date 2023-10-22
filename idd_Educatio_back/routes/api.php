@@ -47,6 +47,7 @@ Route::post('changePassword/{id}', [UserController::class, 'changePassword']);
 
 // ---------------------------Registro de usuario--------------------//
 Route::post('addUser', [UserController::class, 'addUser']);
+
 //---------------------------- login y logout--------------------------//
 Route::group(['namespace'=>'App\Http\Controllers\Api\Auth'],function(){    
     Route::post('/login', 'AuthenticationController@login');
@@ -65,6 +66,7 @@ Route::post('resetPasswordEmail', [UserController::class, 'resetPasswordEmail'])
 Route::get('createResourcesByIdUser/{id}', [UserController::class, 'createResourcesByIdUser']);
 
 Route::post('updateUser/{id}', [UserController::class, 'updateUser']);
+
 //--------------------- para los recursos ---------------------//
 Route::get('getTypeRecurs', [Tiporecursocontroller::class, 'getTypeRecurs']);
 
@@ -125,35 +127,36 @@ Route::get('getQuestion', [QuestonSecretController::class, 'getQuestion']);
 
 
 //--------------------------- Preguntas Asociasiones ---------------------------//
-
 Route::get('getAsociasiones', [AsociasionesController::class, 'index']);
 
 //--------------------------- Recursos ---------------------------//
-
 Route::get('getRecursos', [Recursocontroller::class, 'getRecursos']);
 Route::post('getrecurosIdUser', [Recursocontroller::class, 'getrecurosIdUser']);
 
 Route::post('addRecurso', [Recursocontroller::class, 'addRecurso']);
 Route::get('getrecurosEditId/{id}', [Recursocontroller::class, 'getrecurosEditId']);
 Route::get('searchRecursos', [Recursocontroller::class, 'searchRecursos']);
+Route::get('datosUsuarioCurso/{id}', [Recursocontroller::class, 'datosUsuarioCurso']);
 
 
 //--------------------------- Objetivo cursos ---------------------------//
-
 Route::post('showObejtivoCursoId', [ObjectivosCursoController::class, 'showObejtivoCursoId']);
 
 //--------------------------- Secciones cursos ---------------------------//
 Route::post('showSeccionCursoId', [SeccionController::class, 'showSeccionCursoId']);
 Route::get('handle', [DatabaseBackup::class, 'handle']);
+Route::get('seccionesCursoId/{id}', [SeccionController::class, 'seccionesCursoId']);
+
 
 //--------------------------- BackUp ---------------------------//
-
 Route::post('bdRespose', [BackupsBDController::class, 'bdRespose']);
-
 Route::get('index', [BackupsBDController::class, 'index']);
 
+
+//--------------------------- Etiquetas curso ---------------------------//
 Route::get('etiquetasCursos', [EtiquetaCursoController::class, 'index']);
 
+//--------------------------- Machin Learning ---------------------------//
 Route::post('getDatML', [Recursocontroller::class, 'obtenerDatos']);
 Route::get('getDataIngles', [CourseController::class, 'obtenerDatosIngles']);
 
@@ -163,11 +166,12 @@ Route::post('recursoidUsuario', [CursoUsuarioController::class, 'getcursosidUser
 Route::post('getcursosUserid', [CursoUsuarioController::class, 'getcursosUserid']);
 Route::get('obtenerDatosML', [Recursocontroller::class, 'obtenerDatosML']);
 
-
+//--------------------------- Imagenes de usuario ---------------------------//
 Route::post('imgUser/{id}', [ImagenUserController::class, 'imgUser']);
 Route::post('imgBackGroundUser/{id}', [ImagenUserController::class, 'imgBackGroundUser']);
 Route::get('imgByIdUser/{id}', [ImagenUserController::class, 'imgByIdUser']);
 
 
+//--------------------------- Editar curso ---------------------------//
 Route::post('vistapreviaCurso/{id}', [Recursocontroller::class, 'vistapreviaCurso']);
 Route::post('updateCursoUserId/{id}', [Recursocontroller::class, 'updateCursoUserId']);

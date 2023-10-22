@@ -86,5 +86,15 @@ class SeccionController extends Controller
     public function showSeccionCursoId(Request $request){
         $objetivos=Seccion::where('id_curso',$request->id_curso)->get();
         return \response()->json($objetivos,200);
-    }    
+    }
+
+    public function seccionesCursoId($id){
+        $secciones=Seccion::where('id_curso',$id)->get();
+
+        if($secciones){
+            return \response()->json($secciones,200);
+        }
+
+        return \response()->json('ocurrio un error',200);
+    }
 }

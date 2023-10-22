@@ -12,7 +12,18 @@ class Recursocontroller extends Controller
 {
     public function getRecursos(Request $request){
     
-        return response()->json(Recurso::all());
+        $perPage = $request->input('per_page', 20);
+        $datos = Recurso::where('id_Estado',3)->paginate($perPage);
+        return response()->json($datos,200);
+    }
+
+
+    public function datosUsuarioCurso($id){
+        $usuarioDatps= Recurso::select('recursos.id','recursos.id_Usuario','users.name as nombrePropietario')->    
+        join('users','users.id','=','recursos.id_Usuario')->
+        where('recursos.id',$id)->first();
+
+        return \response()->json($usuarioDatps);
     }
 
 

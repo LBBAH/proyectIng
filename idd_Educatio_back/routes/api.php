@@ -45,6 +45,8 @@ Route::get('/user', function (Request $request) {
 
 Route::get('Usuarios', [UserController::class, 'getUsers']);
 
+Route::get('SomeO_Usuarios', [UserController::class, 'get_someone_Users']);
+
 Route::get('getUser/{id}', [UserController::class, 'getUserId']);
 
 Route::post('addUser', [UserController::class, 'addUser']);

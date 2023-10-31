@@ -15,6 +15,15 @@ class UserController extends Controller
         return response()->json(User::all(), 200);
     }
 
+    public function get_someone_Users(Request $request){
+        $perPage = $request->input('cantUsers',20); // Si el parámetro per_page no se proporciona en la solicitud, se utilizará un valor predeterminado de 20.   
+
+    // Realizar la consulta paginada
+    $users = User::paginate($perPage);
+
+    return response()->json($users, 200);
+    }
+
     public function getUserId($id){
         $user = User::find($id);
 

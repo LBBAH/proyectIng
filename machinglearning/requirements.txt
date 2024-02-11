@@ -40,7 +40,7 @@ defusedxml==0.7.1
 distro==1.7.0
 distro-info===1.1build1
 Django==4.2.3
-dnspython==2.1.0
+dnspython==2.6.0rc1
 et-xmlfile==1.1.0
 executing==1.2.0
 eyeD3==0.8.10
